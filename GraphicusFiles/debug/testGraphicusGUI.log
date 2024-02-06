@@ -1,6 +1,5 @@
 ﻿  Generate moc_predefs.h
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(241,5): warning MSB8064: Custom build for item "debug\moc_predefs.h.cbt" succeeded, but specified dependency "c:\users\gratt\onedrive\documents\github\s2-h24-app2_test2\graphicusfiles\debug\moc_predefs.h.cbt" does not exist. This may cause incremental build to work incorrectly.
   monInterface.cpp
   testGraphicusGUI.cpp
-  Generating Code...
-  testGraphicusGUI.vcxproj -> C:\Users\gratt\OneDrive\Documents\GitHub\S2-H24-APP2_TEST2\GraphicusFiles\debug\testGraphicusGUI.exe
+  Génération de code en cours...
+  testGraphicusGUI.vcxproj -> C:\Users\cous1912\Desktop\S2-H24-APP2\GraphicusFiles\debug\testGraphicusGUI.exe
