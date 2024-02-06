@@ -11,6 +11,13 @@
 #include <random>
 #include <sstream>
 #include "monInterface.h"
+#include "../GraphicusSources/canevas.h"
+#include "../GraphicusSources/Couche.h"
+#include "../GraphicusSources/forme.h"
+#include "../GraphicusSources/Carre.h"
+#include "../GraphicusSources/Cercle.h"
+#include "../GraphicusSources/Rectangle.h"
+
 
 using namespace std;
 
@@ -59,19 +66,22 @@ bool MonInterface::sauvegarderFichier(const char*)
 }
 void MonInterface::coucheTranslater(int deltaX, int deltaY)
 {
-
+	c.translater(deltaX, deltaY);
 }
 void MonInterface::ajouterCercle(int x, int y, int rayon)
 {
-
+	Cercle cercle(x, y, rayon);
+	//c.ajouterForme(cercle);
 }
 void MonInterface::ajouterRectangle(int x, int y, int longueur, int largeur)
 {
-
+	Rectangle rect(x, y, longueur, largeur);
+	//c.ajouterForme(rect);
 }
 void MonInterface::ajouterCarre(int x, int y, int cote)
 {
-
+	Carre carre(x, y, cote);
+	//c.ajouterForme(carre);
 }
 void MonInterface::modePileChange(bool mode)
 {
@@ -82,16 +92,22 @@ void MonInterface::modePileChange(bool mode)
 	// Menu Canevas
 void MonInterface::coucheAjouter()
 {
-
+	Couche couche();
+	//c.ajouterCouche(&couche);
 }
 void MonInterface::coucheRetirer()
 {
-
+	//chercher couche active
+	//detruire la couche
+	//c.retirerCouche();
 }
+
+
 	// Menu Formes
 void MonInterface::retirerForme()
 {
-
+	//forme selectionner
+	//retirer
 }
 	// Menu navigation
 void MonInterface::couchePremiere()
