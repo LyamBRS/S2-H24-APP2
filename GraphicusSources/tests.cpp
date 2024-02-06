@@ -499,10 +499,11 @@ void Tests::tests_unitaires_vecteur()
    {
        if (intVecteur[i] != intVecteur.DonneAIndex(i))
        {
+           std::cout << "intVecteur[" << std::to_string(i) << "]: " << std::to_string(intVecteur[i]) << ", intVecteur.DonneAIndex(" << std::to_string(i) << "): " << intVecteur.DonneAIndex(i) << std::endl;
            erreurDetectee = true;
        }
    }
-   SousTest("Vérification de la surcharge de [] d'un vecteur <int>", erreurDetectee);
+   SousTest("Verification de la surcharge de [] d'un vecteur <int>", erreurDetectee);
 
    erreurDetectee = false;
    for (int i = 0; i < boolVecteur.Capacite(); ++i)
@@ -512,7 +513,7 @@ void Tests::tests_unitaires_vecteur()
            erreurDetectee = true;
        }
    }
-   SousTest("Vérification de la surcharge de [] d'un vecteur <bool>", erreurDetectee);
+   SousTest("Verification de la surcharge de [] d'un vecteur <bool>", erreurDetectee);
 
    erreurDetectee = false;
    for (int i = 0; i < stringVecteur.Capacite(); ++i)
@@ -522,7 +523,7 @@ void Tests::tests_unitaires_vecteur()
            erreurDetectee = true;
        }
    }
-   SousTest("Vérification de la surcharge de [] d'un vecteur <string>", erreurDetectee);
+   SousTest("Verification de la surcharge de [] d'un vecteur <string>", erreurDetectee);
 
    erreurDetectee = false;
    for (int i = 0; i < doubleVecteur.Capacite(); ++i)
@@ -532,7 +533,7 @@ void Tests::tests_unitaires_vecteur()
            erreurDetectee = true;
        }
    }
-   SousTest("Vérification de la surcharge de [] d'un vecteur <double>", erreurDetectee);
+   SousTest("Verification de la surcharge de [] d'un vecteur <double>", erreurDetectee);
 
    erreurDetectee = false;
    for (int i = 0; i < charPtrVecteur.Capacite(); ++i)
@@ -552,7 +553,7 @@ void Tests::tests_unitaires_vecteur()
            erreurDetectee = true;
        }
    }
-   SousTest("Vérification de la surcharge de [] d'un vecteur <string*>", erreurDetectee);
+   SousTest("Verification de la surcharge de [] d'un vecteur <string*>", erreurDetectee);
 
    FinDuTest();
    //////////////////////////////////////////////////////////////////////////////

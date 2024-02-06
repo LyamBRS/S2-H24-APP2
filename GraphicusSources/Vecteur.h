@@ -194,7 +194,7 @@ class Vecteur
         /// <typeparam name="TypeInconnue"></typeparam>
         /// <param name="index"></param>
         /// <returns></returns>
-        TypeInconnue& operator[](int index);
+        TypeInconnue operator[](int index);
 
         /// <summary>
         /// Permet d'avoir la donnée à un index
@@ -204,7 +204,7 @@ class Vecteur
         /// <typeparam name="TypeInconnue"></typeparam>
         /// <param name="index"></param>
         /// <returns></returns>
-        const TypeInconnue& operator[](int index) const;
+        const TypeInconnue operator[](int index) const;
 
     private:
         /// @brief valeur interne de la grosseur actuelle de la liste dynamique
@@ -641,11 +641,10 @@ int Vecteur<TypeInconnue>::Capacite()
 /// <param name="index"></param>
 /// <returns></returns>
 template <typename TypeInconnue>
-TypeInconnue& Vecteur<TypeInconnue>::operator[](int index) 
+TypeInconnue Vecteur<TypeInconnue>::operator[](int index) 
 {
     if (!VerifierIndex(index))
     {
-        // Index n'est pas valide. Good luck buddy.
         return TypeInconnue();
     }
     return _donnees[index];
@@ -660,11 +659,10 @@ TypeInconnue& Vecteur<TypeInconnue>::operator[](int index)
 /// <param name="index"></param>
 /// <returns></returns>
 template <typename TypeInconnue>
-const TypeInconnue& Vecteur<TypeInconnue>::operator[](int index) const 
+const TypeInconnue Vecteur<TypeInconnue>::operator[](int index) const 
 {
     if (!VerifierIndex(index))
     {
-        // Index n'est pas valide. Good luck buddy.
         return TypeInconnue();
     }
     return _donnees[index];
