@@ -1,16 +1,13 @@
-﻿  canevas.cpp
-  Carre.cpp
-  Cercle.cpp
+﻿  Vecteur.cpp
+  canevas.cpp
   couche.cpp
-  forme.cpp
-  Rectangle.cpp
-  resultatCouleur.cpp
   tests.cpp
 ..\GraphicusSources\tests.cpp(345,43): warning C4805: '!=': unsafe mix of type 'TypeInconnue' and type 'int' in operation
           with
           [
               TypeInconnue=bool
           ]
-  Vecteur.cpp
+  monInterface.cpp
+  testGraphicusGUI.cpp
   Generating Code...
   testGraphicusGUI.vcxproj -> C:\Users\gratt\OneDrive\Documents\GitHub\S2-H24-APP2_TEST2\GraphicusFiles\debug\testGraphicusGUI.exe
