@@ -490,7 +490,73 @@ void Tests::tests_unitaires_vecteur()
    SousTest("Vecteur char* egal a 6", *charPtrVecteur.DonneAIndex(0) == y);
    SousTest("Vecteur string* egal a deuxieme", *stringPtrVecteur.DonneAIndex(0) == deuxiemeString);
    FinDuTest();
+   //////////////////////////////////////////////////////////////////////////////
+   //////////////////////////////////////////////////////////////////////////////
+   //////////////////////////////////////////////////////////////////////////////
+   DebutDunTest("Verification des donnees par surchage d'operateur []");
+   bool erreurDetectee = false;
+   for (int i = 0; i < intVecteur.Capacite(); ++i)
+   {
+       if (intVecteur[i] != intVecteur.DonneAIndex(i))
+       {
+           erreurDetectee = true;
+       }
+   }
+   SousTest("Vérification de la surcharge de [] d'un vecteur <int>", erreurDetectee);
 
+   erreurDetectee = false;
+   for (int i = 0; i < boolVecteur.Capacite(); ++i)
+   {
+       if (boolVecteur[i] != boolVecteur.DonneAIndex(i))
+       {
+           erreurDetectee = true;
+       }
+   }
+   SousTest("Vérification de la surcharge de [] d'un vecteur <bool>", erreurDetectee);
+
+   erreurDetectee = false;
+   for (int i = 0; i < stringVecteur.Capacite(); ++i)
+   {
+       if (stringVecteur[i] != stringVecteur.DonneAIndex(i))
+       {
+           erreurDetectee = true;
+       }
+   }
+   SousTest("Vérification de la surcharge de [] d'un vecteur <string>", erreurDetectee);
+
+   erreurDetectee = false;
+   for (int i = 0; i < doubleVecteur.Capacite(); ++i)
+   {
+       if (doubleVecteur[i] != doubleVecteur.DonneAIndex(i))
+       {
+           erreurDetectee = true;
+       }
+   }
+   SousTest("Vérification de la surcharge de [] d'un vecteur <double>", erreurDetectee);
+
+   erreurDetectee = false;
+   for (int i = 0; i < charPtrVecteur.Capacite(); ++i)
+   {
+       if (charPtrVecteur[i] != charPtrVecteur.DonneAIndex(i))
+       {
+           erreurDetectee = true;
+       }
+   }
+   SousTest("Vérification de la surcharge de [] d'un vecteur <char*>", erreurDetectee);
+
+   erreurDetectee = false;
+   for (int i = 0; i < stringPtrVecteur.Capacite(); ++i)
+   {
+       if (stringPtrVecteur[i] != stringPtrVecteur.DonneAIndex(i))
+       {
+           erreurDetectee = true;
+       }
+   }
+   SousTest("Vérification de la surcharge de [] d'un vecteur <string*>", erreurDetectee);
+
+   FinDuTest();
+   //////////////////////////////////////////////////////////////////////////////
+   //////////////////////////////////////////////////////////////////////////////
    //////////////////////////////////////////////////////////////////////////////
    DebutDunTest("Tentative de destruction des vecteurs");
 
