@@ -206,6 +206,9 @@ class Vecteur
         /// <returns></returns>
         const TypeInconnue operator[](int index) const;
 
+        bool operator+=(const TypeInconnue& donnee);
+
+
     private:
         /// @brief valeur interne de la grosseur actuelle de la liste dynamique
         int _grosseur = 0;
@@ -666,5 +669,12 @@ const TypeInconnue Vecteur<TypeInconnue>::operator[](int index) const
         return TypeInconnue();
     }
     return _donnees[index];
+}
+
+
+
+template<typename TypeInconnue>
+bool Vecteur<TypeInconnue>::operator+=(const TypeInconnue& donnee) {
+    return Ajouter(donnee);
 }
 

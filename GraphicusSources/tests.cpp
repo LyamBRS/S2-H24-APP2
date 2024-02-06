@@ -255,288 +255,327 @@ void Tests::tests_unitaires_formes()
  */
 void Tests::tests_unitaires_vecteur()
 {
-   DebutDeFonctionalitee("Classe Vecteur", "Unitaire");
+    DebutDeFonctionalitee("Classe Vecteur", "Unitaire");
 
-   // Test 1: Creation de multiple classes Vecteurs
-   DebutDunTest("Creation de multiple classes");
-   Vecteur<int> intVecteur;
-   Vecteur<bool> boolVecteur;
-   Vecteur<string> stringVecteur;
-   Vecteur<double> doubleVecteur;
+    // Test 1: Creation de multiple classes Vecteurs
+    DebutDunTest("Creation de multiple classes");
+    Vecteur<int> intVecteur;
+    Vecteur<bool> boolVecteur;
+    Vecteur<string> stringVecteur;
+    Vecteur<double> doubleVecteur;
 
-   Vecteur<char*> charPtrVecteur;
-   Vecteur<string*> stringPtrVecteur;
-   FinDuTest();
+    Vecteur<char*> charPtrVecteur;
+    Vecteur<string*> stringPtrVecteur;
+    FinDuTest();
 
-   ////////////////////////////////////////////////////////////////////////////// 2
-   DebutDunTest("Grosseurs initiales");
-   SousTest("Vecteur int",    intVecteur.Grosseur() == 0);
-   SousTest("Vecteur bool",   boolVecteur.Grosseur() == 0);
-   SousTest("Vecteur string", stringVecteur.Grosseur() == 0);
-   SousTest("Vecteur double", doubleVecteur.Grosseur() == 0);
+    ////////////////////////////////////////////////////////////////////////////// 2
+    DebutDunTest("Grosseurs initiales");
+    SousTest("Vecteur int", intVecteur.Grosseur() == 0);
+    SousTest("Vecteur bool", boolVecteur.Grosseur() == 0);
+    SousTest("Vecteur string", stringVecteur.Grosseur() == 0);
+    SousTest("Vecteur double", doubleVecteur.Grosseur() == 0);
+    FinDuTest();
+    ////////////////////////////////////////////////////////////////////////////// 3
+    DebutDunTest("Capacite initiale");
+    SousTest("Vecteur int", intVecteur.Capacite() == 0);
+    SousTest("Vecteur bool", boolVecteur.Capacite() == 0);
+    SousTest("Vecteur string", stringVecteur.Capacite() == 0);
+    SousTest("Vecteur double", doubleVecteur.Capacite() == 0);
+    FinDuTest();
+    ////////////////////////////////////////////////////////////////////////////// 4
+    DebutDunTest("Ajout d'une donne initiale");
+    SousTest("Ajout de 69 au vecteur int", intVecteur.Ajouter(69) == true);
+    SousTest("Ajout de false au vecteur bool", boolVecteur.Ajouter(false) == true);
+    SousTest("Ajout de amogus au vecteur string", stringVecteur.Ajouter("amogus") == true);
+    SousTest("Ajout de 1234 au vecteur double", doubleVecteur.Ajouter(1234) == true);
+    FinDuTest();
+    ////////////////////////////////////////////////////////////////////////////// 5
+    DebutDunTest("Grosseur du vecteur apres sauvegarde d'une donnee");
+    SousTest("Vecteur int", intVecteur.Grosseur() == 1);
+    SousTest("Vecteur bool", boolVecteur.Grosseur() == 1);
+    SousTest("Vecteur string", stringVecteur.Grosseur() == 1);
+    SousTest("Vecteur double", doubleVecteur.Grosseur() == 1);
+    FinDuTest();
+    ////////////////////////////////////////////////////////////////////////////// 6
+    DebutDunTest("Capacite du vecteur apres sauvegarde d'une donnee");
+    SousTest("Vecteur int ", intVecteur.Capacite() == 1);
+    SousTest("Vecteur bool ", boolVecteur.Capacite() == 1);
+    SousTest("Vecteur string ", stringVecteur.Capacite() == 1);
+    SousTest("Vecteur double ", doubleVecteur.Capacite() == 1);
+    FinDuTest();
+    ////////////////////////////////////////////////////////////////////////////// 7
+    DebutDunTest("Verification de la donnee initialement sauvegardee");
+    SousTest("Verification du 69", intVecteur.DonneAIndex(0) == 69);
+    SousTest("Verification du false", boolVecteur.DonneAIndex(0) == false);
+    SousTest("Verification du amogus", stringVecteur.DonneAIndex(0) == "amogus");
+    SousTest("Verification du 1234", doubleVecteur.DonneAIndex(0) == 1234);
+    FinDuTest();
+    ////////////////////////////////////////////////////////////////////////////// 8
+    for (int i = 0; i < 19; i++)
+    {
+        intVecteur.Ajouter(i);
+        boolVecteur.Ajouter(i % 2);
+        stringVecteur.Ajouter("ah...");
+        doubleVecteur.Ajouter(i * 2);
+    }
+
+    ////////////////////////////////////////////////////////////////////////////// 9
+    DebutDunTest("Grosseur des vecteurs apres 19 donnees");
+    SousTest("Vecteur int ", intVecteur.Grosseur() == 20);
+    SousTest("Vecteur bool ", boolVecteur.Grosseur() == 20);
+    SousTest("Vecteur string ", stringVecteur.Grosseur() == 20);
+    SousTest("Vecteur double ", doubleVecteur.Grosseur() == 20);
+    FinDuTest();
+    //////////////////////////////////////////////////////////////////////////////
+    DebutDunTest("Capacite des vecteurs apres 19 donnees");
+    SousTest("Vecteur int ", intVecteur.Capacite() == 32);
+    SousTest("Vecteur bool ", boolVecteur.Capacite() == 32);
+    SousTest("Vecteur string ", stringVecteur.Capacite() == 32);
+    SousTest("Vecteur double ", doubleVecteur.Capacite() == 32);
+    FinDuTest();
+    //////////////////////////////////////////////////////////////////////////////
+    bool erreurInt = false;
+    bool erreurBool = false;
+    bool erreurString = false;
+    bool erreurDouble = false;
+
+    for (int i = 0; i < 19; i++)
+    {
+        if (intVecteur.DonneAIndex(i + 1) != i) erreurInt = true;
+        if (boolVecteur.DonneAIndex(i + 1) != i % 2) erreurBool = true;
+        if (stringVecteur.DonneAIndex(i + 1) != "ah...") erreurString = true;
+        if (doubleVecteur.DonneAIndex(i + 1) != i * 2) erreurDouble = true;
+    }
+
+    DebutDunTest("Verification de l'enregistrement des 19 donnees");
+    SousTest("Vecteur int", !erreurInt);
+    SousTest("Vecteur bool", !erreurBool);
+    SousTest("Vecteur string", !erreurString);
+    SousTest("Vecteur double", !erreurDouble);
+    FinDuTest();
+    //////////////////////////////////////////////////////////////////////////////
+    DebutDunTest("Destruction de la derniere valeure des vecteurs");
+    SousTest("Vecteur int", intVecteur.Retirer() == true);
+    SousTest("Vecteur bool", boolVecteur.Retirer() == true);
+    SousTest("Vecteur string", stringVecteur.Retirer() == true);
+    SousTest("Vecteur double", doubleVecteur.Retirer() == true);
+    FinDuTest();
+    //////////////////////////////////////////////////////////////////////////////
+    DebutDunTest("Grosseur des vecteurs apres la destruction de la derniere valeur");
+    SousTest("Vecteur int", intVecteur.Grosseur() == 19);
+    SousTest("Vecteur bool", boolVecteur.Grosseur() == 19);
+    SousTest("Vecteur string", stringVecteur.Grosseur() == 19);
+    SousTest("Vecteur double", doubleVecteur.Grosseur() == 19);
+    FinDuTest();
+    //////////////////////////////////////////////////////////////////////////////
+    DebutDunTest("Verification de la derniere donnee des vecteurs apres destruction");
+    SousTest("Donnee int a la fin du tableau", intVecteur.DonneAIndex(18) == 17);
+    SousTest("Donnee bool a la fin du tableau", boolVecteur.DonneAIndex(18) == true);
+    SousTest("Donnee string a la fin du tableau", stringVecteur.DonneAIndex(18) == "ah...");
+    SousTest("Donnee double a la fin du tableau", doubleVecteur.DonneAIndex(18) == 34);
+    FinDuTest();
+    //////////////////////////////////////////////////////////////////////////////
+    DebutDunTest("Tentative de retirer une donnee hors limite des vecteurs");
+    SousTest("Vecteur int", intVecteur.Retirer(20) == false);
+    SousTest("Vecteur bool", boolVecteur.Retirer(20) == false);
+    SousTest("Vecteur string", stringVecteur.Retirer(20) == false);
+    SousTest("Vecteur double", doubleVecteur.Retirer(20) == false);
+    FinDuTest();
+    //////////////////////////////////////////////////////////////////////////////
+    DebutDunTest("Destruction de la premiere donnee dans les vecteurs");
+    SousTest("Vecteur int", intVecteur.Retirer(0) == true);
+    SousTest("Vecteur bool", boolVecteur.Retirer(0) == true);
+    SousTest("Vecteur string", stringVecteur.Retirer(0) == true);
+    SousTest("Vecteur double", doubleVecteur.Retirer(0) == true);
+    FinDuTest();
+    //////////////////////////////////////////////////////////////////////////////
+    DebutDunTest("Grosseur des vecteurs apres la destruction de la premiere valeur");
+    SousTest("Vecteur int", intVecteur.Grosseur() == 18);
+    SousTest("Vecteur bool", boolVecteur.Grosseur() == 18);
+    SousTest("Vecteur string", stringVecteur.Grosseur() == 18);
+    SousTest("Vecteur double", doubleVecteur.Grosseur() == 18);
+    FinDuTest();
+    //////////////////////////////////////////////////////////////////////////////
+    DebutDunTest("Verification de la nouvelle premiere donnee du vecteur");
+    SousTest("Vecteur int", intVecteur.DonneAIndex(0) == 0);
+    SousTest("Vecteur bool", boolVecteur.DonneAIndex(0) == false);
+    SousTest("Vecteur string", stringVecteur.DonneAIndex(0) == "ah...");
+    SousTest("Vecteur double", doubleVecteur.DonneAIndex(0) == 0);
+    FinDuTest();
+    //////////////////////////////////////////////////////////////////////////////
+    DebutDunTest("Tentative d'acces a une valeur hors limite dans les vecteurs");
+    SousTest("Vecteur int", intVecteur.DonneAIndex(69) == 0);
+    SousTest("Vecteur bool", boolVecteur.DonneAIndex(69) == false);
+    SousTest("Vecteur string", stringVecteur.DonneAIndex(69) == "");
+    SousTest("Vecteur double", doubleVecteur.DonneAIndex(69) == 0);
+    FinDuTest();
+    //////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////
+    char x = 'x';
+    char y = 'y';
+    char z = 'z';
+
+    string premiereString = "premiere";
+    string deuxiemeString = "deuxieme";
+    string troisiemeString = "troisieme";
+    //////////////////////////////////////////////////////////////////////////////
+    DebutDunTest("Tentative d'ajout d'une premiere donnee a des vecteurs pointeurs");
+    SousTest("Ajout de x au vecteur char*", charPtrVecteur.Ajouter(&x) == true);
+    SousTest("Ajout de premiereString au vecteur string*", stringPtrVecteur.Ajouter(&premiereString) == true);
+    FinDuTest();
+
+    //////////////////////////////////////////////////////////////////////////////
+    DebutDunTest("Tentative d'ajout d'une deuxieme donne a des vecteurs pointeurs");
+    SousTest("Ajout de y au vecteur char*", charPtrVecteur.Ajouter(&y) == true);
+    SousTest("Ajout de deuxiemeString au vecteur string*", stringPtrVecteur.Ajouter(&deuxiemeString) == true);
+    FinDuTest();
+
+    //////////////////////////////////////////////////////////////////////////////
+    DebutDunTest("Tentative d'ajout d'une troisieme donne a des vecteurs pointeurs");
+    SousTest("Ajout de z au vecteur char*", charPtrVecteur.Ajouter(&z) == true);
+    SousTest("Ajout de troisiemeString au vecteur string*", stringPtrVecteur.Ajouter(&troisiemeString) == true);
+    FinDuTest();
+
+    //////////////////////////////////////////////////////////////////////////////
+    DebutDunTest("Verification des grosseurs des vecteurs pointeurs");
+    SousTest("Vecteur char*", charPtrVecteur.Grosseur() == 3);
+    SousTest("Vecteur string*", stringPtrVecteur.Grosseur() == 3);
+    FinDuTest();
+
+    //////////////////////////////////////////////////////////////////////////////
+    DebutDunTest("Verification des capacites des vecteurs pointeurs");
+    SousTest("Vecteur char*", charPtrVecteur.Capacite() == 4);
+    SousTest("Vecteur string*", stringPtrVecteur.Capacite() == 4);
+    FinDuTest();
+
+    //////////////////////////////////////////////////////////////////////////////
+    DebutDunTest("Verification des premiere donnee sauvegardees");
+    SousTest("Vecteur char* egal a 'x'", *charPtrVecteur.DonneAIndex(0) == x);
+    SousTest("Vecteur string* egal a premiere", *stringPtrVecteur.DonneAIndex(0) == premiereString);
+    FinDuTest();
+
+    //////////////////////////////////////////////////////////////////////////////
+    DebutDunTest("Verification des deuxiemes donnee sauvegardees");
+    SousTest("Vecteur char* egal a 'y'", *charPtrVecteur.DonneAIndex(1) == y);
+    SousTest("Vecteur string* egal a deuxieme", *stringPtrVecteur.DonneAIndex(1) == deuxiemeString);
+    FinDuTest();
+
+    //////////////////////////////////////////////////////////////////////////////
+    DebutDunTest("Verification des troisiemes donnee sauvegardees");
+    SousTest("Vecteur char* egal a 'z'", *charPtrVecteur.DonneAIndex(2) == z);
+    SousTest("Vecteur string* egal a troisieme", *stringPtrVecteur.DonneAIndex(2) == troisiemeString);
+    FinDuTest();
+
+    //////////////////////////////////////////////////////////////////////////////
+    DebutDunTest("Changement des premieres donnees");
+    x = 'X';
+    premiereString = "nouvelleString";
+    FinDuTest();
+
+    //////////////////////////////////////////////////////////////////////////////
+    DebutDunTest("Verification des premiere donnee sauvegardees");
+    SousTest("Vecteur char* egal a 'X'", *charPtrVecteur.DonneAIndex(0) == 'X');
+    SousTest("Vecteur string* egal a nouvelleString", *stringPtrVecteur.DonneAIndex(0) == "nouvelleString");
+    FinDuTest();
+
+    //////////////////////////////////////////////////////////////////////////////
+    DebutDunTest("Tentative de destruction des premiere donnees des vecteurs pointeurs");
+    SousTest("Vecteur char*", charPtrVecteur.Retirer(0) == true);
+    SousTest("Vecteur string*", stringPtrVecteur.Retirer(0) == true);
+    FinDuTest();
+
+    //////////////////////////////////////////////////////////////////////////////
+    DebutDunTest("Verification des deuxiemes donnee sauvegardees");
+    SousTest("Vecteur char* egal a 6", *charPtrVecteur.DonneAIndex(0) == y);
+    SousTest("Vecteur string* egal a deuxieme", *stringPtrVecteur.DonneAIndex(0) == deuxiemeString);
+    FinDuTest();
+    //////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////// [] SURCHARGE TESTS
+    //////////////////////////////////////////////////////////////////////////////
+    DebutDunTest("Verification des donnees par surchage d'operateur []");
+    bool aPasserLeTest = true;
+    for (int i = 0; i < intVecteur.Capacite(); ++i)
+    {
+        if (intVecteur[i] != intVecteur.DonneAIndex(i)) aPasserLeTest = false;
+    }
+    SousTest("Verification de la surcharge de [] d'un vecteur <int>", aPasserLeTest);
+
+    aPasserLeTest = true;
+    for (int i = 0; i < boolVecteur.Capacite(); ++i)
+    {
+        if (boolVecteur[i] != boolVecteur.DonneAIndex(i)) aPasserLeTest = false;
+    }
+    SousTest("Verification de la surcharge de [] d'un vecteur <bool>", aPasserLeTest);
+
+    aPasserLeTest = true;
+    for (int i = 0; i < stringVecteur.Capacite(); ++i)
+    {
+        if (stringVecteur[i] != stringVecteur.DonneAIndex(i)) aPasserLeTest = false;
+    }
+    SousTest("Verification de la surcharge de [] d'un vecteur <string>", aPasserLeTest);
+
+    aPasserLeTest = true;
+    for (int i = 0; i < doubleVecteur.Capacite(); ++i)
+    {
+        if (doubleVecteur[i] != doubleVecteur.DonneAIndex(i)) aPasserLeTest = false;
+    }
+    SousTest("Verification de la surcharge de [] d'un vecteur <double>", aPasserLeTest);
+
+    aPasserLeTest = true;
+    for (int i = 0; i < charPtrVecteur.Capacite(); ++i)
+    {
+        if (charPtrVecteur[i] != charPtrVecteur.DonneAIndex(i)) aPasserLeTest = false;
+    }
+    SousTest("Vérification de la surcharge de [] d'un vecteur <char*>", aPasserLeTest);
+
+    aPasserLeTest = true;
+    for (int i = 0; i < stringPtrVecteur.Capacite(); ++i)
+    {
+        if (stringPtrVecteur[i] != stringPtrVecteur.DonneAIndex(i)) aPasserLeTest = false;
+    }
+    SousTest("Verification de la surcharge de [] d'un vecteur <string*>", aPasserLeTest);
+
+    FinDuTest();
+    //////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////// += TESTS
+    //////////////////////////////////////////////////////////////////////////////
+    DebutDunTest("Ajout de 19 donnees avec +=");
+    for (int i = 0; i < 19; i++)
+    {
+        intVecteur += i;
+        boolVecteur += (i % 3);
+        stringVecteur += "amogus";
+        doubleVecteur += (i * 3);
+    }
+
+    //////////////////////////////////////////////////////////////////////////////
+   DebutDunTest("Grosseur des vecteurs apres 19 donnees avec +=");
+   SousTest("Vecteur int ", "intVecteur.Grosseur() == 37", intVecteur.Grosseur() == 37);
+   SousTest("Vecteur bool ", "boolVecteur.Grosseur() == 37", boolVecteur.Grosseur() == 37);
+   SousTest("Vecteur string ", "stringVecteur.Grosseur() == 37", stringVecteur.Grosseur() == 37);
+   SousTest("Vecteur double ", "doubleVecteur.Grosseur() == 37", doubleVecteur.Grosseur() == 37);
    FinDuTest();
-   ////////////////////////////////////////////////////////////////////////////// 3
-   DebutDunTest("Capacite initiale");
-   SousTest("Vecteur int", intVecteur.Capacite() == 0);
-   SousTest("Vecteur bool", boolVecteur.Capacite() == 0);
-   SousTest("Vecteur string", stringVecteur.Capacite() == 0);
-   SousTest("Vecteur double", doubleVecteur.Capacite() == 0);
+   //////////////////////////////////////////////////////////////////////////////
+   DebutDunTest("Capacite des vecteurs apres 19 donnees avec +=");
+   SousTest("Vecteur int ", intVecteur.Capacite() == 64);
+   SousTest("Vecteur bool ", boolVecteur.Capacite() == 64);
+   SousTest("Vecteur string ", stringVecteur.Capacite() == 64);
+   SousTest("Vecteur double ", doubleVecteur.Capacite() == 64);
    FinDuTest();
-   ////////////////////////////////////////////////////////////////////////////// 4
-   DebutDunTest("Ajout d'une donne initiale");
-   SousTest("Ajout de 69 au vecteur int", intVecteur.Ajouter(69) == true);
-   SousTest("Ajout de false au vecteur bool", boolVecteur.Ajouter(false) == true);
-   SousTest("Ajout de amogus au vecteur string", stringVecteur.Ajouter("amogus") == true);
-   SousTest("Ajout de 1234 au vecteur double", doubleVecteur.Ajouter(1234) == true);
-   FinDuTest();
-   ////////////////////////////////////////////////////////////////////////////// 5
-   DebutDunTest("Grosseur du vecteur apres sauvegarde d'une donnee");
-   SousTest("Vecteur int", intVecteur.Grosseur() == 1);
-   SousTest("Vecteur bool", boolVecteur.Grosseur() == 1);
-   SousTest("Vecteur string", stringVecteur.Grosseur() == 1);
-   SousTest("Vecteur double", doubleVecteur.Grosseur() == 1);
-   FinDuTest();
-   ////////////////////////////////////////////////////////////////////////////// 6
-   DebutDunTest("Capacite du vecteur apres sauvegarde d'une donnee");
-   SousTest("Vecteur int ", intVecteur.Capacite() == 1);
-   SousTest("Vecteur bool ", boolVecteur.Capacite() == 1);
-   SousTest("Vecteur string ", stringVecteur.Capacite() == 1);
-   SousTest("Vecteur double ", doubleVecteur.Capacite() == 1);
-   FinDuTest();
-   ////////////////////////////////////////////////////////////////////////////// 7
-   DebutDunTest("Verification de la donnee initialement sauvegardee");
-   SousTest("Verification du 69", intVecteur.DonneAIndex(0) == 69);
-   SousTest("Verification du false", boolVecteur.DonneAIndex(0) == false);
-   SousTest("Verification du amogus", stringVecteur.DonneAIndex(0) == "amogus");
-   SousTest("Verification du 1234", doubleVecteur.DonneAIndex(0) == 1234);
-   FinDuTest();
-   ////////////////////////////////////////////////////////////////////////////// 8
-   for (int i=0; i<19; i++)
+   //////////////////////////////////////////////////////////////////////////////
+   erreurInt = false;
+   erreurBool = false;
+   erreurString = false;
+   erreurDouble = false;
+
+   for (int i = 0; i < 19; i++)
    {
-      intVecteur.Ajouter(i);
-      boolVecteur.Ajouter(i%2);
-      stringVecteur.Ajouter("ah...");
-      doubleVecteur.Ajouter(i*2);
+       if (intVecteur.DonneAIndex(i + 1) != i) erreurInt = true;
+       if (boolVecteur.DonneAIndex(i + 1) != i % 2) erreurBool = true;
+       if (stringVecteur.DonneAIndex(i + 1) != "ah...") erreurString = true;
+       if (doubleVecteur.DonneAIndex(i + 1) != i * 2) erreurDouble = true;
    }
-
-   ////////////////////////////////////////////////////////////////////////////// 9
-   DebutDunTest("Grosseur des vecteurs apres 19 donnees");
-   SousTest("Vecteur int ", intVecteur.Grosseur() == 20);
-   SousTest("Vecteur bool ", boolVecteur.Grosseur() == 20);
-   SousTest("Vecteur string ", stringVecteur.Grosseur() == 20);
-   SousTest("Vecteur double ", doubleVecteur.Grosseur() == 20);
-   FinDuTest();
-   //////////////////////////////////////////////////////////////////////////////
-   DebutDunTest("Capacite des vecteurs apres 19 donnees");
-   SousTest("Vecteur int ", intVecteur.Capacite() == 32);
-   SousTest("Vecteur bool ", boolVecteur.Capacite() == 32);
-   SousTest("Vecteur string ", stringVecteur.Capacite() == 32);
-   SousTest("Vecteur double ", doubleVecteur.Capacite() == 32);
-   FinDuTest();
-   //////////////////////////////////////////////////////////////////////////////
-   bool erreurInt = false;
-   bool erreurBool = false;
-   bool erreurString = false;
-   bool erreurDouble = false;
-
-   for (int i=0; i<19; i++)
-   {
-      if(intVecteur.DonneAIndex(i+1) != i) erreurInt = true;
-      if(boolVecteur.DonneAIndex(i+1) != i%2) erreurBool = true;
-      if(stringVecteur.DonneAIndex(i+1) != "ah...") erreurString = true;
-      if(doubleVecteur.DonneAIndex(i+1) != i*2) erreurDouble = true;
-   }
-
-   DebutDunTest("Verification de l'enregistrement des 19 donnees");
-   SousTest("Vecteur int", !erreurInt);
-   SousTest("Vecteur bool", !erreurBool);
-   SousTest("Vecteur string", !erreurString);
-   SousTest("Vecteur double", !erreurDouble);
-   FinDuTest();
-   //////////////////////////////////////////////////////////////////////////////
-   DebutDunTest("Destruction de la derniere valeure des vecteurs");
-   SousTest("Vecteur int", intVecteur.Retirer() == true);
-   SousTest("Vecteur bool", boolVecteur.Retirer() == true);
-   SousTest("Vecteur string", stringVecteur.Retirer() == true);
-   SousTest("Vecteur double", doubleVecteur.Retirer() == true);
-   FinDuTest();
-   //////////////////////////////////////////////////////////////////////////////
-   DebutDunTest("Grosseur des vecteurs apres la destruction de la derniere valeur");
-   SousTest("Vecteur int", intVecteur.Grosseur() == 19);
-   SousTest("Vecteur bool", boolVecteur.Grosseur() == 19);
-   SousTest("Vecteur string", stringVecteur.Grosseur() == 19);
-   SousTest("Vecteur double", doubleVecteur.Grosseur() == 19);
-   FinDuTest();
-   //////////////////////////////////////////////////////////////////////////////
-   DebutDunTest("Verification de la derniere donnee des vecteurs apres destruction");
-   SousTest("Donnee int a la fin du tableau", intVecteur.DonneAIndex(18) == 17);
-   SousTest("Donnee bool a la fin du tableau", boolVecteur.DonneAIndex(18) == true);
-   SousTest("Donnee string a la fin du tableau", stringVecteur.DonneAIndex(18) == "ah...");
-   SousTest("Donnee double a la fin du tableau", doubleVecteur.DonneAIndex(18) == 34);
-   FinDuTest();
-   //////////////////////////////////////////////////////////////////////////////
-   DebutDunTest("Tentative de retirer une donnee hors limite des vecteurs");
-   SousTest("Vecteur int", intVecteur.Retirer(20) == false);
-   SousTest("Vecteur bool", boolVecteur.Retirer(20) == false);
-   SousTest("Vecteur string", stringVecteur.Retirer(20) == false);
-   SousTest("Vecteur double", doubleVecteur.Retirer(20) == false);
-   FinDuTest();
-   //////////////////////////////////////////////////////////////////////////////
-   DebutDunTest("Destruction de la premiere donnee dans les vecteurs");
-   SousTest("Vecteur int", intVecteur.Retirer(0) == true);
-   SousTest("Vecteur bool", boolVecteur.Retirer(0) == true);
-   SousTest("Vecteur string", stringVecteur.Retirer(0) == true);
-   SousTest("Vecteur double", doubleVecteur.Retirer(0) == true);
-   FinDuTest();
-   //////////////////////////////////////////////////////////////////////////////
-   DebutDunTest("Grosseur des vecteurs apres la destruction de la premiere valeur");
-   SousTest("Vecteur int", intVecteur.Grosseur() == 18);
-   SousTest("Vecteur bool", boolVecteur.Grosseur() == 18);
-   SousTest("Vecteur string", stringVecteur.Grosseur() == 18);
-   SousTest("Vecteur double", doubleVecteur.Grosseur() == 18);
-   FinDuTest();
-   //////////////////////////////////////////////////////////////////////////////
-   DebutDunTest("Verification de la nouvelle premiere donnee du vecteur");
-   SousTest("Vecteur int", intVecteur.DonneAIndex(0) == 0);
-   SousTest("Vecteur bool", boolVecteur.DonneAIndex(0) == false);
-   SousTest("Vecteur string", stringVecteur.DonneAIndex(0) == "ah...");
-   SousTest("Vecteur double", doubleVecteur.DonneAIndex(0) == 0);
-   FinDuTest();
-   //////////////////////////////////////////////////////////////////////////////
-   DebutDunTest("Tentative d'acces a une valeur hors limite dans les vecteurs");
-   SousTest("Vecteur int", intVecteur.DonneAIndex(69) == 0);
-   SousTest("Vecteur bool", boolVecteur.DonneAIndex(69) == false);
-   SousTest("Vecteur string", stringVecteur.DonneAIndex(69) == "");
-   SousTest("Vecteur double", doubleVecteur.DonneAIndex(69) == 0);
-   FinDuTest();
-   //////////////////////////////////////////////////////////////////////////////
-   //////////////////////////////////////////////////////////////////////////////
-   //////////////////////////////////////////////////////////////////////////////
-   char x = 'x';
-   char y = 'y';
-   char z = 'z';
-
-   string premiereString = "premiere";
-   string deuxiemeString = "deuxieme";
-   string troisiemeString = "troisieme";
-   //////////////////////////////////////////////////////////////////////////////
-   DebutDunTest("Tentative d'ajout d'une premiere donnee a des vecteurs pointeurs");
-   SousTest("Ajout de x au vecteur char*", charPtrVecteur.Ajouter(&x) == true);
-   SousTest("Ajout de premiereString au vecteur string*", stringPtrVecteur.Ajouter(&premiereString) == true);
-   FinDuTest();
-
-   //////////////////////////////////////////////////////////////////////////////
-   DebutDunTest("Tentative d'ajout d'une deuxieme donne a des vecteurs pointeurs");
-   SousTest("Ajout de y au vecteur char*", charPtrVecteur.Ajouter(&y) == true);
-   SousTest("Ajout de deuxiemeString au vecteur string*", stringPtrVecteur.Ajouter(&deuxiemeString) == true);
-   FinDuTest();
-
-   //////////////////////////////////////////////////////////////////////////////
-   DebutDunTest("Tentative d'ajout d'une troisieme donne a des vecteurs pointeurs");
-   SousTest("Ajout de z au vecteur char*", charPtrVecteur.Ajouter(&z) == true);
-   SousTest("Ajout de troisiemeString au vecteur string*", stringPtrVecteur.Ajouter(&troisiemeString) == true);
-   FinDuTest();
-
-   //////////////////////////////////////////////////////////////////////////////
-   DebutDunTest("Verification des grosseurs des vecteurs pointeurs");
-   SousTest("Vecteur char*", charPtrVecteur.Grosseur() == 3);
-   SousTest("Vecteur string*", stringPtrVecteur.Grosseur() == 3);
-   FinDuTest();
-
-   //////////////////////////////////////////////////////////////////////////////
-   DebutDunTest("Verification des capacites des vecteurs pointeurs");
-   SousTest("Vecteur char*", charPtrVecteur.Capacite() == 4);
-   SousTest("Vecteur string*", stringPtrVecteur.Capacite() == 4);
-   FinDuTest();
-
-   //////////////////////////////////////////////////////////////////////////////
-   DebutDunTest("Verification des premiere donnee sauvegardees");
-   SousTest("Vecteur char* egal a 'x'", *charPtrVecteur.DonneAIndex(0) == x);
-   SousTest("Vecteur string* egal a premiere", *stringPtrVecteur.DonneAIndex(0) == premiereString);
-   FinDuTest();
-
-   //////////////////////////////////////////////////////////////////////////////
-   DebutDunTest("Verification des deuxiemes donnee sauvegardees");
-   SousTest("Vecteur char* egal a 'y'", *charPtrVecteur.DonneAIndex(1) == y);
-   SousTest("Vecteur string* egal a deuxieme", *stringPtrVecteur.DonneAIndex(1) == deuxiemeString);
-   FinDuTest();
-
-   //////////////////////////////////////////////////////////////////////////////
-   DebutDunTest("Verification des troisiemes donnee sauvegardees");
-   SousTest("Vecteur char* egal a 'z'", *charPtrVecteur.DonneAIndex(2) == z);
-   SousTest("Vecteur string* egal a troisieme", *stringPtrVecteur.DonneAIndex(2) == troisiemeString);
-   FinDuTest();
-
-   //////////////////////////////////////////////////////////////////////////////
-   DebutDunTest("Changement des premieres donnees");
-   x = 'X';
-   premiereString = "nouvelleString";
-   FinDuTest();
-
-   //////////////////////////////////////////////////////////////////////////////
-   DebutDunTest("Verification des premiere donnee sauvegardees");
-   SousTest("Vecteur char* egal a 'X'", *charPtrVecteur.DonneAIndex(0) == 'X');
-   SousTest("Vecteur string* egal a nouvelleString", *stringPtrVecteur.DonneAIndex(0) == "nouvelleString");
-   FinDuTest();
-
-   //////////////////////////////////////////////////////////////////////////////
-   DebutDunTest("Tentative de destruction des premiere donnees des vecteurs pointeurs");
-   SousTest("Vecteur char*", charPtrVecteur.Retirer(0) == true);
-   SousTest("Vecteur string*", stringPtrVecteur.Retirer(0) == true);
-   FinDuTest();
-
-   //////////////////////////////////////////////////////////////////////////////
-   DebutDunTest("Verification des deuxiemes donnee sauvegardees");
-   SousTest("Vecteur char* egal a 6", *charPtrVecteur.DonneAIndex(0) == y);
-   SousTest("Vecteur string* egal a deuxieme", *stringPtrVecteur.DonneAIndex(0) == deuxiemeString);
-   FinDuTest();
-   //////////////////////////////////////////////////////////////////////////////
-   //////////////////////////////////////////////////////////////////////////////
-   //////////////////////////////////////////////////////////////////////////////
-   DebutDunTest("Verification des donnees par surchage d'operateur []");
-   bool aPasserLeTest = true;
-   for (int i = 0; i < intVecteur.Capacite(); ++i)
-   {
-       if (intVecteur[i] != intVecteur.DonneAIndex(i)) aPasserLeTest = false;
-   }
-   SousTest("Verification de la surcharge de [] d'un vecteur <int>", aPasserLeTest);
-
-   aPasserLeTest = true;
-   for (int i = 0; i < boolVecteur.Capacite(); ++i)
-   {
-       if (boolVecteur[i] != boolVecteur.DonneAIndex(i)) aPasserLeTest = false;
-   }
-   SousTest("Verification de la surcharge de [] d'un vecteur <bool>", aPasserLeTest);
-
-   aPasserLeTest = true;
-   for (int i = 0; i < stringVecteur.Capacite(); ++i)
-   {
-       if (stringVecteur[i] != stringVecteur.DonneAIndex(i)) aPasserLeTest = false;
-   }
-   SousTest("Verification de la surcharge de [] d'un vecteur <string>", aPasserLeTest);
-
-   aPasserLeTest = true;
-   for (int i = 0; i < doubleVecteur.Capacite(); ++i)
-   {
-       if (doubleVecteur[i] != doubleVecteur.DonneAIndex(i)) aPasserLeTest = false;
-   }
-   SousTest("Verification de la surcharge de [] d'un vecteur <double>", aPasserLeTest);
-
-   aPasserLeTest = true;
-   for (int i = 0; i < charPtrVecteur.Capacite(); ++i)
-   {
-       if (charPtrVecteur[i] != charPtrVecteur.DonneAIndex(i)) aPasserLeTest = false;
-   }
-   SousTest("Vérification de la surcharge de [] d'un vecteur <char*>", aPasserLeTest);
-
-   aPasserLeTest = true;
-   for (int i = 0; i < stringPtrVecteur.Capacite(); ++i)
-   {
-       if (stringPtrVecteur[i] != stringPtrVecteur.DonneAIndex(i)) aPasserLeTest = false;
-   }
-   SousTest("Verification de la surcharge de [] d'un vecteur <string*>", aPasserLeTest);
-
-   FinDuTest();
    //////////////////////////////////////////////////////////////////////////////
    //////////////////////////////////////////////////////////////////////////////
    //////////////////////////////////////////////////////////////////////////////
