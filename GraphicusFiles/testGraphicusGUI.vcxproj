@@ -142,10 +142,29 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\GraphicusSources\canevas.cpp" />
+    <ClCompile Include="..\GraphicusSources\Carre.cpp" />
+    <ClCompile Include="..\GraphicusSources\Cercle.cpp" />
+    <ClCompile Include="..\GraphicusSources\couche.cpp" />
+    <ClCompile Include="..\GraphicusSources\forme.cpp" />
+    <ClCompile Include="..\GraphicusSources\Rectangle.cpp" />
+    <ClCompile Include="..\GraphicusSources\resultatCouleur.cpp" />
+    <ClCompile Include="..\GraphicusSources\tests.cpp" />
+    <ClCompile Include="..\GraphicusSources\Vecteur.cpp" />
     <ClCompile Include="monInterface.cpp" />
     <ClCompile Include="testGraphicusGUI.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\GraphicusSources\canevas.h" />
+    <ClInclude Include="..\GraphicusSources\Carre.h" />
+    <ClInclude Include="..\GraphicusSources\Cercle.h" />
+    <ClInclude Include="..\GraphicusSources\coordonnee.h" />
+    <ClInclude Include="..\GraphicusSources\couche.h" />
+    <ClInclude Include="..\GraphicusSources\forme.h" />
+    <ClInclude Include="..\GraphicusSources\Rectangle.h" />
+    <ClInclude Include="..\GraphicusSources\resultatCouleur.h" />
+    <ClInclude Include="..\GraphicusSources\tests.h" />
+    <ClInclude Include="..\GraphicusSources\Vecteur.h" />
     <ClInclude Include="monInterface.h" />
   </ItemGroup>
   <ItemGroup>

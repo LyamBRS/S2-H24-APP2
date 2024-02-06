@@ -6,6 +6,8 @@
  *    tests.h.  Ce fichier peut etre adapte a vos besoins de tests.
  *    Ce fichier fait partie de la distribution de Graphicus.
 ********/
+#include <sstream>
+#include <string>
 #include <iostream>
 #include "tests.h"
 
