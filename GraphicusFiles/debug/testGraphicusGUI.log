@@ -8,7 +8,7 @@
           [
               TypeInconnue=bool
           ]
-..\GraphicusSources\tests.cpp(590,32): warning C4805: '!=' : mélange risqué de type 'TypeInconnue' et de type 'int' dans l'opération
+..\GraphicusSources\tests.cpp(599,32): warning C4805: '!=' : mélange risqué de type 'TypeInconnue' et de type 'int' dans l'opération
           with
           [
               TypeInconnue=bool

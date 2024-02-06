@@ -207,7 +207,6 @@ class Vecteur
         /// <returns>true: Succes, false: erreur</returns>
         bool operator+=(const TypeInconnue& donnee);
 
-
     private:
         /// @brief valeur interne de la grosseur actuelle de la liste dynamique
         int _grosseur = 0;
@@ -628,6 +627,18 @@ int Vecteur<TypeInconnue>::Capacite()
 {
     return _capacite;
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /// <summary>
