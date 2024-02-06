@@ -494,66 +494,47 @@ void Tests::tests_unitaires_vecteur()
    //////////////////////////////////////////////////////////////////////////////
    //////////////////////////////////////////////////////////////////////////////
    DebutDunTest("Verification des donnees par surchage d'operateur []");
-   bool erreurDetectee = false;
+   bool aPasserLeTest = true;
    for (int i = 0; i < intVecteur.Capacite(); ++i)
    {
-       if (intVecteur[i] != intVecteur.DonneAIndex(i))
-       {
-           std::cout << "intVecteur[" << std::to_string(i) << "]: " << std::to_string(intVecteur[i]) << ", intVecteur.DonneAIndex(" << std::to_string(i) << "): " << intVecteur.DonneAIndex(i) << std::endl;
-           erreurDetectee = true;
-       }
+       if (intVecteur[i] != intVecteur.DonneAIndex(i)) aPasserLeTest = false;
    }
-   SousTest("Verification de la surcharge de [] d'un vecteur <int>", erreurDetectee);
+   SousTest("Verification de la surcharge de [] d'un vecteur <int>", aPasserLeTest);
 
-   erreurDetectee = false;
+   aPasserLeTest = true;
    for (int i = 0; i < boolVecteur.Capacite(); ++i)
    {
-       if (boolVecteur[i] != boolVecteur.DonneAIndex(i))
-       {
-           erreurDetectee = true;
-       }
+       if (boolVecteur[i] != boolVecteur.DonneAIndex(i)) aPasserLeTest = false;
    }
-   SousTest("Verification de la surcharge de [] d'un vecteur <bool>", erreurDetectee);
+   SousTest("Verification de la surcharge de [] d'un vecteur <bool>", aPasserLeTest);
 
-   erreurDetectee = false;
+   aPasserLeTest = true;
    for (int i = 0; i < stringVecteur.Capacite(); ++i)
    {
-       if (stringVecteur[i] != stringVecteur.DonneAIndex(i))
-       {
-           erreurDetectee = true;
-       }
+       if (stringVecteur[i] != stringVecteur.DonneAIndex(i)) aPasserLeTest = false;
    }
-   SousTest("Verification de la surcharge de [] d'un vecteur <string>", erreurDetectee);
+   SousTest("Verification de la surcharge de [] d'un vecteur <string>", aPasserLeTest);
 
-   erreurDetectee = false;
+   aPasserLeTest = true;
    for (int i = 0; i < doubleVecteur.Capacite(); ++i)
    {
-       if (doubleVecteur[i] != doubleVecteur.DonneAIndex(i))
-       {
-           erreurDetectee = true;
-       }
+       if (doubleVecteur[i] != doubleVecteur.DonneAIndex(i)) aPasserLeTest = false;
    }
-   SousTest("Verification de la surcharge de [] d'un vecteur <double>", erreurDetectee);
+   SousTest("Verification de la surcharge de [] d'un vecteur <double>", aPasserLeTest);
 
-   erreurDetectee = false;
+   aPasserLeTest = true;
    for (int i = 0; i < charPtrVecteur.Capacite(); ++i)
    {
-       if (charPtrVecteur[i] != charPtrVecteur.DonneAIndex(i))
-       {
-           erreurDetectee = true;
-       }
+       if (charPtrVecteur[i] != charPtrVecteur.DonneAIndex(i)) aPasserLeTest = false;
    }
-   SousTest("Vérification de la surcharge de [] d'un vecteur <char*>", erreurDetectee);
+   SousTest("Vérification de la surcharge de [] d'un vecteur <char*>", aPasserLeTest);
 
-   erreurDetectee = false;
+   aPasserLeTest = true;
    for (int i = 0; i < stringPtrVecteur.Capacite(); ++i)
    {
-       if (stringPtrVecteur[i] != stringPtrVecteur.DonneAIndex(i))
-       {
-           erreurDetectee = true;
-       }
+       if (stringPtrVecteur[i] != stringPtrVecteur.DonneAIndex(i)) aPasserLeTest = false;
    }
-   SousTest("Verification de la surcharge de [] d'un vecteur <string*>", erreurDetectee);
+   SousTest("Verification de la surcharge de [] d'un vecteur <string*>", aPasserLeTest);
 
    FinDuTest();
    //////////////////////////////////////////////////////////////////////////////
