@@ -541,7 +541,7 @@ void Tests::tests_unitaires_vecteur()
     ////////////////////////////////////////////////////////////////////////////// += TESTS
     //////////////////////////////////////////////////////////////////////////////
     DebutDunTest("Ajout de 19 donnees avec +=");
-    for (int i = 0; i < 19; i++)
+    for (int i = 18; i < 37; i++)
     {
         intVecteur += i;
         boolVecteur += (i % 3);
@@ -558,10 +558,10 @@ void Tests::tests_unitaires_vecteur()
    FinDuTest();
    //////////////////////////////////////////////////////////////////////////////
    DebutDunTest("Capacite des vecteurs apres 19 donnees avec +=");
-   SousTest("Vecteur int ", intVecteur.Capacite() == 64);
-   SousTest("Vecteur bool ", boolVecteur.Capacite() == 64);
-   SousTest("Vecteur string ", stringVecteur.Capacite() == 64);
-   SousTest("Vecteur double ", doubleVecteur.Capacite() == 64);
+   SousTest("Vecteur int ", "intVecteur.Capacite() == 64", intVecteur.Capacite() == 64);
+   SousTest("Vecteur bool ", "boolVecteur.Capacite() == 64", boolVecteur.Capacite() == 64);
+   SousTest("Vecteur string ", "stringVecteur.Capacite() == 64", stringVecteur.Capacite() == 64);
+   SousTest("Vecteur double ", "doubleVecteur.Capacite() == 64", doubleVecteur.Capacite() == 64);
    FinDuTest();
    //////////////////////////////////////////////////////////////////////////////
    erreurInt = false;
@@ -569,13 +569,20 @@ void Tests::tests_unitaires_vecteur()
    erreurString = false;
    erreurDouble = false;
 
-   for (int i = 0; i < 19; i++)
+   for (int i = 18; i < 37; i++)
    {
-       if (intVecteur.DonneAIndex(i + 1) != i) erreurInt = true;
-       if (boolVecteur.DonneAIndex(i + 1) != i % 2) erreurBool = true;
-       if (stringVecteur.DonneAIndex(i + 1) != "ah...") erreurString = true;
-       if (doubleVecteur.DonneAIndex(i + 1) != i * 2) erreurDouble = true;
+       if (intVecteur[i] != i) erreurInt = true;
+       if (boolVecteur[i] != (i%3)) erreurBool = true;
+       if (stringVecteur[i] != "amogus") erreurString = true;
+       if (doubleVecteur[i] != (i * 3)) erreurDouble = true;
    }
+
+   DebutDunTest("Verification de l'enregistrement des 19 donnees avec +=");
+   SousTest("Vecteur int", !erreurInt);
+   SousTest("Vecteur bool", !erreurBool);
+   SousTest("Vecteur string", !erreurString);
+   SousTest("Vecteur double", !erreurDouble);
+   FinDuTest();
    //////////////////////////////////////////////////////////////////////////////
    //////////////////////////////////////////////////////////////////////////////
    //////////////////////////////////////////////////////////////////////////////
