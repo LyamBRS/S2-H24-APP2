@@ -1,13 +1,17 @@
-﻿  Vecteur.cpp
-  canevas.cpp
-  couche.cpp
-  tests.cpp
-..\GraphicusSources\tests.cpp(345,43): warning C4805: '!=': unsafe mix of type 'TypeInconnue' and type 'int' in operation
-          with
-          [
-              TypeInconnue=bool
-          ]
-  monInterface.cpp
+﻿  monInterface.cpp
+monInterface.cpp(60,53): warning C4100: 'deltaY': unreferenced formal parameter
+monInterface.cpp(60,41): warning C4100: 'deltaX': unreferenced formal parameter
+monInterface.cpp(64,52): warning C4100: 'rayon': unreferenced formal parameter
+monInterface.cpp(64,45): warning C4100: 'y': unreferenced formal parameter
+monInterface.cpp(64,38): warning C4100: 'x': unreferenced formal parameter
+monInterface.cpp(68,69): warning C4100: 'largeur': unreferenced formal parameter
+monInterface.cpp(68,55): warning C4100: 'longueur': unreferenced formal parameter
+monInterface.cpp(68,48): warning C4100: 'y': unreferenced formal parameter
+monInterface.cpp(68,41): warning C4100: 'x': unreferenced formal parameter
+monInterface.cpp(72,51): warning C4100: 'cote': unreferenced formal parameter
+monInterface.cpp(72,44): warning C4100: 'y': unreferenced formal parameter
+monInterface.cpp(72,37): warning C4100: 'x': unreferenced formal parameter
+monInterface.cpp(76,40): warning C4100: 'mode': unreferenced formal parameter
   testGraphicusGUI.cpp
   Generating Code...
   testGraphicusGUI.vcxproj -> C:\Users\gratt\OneDrive\Documents\GitHub\S2-H24-APP2_TEST2\GraphicusFiles\debug\testGraphicusGUI.exe
