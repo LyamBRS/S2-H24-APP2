@@ -186,6 +186,8 @@ class Vecteur
         /// @return false: Index n'est pas valide.
         bool VerifierIndex(int index);
 
+        //bool operator==(const Vecteur&) const;
+
     private:
         /// @brief valeur interne de la grosseur actuelle de la liste dynamique
         int _grosseur = 0;
@@ -201,6 +203,21 @@ class Vecteur
         /// @return false: La capacité maximal de sécurité est atteinte.
         bool DoubleLaCapacite();
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /**
@@ -591,3 +608,12 @@ int Vecteur<TypeInconnue>::Capacite()
 {
     return _capacite;
 }
+
+
+
+//template <typename TypeInconnue>
+//bool Vecteur<TypeInconnue>::operator==(const Vecteur&)
+//{
+//    return false;
+//}
+
