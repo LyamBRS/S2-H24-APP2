@@ -186,26 +186,14 @@ class Vecteur
         /// @return false: Index n'est pas valide.
         bool VerifierIndex(int index);
 
-        /// <summary>
-        /// Permet d'avoir la donnée à un index
-        /// spécifié. Une donnée vide sera retournée
-        /// si l'index n'est pas valide
-        /// </summary>
-        /// <typeparam name="TypeInconnue"></typeparam>
-        /// <param name="index"></param>
-        /// <returns></returns>
-        TypeInconnue operator[](int index);
+        TypeInconnue operator [](int i) const { return _donnees[i]; }
+        TypeInconnue& operator [](int i) { return _donnees[i]; }
 
         /// <summary>
-        /// Permet d'avoir la donnée à un index
-        /// spécifié. Une donnée vide sera retournée
-        /// si l'index n'est pas valide
+        /// Adds one data at the end of the vector.
         /// </summary>
-        /// <typeparam name="TypeInconnue"></typeparam>
-        /// <param name="index"></param>
-        /// <returns></returns>
-        const TypeInconnue operator[](int index) const;
-
+        /// <param name="donnee"></param>
+        /// <returns>true: Succes, false: erreur</returns>
         bool operator+=(const TypeInconnue& donnee);
 
 
@@ -634,45 +622,11 @@ int Vecteur<TypeInconnue>::Capacite()
 
 
 
-
 /// <summary>
-/// Permet d'avoir la donnée à un index
-/// spécifié. Une donnée vide sera retournée
-/// si l'index n'est pas valide
+/// Adds one data at the end of the vector.
 /// </summary>
-/// <typeparam name="TypeInconnue"></typeparam>
-/// <param name="index"></param>
-/// <returns></returns>
-template <typename TypeInconnue>
-TypeInconnue Vecteur<TypeInconnue>::operator[](int index) 
-{
-    if (!VerifierIndex(index))
-    {
-        return TypeInconnue();
-    }
-    return _donnees[index];
-}
-
-/// <summary>
-/// Permet d'avoir la donnée à un index
-/// spécifié. Une donnée vide sera retournée
-/// si l'index n'est pas valide
-/// </summary>
-/// <typeparam name="TypeInconnue"></typeparam>
-/// <param name="index"></param>
-/// <returns></returns>
-template <typename TypeInconnue>
-const TypeInconnue Vecteur<TypeInconnue>::operator[](int index) const 
-{
-    if (!VerifierIndex(index))
-    {
-        return TypeInconnue();
-    }
-    return _donnees[index];
-}
-
-
-
+/// <param name="donnee"></param>
+/// <returns>true: Succes, false: erreur</returns>
 template<typename TypeInconnue>
 bool Vecteur<TypeInconnue>::operator+=(const TypeInconnue& donnee) {
     return Ajouter(donnee);

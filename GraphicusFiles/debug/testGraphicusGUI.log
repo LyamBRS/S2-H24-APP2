@@ -1,17 +1,12 @@
-﻿  Canevas.cpp
-  Couche.cpp
-  Vecteur.cpp
-  testGraphicusGUI.cpp
-  tests.cpp
+﻿  tests.cpp
 ..\GraphicusSources\tests.cpp(345,49): warning C4805: '!=' : mélange risqué de type 'TypeInconnue' et de type 'int' dans l'opération
           with
           [
               TypeInconnue=bool
           ]
-..\GraphicusSources\tests.cpp(575,48): warning C4805: '!=' : mélange risqué de type 'TypeInconnue' et de type 'int' dans l'opération
+..\GraphicusSources\tests.cpp(585,32): warning C4805: '!=' : mélange risqué de type 'TypeInconnue' et de type 'int' dans l'opération
           with
           [
               TypeInconnue=bool
           ]
-  Génération de code en cours...
   testGraphicusGUI.vcxproj -> C:\Users\cous1912\Desktop\S2-H24-APP2\GraphicusFiles\debug\testGraphicusGUI.exe

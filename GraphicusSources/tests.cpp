@@ -493,10 +493,11 @@ void Tests::tests_unitaires_vecteur()
     //////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////// [] SURCHARGE TESTS
     //////////////////////////////////////////////////////////////////////////////
-    DebutDunTest("Verification des donnees par surchage d'operateur []");
+    DebutDunTest("Verification du retour des donnees par surchage d'operateur []");
     bool aPasserLeTest = true;
     for (int i = 0; i < intVecteur.Capacite(); ++i)
     {
+        std::cout << std::to_string(i) << ": []: " << std::to_string(intVecteur[i]) << ", DonneAIndex: " << std::to_string(intVecteur.DonneAIndex(i)) << std::endl;
         if (intVecteur[i] != intVecteur.DonneAIndex(i)) aPasserLeTest = false;
     }
     SousTest("Verification de la surcharge de [] d'un vecteur <int>", aPasserLeTest);
@@ -538,13 +539,22 @@ void Tests::tests_unitaires_vecteur()
 
     FinDuTest();
     //////////////////////////////////////////////////////////////////////////////
+    DebutDunTest("Verification d'enregistrement des donnees avec []");
+
+    intVecteur[0] = 69;
+    boolVecteur[1] = true;
+    stringVecteur[4] = "Amogus sussy balls fr fr ong no cap";
+    doubleVecteur[7] = 696969;
+
+    FinDuTest();
+    //////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////// += TESTS
     //////////////////////////////////////////////////////////////////////////////
     DebutDunTest("Ajout de 19 donnees avec +=");
     for (int i = 18; i < 37; i++)
     {
         intVecteur += i;
-        boolVecteur += (i % 3);
+        boolVecteur += (i % 2);
         stringVecteur += "amogus";
         doubleVecteur += (i * 3);
     }
@@ -572,7 +582,7 @@ void Tests::tests_unitaires_vecteur()
    for (int i = 18; i < 37; i++)
    {
        if (intVecteur[i] != i) erreurInt = true;
-       if (boolVecteur[i] != (i%3)) erreurBool = true;
+       if (boolVecteur[i] != (i%2)) erreurBool = true;
        if (stringVecteur[i] != "amogus") erreurString = true;
        if (doubleVecteur[i] != (i * 3)) erreurDouble = true;
    }
