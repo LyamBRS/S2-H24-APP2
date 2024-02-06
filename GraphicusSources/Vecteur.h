@@ -186,7 +186,25 @@ class Vecteur
         /// @return false: Index n'est pas valide.
         bool VerifierIndex(int index);
 
-        //bool operator==(const Vecteur&) const;
+        /// <summary>
+        /// Permet d'avoir la donnée à un index
+        /// spécifié. Une donnée vide sera retournée
+        /// si l'index n'est pas valide
+        /// </summary>
+        /// <typeparam name="TypeInconnue"></typeparam>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        TypeInconnue& operator[](int index);
+
+        /// <summary>
+        /// Permet d'avoir la donnée à un index
+        /// spécifié. Une donnée vide sera retournée
+        /// si l'index n'est pas valide
+        /// </summary>
+        /// <typeparam name="TypeInconnue"></typeparam>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        const TypeInconnue& operator[](int index) const;
 
     private:
         /// @brief valeur interne de la grosseur actuelle de la liste dynamique
@@ -611,9 +629,44 @@ int Vecteur<TypeInconnue>::Capacite()
 
 
 
-//template <typename TypeInconnue>
-//bool Vecteur<TypeInconnue>::operator==(const Vecteur&)
-//{
-//    return false;
-//}
+
+
+
+/// <summary>
+/// Permet d'avoir la donnée à un index
+/// spécifié. Une donnée vide sera retournée
+/// si l'index n'est pas valide
+/// </summary>
+/// <typeparam name="TypeInconnue"></typeparam>
+/// <param name="index"></param>
+/// <returns></returns>
+template <typename TypeInconnue>
+TypeInconnue& Vecteur<TypeInconnue>::operator[](int index) 
+{
+    if (!VerifierIndex(index))
+    {
+        // Index n'est pas valide. Good luck buddy.
+        return TypeInconnue();
+    }
+    return _donnees[index];
+}
+
+/// <summary>
+/// Permet d'avoir la donnée à un index
+/// spécifié. Une donnée vide sera retournée
+/// si l'index n'est pas valide
+/// </summary>
+/// <typeparam name="TypeInconnue"></typeparam>
+/// <param name="index"></param>
+/// <returns></returns>
+template <typename TypeInconnue>
+const TypeInconnue& Vecteur<TypeInconnue>::operator[](int index) const 
+{
+    if (!VerifierIndex(index))
+    {
+        // Index n'est pas valide. Good luck buddy.
+        return TypeInconnue();
+    }
+    return _donnees[index];
+}
 
