@@ -495,7 +495,7 @@ void Tests::tests_unitaires_vecteur()
     //////////////////////////////////////////////////////////////////////////////
     DebutDunTest("Verification du retour des donnees par surchage d'operateur []");
     bool aPasserLeTest = true;
-    for (int i = 0; i < intVecteur.Capacite(); ++i)
+    for (int i = 0; i < intVecteur.Grosseur(); ++i)
     {
         std::cout << std::to_string(i) << ": []: " << std::to_string(intVecteur[i]) << ", DonneAIndex: " << std::to_string(intVecteur.DonneAIndex(i)) << std::endl;
         if (intVecteur[i] != intVecteur.DonneAIndex(i)) aPasserLeTest = false;
@@ -503,35 +503,35 @@ void Tests::tests_unitaires_vecteur()
     SousTest("Verification de la surcharge de [] d'un vecteur <int>", aPasserLeTest);
 
     aPasserLeTest = true;
-    for (int i = 0; i < boolVecteur.Capacite(); ++i)
+    for (int i = 0; i < boolVecteur.Grosseur(); ++i)
     {
         if (boolVecteur[i] != boolVecteur.DonneAIndex(i)) aPasserLeTest = false;
     }
     SousTest("Verification de la surcharge de [] d'un vecteur <bool>", aPasserLeTest);
 
     aPasserLeTest = true;
-    for (int i = 0; i < stringVecteur.Capacite(); ++i)
+    for (int i = 0; i < stringVecteur.Grosseur(); ++i)
     {
         if (stringVecteur[i] != stringVecteur.DonneAIndex(i)) aPasserLeTest = false;
     }
     SousTest("Verification de la surcharge de [] d'un vecteur <string>", aPasserLeTest);
 
     aPasserLeTest = true;
-    for (int i = 0; i < doubleVecteur.Capacite(); ++i)
+    for (int i = 0; i < doubleVecteur.Grosseur(); ++i)
     {
         if (doubleVecteur[i] != doubleVecteur.DonneAIndex(i)) aPasserLeTest = false;
     }
     SousTest("Verification de la surcharge de [] d'un vecteur <double>", aPasserLeTest);
 
     aPasserLeTest = true;
-    for (int i = 0; i < charPtrVecteur.Capacite(); ++i)
+    for (int i = 0; i < charPtrVecteur.Grosseur(); ++i)
     {
         if (charPtrVecteur[i] != charPtrVecteur.DonneAIndex(i)) aPasserLeTest = false;
     }
     SousTest("Vérification de la surcharge de [] d'un vecteur <char*>", aPasserLeTest);
 
     aPasserLeTest = true;
-    for (int i = 0; i < stringPtrVecteur.Capacite(); ++i)
+    for (int i = 0; i < stringPtrVecteur.Grosseur(); ++i)
     {
         if (stringPtrVecteur[i] != stringPtrVecteur.DonneAIndex(i)) aPasserLeTest = false;
     }
@@ -539,12 +539,17 @@ void Tests::tests_unitaires_vecteur()
 
     FinDuTest();
     //////////////////////////////////////////////////////////////////////////////
-    DebutDunTest("Verification d'enregistrement des donnees avec []");
+    DebutDunTest("Verification d'enregistrement des donnees avec [] a index specifique");
 
     intVecteur[0] = 69;
     boolVecteur[1] = true;
     stringVecteur[4] = "Amogus sussy balls fr fr ong no cap";
     doubleVecteur[7] = 696969;
+
+    SousTest("Vecteur int", "intVecteur[0] == 69", intVecteur[0] == 69);
+    SousTest("Vecteur bool", "boolVecteur[1] == true", boolVecteur[1] == true);
+    SousTest("Vecteur string", "stringVecteur[4] == \"Amogus sussy balls fr fr ong no cap\"", stringVecteur[4] == "Amogus sussy balls fr fr ong no cap");
+    SousTest("Vecteur double", "doubleVecteur[7] == 696969", doubleVecteur[7] == 696969);
 
     FinDuTest();
     //////////////////////////////////////////////////////////////////////////////

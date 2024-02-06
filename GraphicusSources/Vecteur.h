@@ -186,8 +186,19 @@ class Vecteur
         /// @return false: Index n'est pas valide.
         bool VerifierIndex(int index);
 
-        TypeInconnue operator [](int i) const { return _donnees[i]; }
-        TypeInconnue& operator [](int i) { return _donnees[i]; }
+        /// <summary>
+        /// OVERLOAD A
+        /// </summary>
+        /// <param name="i"></param>
+        /// <returns></returns>
+        TypeInconnue operator [](int i) const;
+
+        /// <summary>
+        /// OVERLOAD B
+        /// </summary>
+        /// <param name="i"></param>
+        /// <returns></returns>
+        TypeInconnue& operator [](int i);
 
         /// <summary>
         /// Adds one data at the end of the vector.
@@ -619,8 +630,35 @@ int Vecteur<TypeInconnue>::Capacite()
 }
 
 
+/// <summary>
+/// OVERLOAD A
+/// </summary>
+/// <param name="i"></param>
+/// <returns></returns>
+template<typename TypeInconnue>
+TypeInconnue Vecteur<TypeInconnue>::operator [](int i) const
+{ 
+    if (!VerifierIndex(i))
+    {
+        return _donnees[0];
+    }
+    return _donnees[i]; 
+}
 
-
+/// <summary>
+/// OVERLOAD B
+/// </summary>
+/// <param name="i"></param>
+/// <returns></returns>
+template<typename TypeInconnue>
+TypeInconnue& Vecteur<TypeInconnue>::operator [](int i) 
+{
+    if (!VerifierIndex(i))
+    {
+        return _donnees[0];
+    }
+    return _donnees[i]; 
+}
 
 /// <summary>
 /// Adds one data at the end of the vector.
