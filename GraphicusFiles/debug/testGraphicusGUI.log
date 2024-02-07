@@ -1,6 +1,6 @@
-﻿  monInterface.cpp
-monInterface.cpp(86,40): warning C4100: 'mode': unreferenced formal parameter
-monInterface.cpp(95,9): warning C4930: 'Couche couche(void)': prototyped function not called (was a variable definition intended?)
+﻿  Canevas.cpp
+  Couche.cpp
+  Vecteur.cpp
   tests.cpp
 ..\GraphicusSources\tests.cpp(345,49): warning C4805: '!=': unsafe mix of type 'TypeInconnue' and type 'int' in operation
           with
@@ -12,5 +12,9 @@ monInterface.cpp(95,9): warning C4930: 'Couche couche(void)': prototyped functio
           [
               TypeInconnue=bool
           ]
+  monInterface.cpp
+monInterface.cpp(86,40): warning C4100: 'mode': unreferenced formal parameter
+monInterface.cpp(95,9): warning C4930: 'Couche couche(void)': prototyped function not called (was a variable definition intended?)
+  testGraphicusGUI.cpp
   Generating Code...
   testGraphicusGUI.vcxproj -> C:\Users\Lyam\Desktop\Important\School\University\S2\APP3_2\S2-H24-GI-APP3\GraphicusFiles\debug\testGraphicusGUI.exe

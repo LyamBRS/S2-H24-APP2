@@ -497,7 +497,7 @@ void Tests::tests_unitaires_vecteur()
     bool aPasserLeTest = true;
     for (int i = 0; i < intVecteur.Grosseur(); ++i)
     {
-        std::cout << std::to_string(i) << ": []: " << std::to_string(intVecteur[i]) << ", DonneAIndex: " << std::to_string(intVecteur.DonneAIndex(i)) << std::endl;
+        //std::cout << std::to_string(i) << ": []: " << std::to_string(intVecteur[i]) << ", DonneAIndex: " << std::to_string(intVecteur.DonneAIndex(i)) << std::endl;
         if (intVecteur[i] != intVecteur.DonneAIndex(i)) aPasserLeTest = false;
     }
     SousTest("Verification de la surcharge de [] d'un vecteur <int>", aPasserLeTest);
@@ -543,21 +543,21 @@ void Tests::tests_unitaires_vecteur()
 
     intVecteur[0] = 69;
     boolVecteur[1] = true;
-    stringVecteur[4] = "Amogus sussy balls fr fr ong no cap";
+    stringVecteur[4] = "8=====D Amogus sussy balls fr fr ong no cap";
     doubleVecteur[7] = 696969;
 
     SousTest("Vecteur int", "intVecteur[0] == 69", intVecteur[0] == 69);
     SousTest("Vecteur bool", "boolVecteur[1] == true", boolVecteur[1] == true);
-    SousTest("Vecteur string", "stringVecteur[4] == \"Amogus sussy balls fr fr ong no cap\"", stringVecteur[4] == "Amogus sussy balls fr fr ong no cap");
+    SousTest("Vecteur string", "stringVecteur[4] == \"8=====D Amogus sussy balls fr fr ong no cap\"", stringVecteur[4] == "8=====D Amogus sussy balls fr fr ong no cap");
     SousTest("Vecteur double", "doubleVecteur[7] == 696969", doubleVecteur[7] == 696969);
 
     FinDuTest();
     //////////////////////////////////////////////////////////////////////////////
     DebutDunTest("Verification de print avec l'operateur << et []");
 
-    for (int i = 0; intVecteur.Grosseur(); ++i)
+    for (int i = 0; i<intVecteur.Grosseur(); i++)
     {
-        std::cout << intVecteur[i] << std::endl;
+        std::cout << std::to_string(intVecteur[i]) << std::endl;
     }
 
     FinDuTest();

@@ -651,6 +651,7 @@ TypeInconnue Vecteur<TypeInconnue>::operator [](int i) const
 { 
     if (!VerifierIndex(i))
     {
+        std::cout << "INDEX ERROR" << std::endl;
         return _donnees[0];
     }
     return _donnees[i]; 
@@ -666,6 +667,7 @@ TypeInconnue& Vecteur<TypeInconnue>::operator [](int i)
 {
     if (!VerifierIndex(i))
     {
+        std::cout << "INDEX ERROR" << std::endl;
         return _donnees[0];
     }
     return _donnees[i]; 
