@@ -409,3 +409,26 @@ bool Canevas::CoucheDerniere()
     return activerCouche(couches.Grosseur()-1);
 }
 
+
+bool Canevas::ChoisirForme(int index)
+{
+    return couches[couches.get_index_itemCourant()]->ChoisirForme(0);
+
+
+}
+
+bool Canevas::FormePrecedente()
+{
+    return couches[couches.get_index_itemCourant()]->FormePrecedente();
+}
+
+bool Canevas::FormeSuivante()
+{
+    return couches[couches.get_index_itemCourant()]->FormeSuivante();
+}
+
+
+bool Canevas::FormeDerniere()
+{
+    return couches[couches.get_index_itemCourant()]->FormeDerniere();
+}

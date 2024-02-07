@@ -127,19 +127,19 @@ void MonInterface::coucheDerniere()
 }
 void MonInterface::formePremiere()
 {
-
+	c.ChoisirForme(0);
 }
 void MonInterface::formePrecedente()
 {
-
+	c.FormePrecedente();
 }
 void MonInterface::formeSuivante()
 {
-
+	c.FormeSuivante();
 }
 void MonInterface::formeDerniere()
 {
-
+	c.FormeDerniere();
 }
 
 

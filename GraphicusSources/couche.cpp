@@ -212,6 +212,33 @@ bool Couche::AfficherCouche(ostream & s)
     return true;
 }
 
+
+
+bool Couche::ChoisirForme(int index)
+{
+    return _vecteur.setIntemCourant(index);
+    
+
+}
+
+bool Couche::FormePrecedente()
+{
+    return --_vecteur;
+}
+
+bool Couche::FormeSuivante()
+{
+    return ++_vecteur;
+}
+
+
+bool Couche::FormeDerniere()
+{
+    return _vecteur.setIntemCourant(_vecteur.Grosseur() - 1);
+}
+
+
+
 template <typename U>
 U& operator<<(U& os, const Couche& couche) {
     os << "L ";

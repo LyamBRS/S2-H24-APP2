@@ -95,6 +95,11 @@ class Couche
       /// @return EtatsCouche
       EtatsCouche Etat();
 
+      bool ChoisirForme(int index);
+      bool FormePrecedente();
+      bool FormeSuivante();
+      bool FormeDerniere();
+
       template <typename U>
       friend U& operator<<(U& os, const Couche& couche);
 

@@ -235,6 +235,11 @@ public:
    bool CoucheSuivante();
    bool CoucheDerniere();
 
+   bool ChoisirForme(int index);
+   bool FormePrecedente();
+   bool FormeSuivante();
+   bool FormeDerniere();
+
    friend std::ostream& operator<<(std::ostream& os, const Canevas& canevas) {
        for (int i = 0; i < canevas.couches.Grosseur(); i++)
        {
