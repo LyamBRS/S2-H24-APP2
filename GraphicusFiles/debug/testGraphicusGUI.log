@@ -1,17 +1,16 @@
-﻿  Canevas.cpp
-  Couche.cpp
-  Vecteur.cpp
-  testGraphicusGUI.cpp
+﻿  monInterface.cpp
+monInterface.cpp(86,40): warning C4100: 'mode': unreferenced formal parameter
+monInterface.cpp(95,9): warning C4930: 'Couche couche(void)': prototyped function not called (was a variable definition intended?)
   tests.cpp
-..\GraphicusSources\tests.cpp(345,49): warning C4805: '!=' : mélange risqué de type 'TypeInconnue' et de type 'int' dans l'opération
+..\GraphicusSources\tests.cpp(345,49): warning C4805: '!=': unsafe mix of type 'TypeInconnue' and type 'int' in operation
           with
           [
               TypeInconnue=bool
           ]
-..\GraphicusSources\tests.cpp(599,32): warning C4805: '!=' : mélange risqué de type 'TypeInconnue' et de type 'int' dans l'opération
+..\GraphicusSources\tests.cpp(599,32): warning C4805: '!=': unsafe mix of type 'TypeInconnue' and type 'int' in operation
           with
           [
               TypeInconnue=bool
           ]
-  Génération de code en cours...
-  testGraphicusGUI.vcxproj -> C:\Users\cous1912\Desktop\S2-H24-APP2\GraphicusFiles\debug\testGraphicusGUI.exe
+  Generating Code...
+  testGraphicusGUI.vcxproj -> C:\Users\Lyam\Desktop\Important\School\University\S2\APP3_2\S2-H24-GI-APP3\GraphicusFiles\debug\testGraphicusGUI.exe
