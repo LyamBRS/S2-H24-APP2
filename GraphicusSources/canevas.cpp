@@ -382,14 +382,30 @@ int Canevas::NombreDeCouches()
    return couches.Grosseur();
 }
 
-
-
-
-std::ostream& operator<<(std::ostream& os, const Canevas& canevas) {
-    for (int i = 0; i < canevas.couches.Grosseur(); i++)
-    {
-        // Idk, this/friend moment. Cant be asked. Good luck.
-        // Also dont know why it would make sense to access private attributes in an overload but only SOME times. Fuck you thats why.
-    }
-    return os;
+bool Canevas::ChoisirCouche(int index)
+{
+    couches.setIntemCourant(index);
+    return activerCouche(index);
+   
 }
+
+bool Canevas::CouchePrecedente()
+{
+    --couches;
+    return activerCouche(couches.get_index_itemCourant());
+}
+
+bool Canevas::CoucheSuivante()
+{
+    ++couches;
+    return activerCouche(couches.get_index_itemCourant());
+}
+
+
+bool Canevas::CoucheDerniere()
+{
+   
+    couches.setIntemCourant(couches.Grosseur()-1);
+    return activerCouche(couches.Grosseur()-1);
+}
+

@@ -48,7 +48,9 @@ void MonInterface::reinitialiserCanevas()
 	os << "C " << coor(generator) << " " << coor(generator) << " " << dim(generator) << std::endl;
 
 	// Ensuite, on dessine ce qui a été généré dans Graphicus
+
 	std::cout << os.str() << std::endl;
+	updateConsole();
 	dessiner(os.str().c_str());
 }
 
@@ -66,18 +68,18 @@ void MonInterface::coucheTranslater(int deltaX, int deltaY)
 }
 void MonInterface::ajouterCercle(int x, int y, int rayon)
 {
-	Cercle cercle(x, y, rayon);
-	c.ajouterForme(&cercle);
+	c.ajouterForme(new Cercle(x,y,rayon));
+	//updateUI();
 }
 void MonInterface::ajouterRectangle(int x, int y, int longueur, int largeur)
 {
-	Rectangle rect(x, y, longueur, largeur);
-	c.ajouterForme(&rect);
+	
+	c.ajouterForme(new Rectangle(x, y, longueur, largeur));
 }
 void MonInterface::ajouterCarre(int x, int y, int cote)
 {
-	Carre carre(x, y, cote);
-	c.ajouterForme(&carre);
+	
+	c.ajouterForme(new Carre (x, y, cote));
 }
 void MonInterface::modePileChange(bool mode)
 {
@@ -88,15 +90,15 @@ void MonInterface::modePileChange(bool mode)
 	// Menu Canevas
 void MonInterface::coucheAjouter()
 {
-	Couche couche = Couche();
-	c.ajouterCouche(&couche);
+	
+	c.ajouterCouche(new Couche());
 }
 void MonInterface::coucheRetirer()
 {
 	//chercher couche active
 	//detruire la couche
-	c.retirerCouche(c.NombreDeCouches());
-	std::cout << c;
+	//c.retirerCouche(c.NombreDeCouches());
+	//std::cout << c;
 }
 
 
@@ -109,19 +111,19 @@ void MonInterface::retirerForme()
 	// Menu navigation
 void MonInterface::couchePremiere()
 {
-
+	c.ChoisirCouche(0);
 }
 void MonInterface::couchePrecedente()
 {
-
+	c.CouchePrecedente();
 }
 void MonInterface::coucheSuivante()
 {
-
+	c.CoucheSuivante();
 }
 void MonInterface::coucheDerniere()
 {
-
+	c.CoucheDerniere();
 }
 void MonInterface::formePremiere()
 {
@@ -138,4 +140,21 @@ void MonInterface::formeSuivante()
 void MonInterface::formeDerniere()
 {
 
+}
+
+
+void MonInterface::updateUI()
+{
+	std::ostringstream os;
+
+	os << c;
+
+	std::cout << os.str() << std::endl;
+	dessiner(os.str().c_str());
+}
+
+void MonInterface::updateConsole()
+{
+	system("cls");
+	c.afficher(std::cout);
 }

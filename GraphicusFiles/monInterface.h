@@ -18,6 +18,8 @@ class MonInterface : public GraphicusGUI
 {
 private:
 	Canevas c;
+	void updateUI();
+	void updateConsole();
 public:
 	MonInterface(const char *theName = nullptr);
 	bool ouvrirFichier(const char*);

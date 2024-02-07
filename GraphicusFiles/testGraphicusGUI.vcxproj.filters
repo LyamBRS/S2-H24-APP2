@@ -48,6 +48,9 @@
     <ClCompile Include="..\GraphicusSources\forme.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="monInterface.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="..\GraphicusSources\resultatCouleur.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -55,9 +58,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\GraphicusSources\tests.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="monInterface.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -93,12 +93,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\GraphicusSources\tests.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\GraphicusGUI\centralWidget.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\GraphicusGUI\graphicusGUI.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

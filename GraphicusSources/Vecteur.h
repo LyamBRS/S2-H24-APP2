@@ -170,6 +170,26 @@ class Vecteur
          * envoyé. Vérifié votre index avant d'appeller
          * cette fonction!
          */
+        TypeInconnue GetItemCourant();
+
+        /**
+         * @brief
+         * Permet de lire une donnée à un index
+         * donnée. Veuillez faire attention à se
+         * que l'index spécifié soit valide.
+         * @param index
+         * Nombre entier représentent l'index
+         * ou se situe la donné à lire
+         * @return TypeInconnue
+         * La donnée à l'emplacement spécifié de
+         * type indéterminé.
+         *
+         * @attention
+         * Si l'index n'est pas valide, une valeure
+         * par défaut du type du vecteur est
+         * envoyé. Vérifié votre index avant d'appeller
+         * cette fonction!
+         */
         TypeInconnue* DonnePointeurAIndex(int index);
 
         /// @brief Retourne la grosseur actuel du vecteur. En gros, combien de données sont actuellement sauvegardées.
@@ -204,6 +224,11 @@ class Vecteur
         /// <returns></returns>
         TypeInconnue& operator [](int i);
 
+
+        bool setIntemCourant(int index);
+
+        int get_index_itemCourant();
+
         /// <summary>
         /// Adds one data at the end of the vector.
         /// </summary>
@@ -211,7 +236,27 @@ class Vecteur
         /// <returns>true: Succes, false: erreur</returns>
         bool operator+=(const TypeInconnue& donnee);
 
-        friend std::ostream& operator<<(std::ostream& os, const Vecteur<TypeInconnue>& vecteur);
+        /// <summary>
+        /// Augment le itemCourant
+        /// </summary>
+        /// <param name="donnee"></param>
+        /// <returns>true: Succes, false: erreur</returns>
+        bool operator++();
+
+        /// <summary>
+        /// Diminue l'itemCourant
+        /// </summary>
+        /// <param name="donnee"></param>
+        /// <returns>true: Succes, false: erreur</returns>
+        bool operator--();
+
+        friend std::ostream& operator<<(std::ostream& os, const Vecteur<TypeInconnue>& vecteur)
+        {
+            for (int i = 0; i < vecteur.Grosseur(); ++i) {
+                os << vecteur[i] << "\n"; // Assuming you have an operator[] defined for Vecteur
+            }
+            return os;
+        }
 
     private:
         /// @brief valeur interne de la grosseur actuelle de la liste dynamique
@@ -222,6 +267,8 @@ class Vecteur
         int _capacite_max = CAPACITE_MAX_INFINIE;
         /// @brief Le tableau de données d'un type non déterminé. Peu importe le type, la sauvegarde et le traitement reste le même.
         TypeInconnue* _donnees;
+
+        int _itemCourant = 0;
 
         /// @brief Mets a jour le tableau pour être deux fois la grandeur actuelle.
         /// @return true: Doublement effectué avec succès.
@@ -562,6 +609,13 @@ TypeInconnue Vecteur<TypeInconnue>::DonneAIndex(int index)
     return _donnees[index];
 }
 
+template <typename TypeInconnue>
+TypeInconnue Vecteur<TypeInconnue>::GetItemCourant()
+{
+    return _donnees[_itemCourant];
+}
+
+
 /**
  * @brief
  * Permet de lire une donnée à un index
@@ -663,11 +717,11 @@ int Vecteur<TypeInconnue>::Capacite()
 template<typename TypeInconnue>
 TypeInconnue Vecteur<TypeInconnue>::operator [](int i) const
 { 
-    if (!VerifierIndex(i))
+    /*if (!VerifierIndex(i))
     {
         std::cout << "INDEX ERROR" << std::endl;
         return _donnees[0];
-    }
+    }*/
     return _donnees[i]; 
 }
 
@@ -687,6 +741,20 @@ TypeInconnue& Vecteur<TypeInconnue>::operator [](int i)
     return _donnees[i]; 
 }
 
+
+template<typename TypeInconnue>
+bool Vecteur<TypeInconnue>::setIntemCourant(int index)
+{
+    _itemCourant = index;
+    return true;
+}
+
+template<typename TypeInconnue>
+int Vecteur<TypeInconnue>::get_index_itemCourant()
+{
+    return _itemCourant;
+}
+
 /// <summary>
 /// Adds one data at the end of the vector.
 /// </summary>
@@ -697,11 +765,19 @@ bool Vecteur<TypeInconnue>::operator+=(const TypeInconnue& donnee) {
     return Ajouter(donnee);
 }
 
-template <typename TypeInconnue>
-std::ostream& operator<<(std::ostream& os, const Vecteur<TypeInconnue>& vecteur) {
-    for (int i = 0; i < vecteur.Grosseur(); ++i) {
-        os << vecteur[i] << "\n"; // Assuming you have an operator[] defined for Vecteur
-    }
-    return os;
+
+template<typename TypeInconnue>
+bool Vecteur<TypeInconnue>::operator++()
+{
+    _itemCourant++;
+    return true;
 }
+
+template<typename TypeInconnue>
+bool Vecteur<TypeInconnue>::operator--()
+{
+    _itemCourant--;
+    return true;
+}
+
 
