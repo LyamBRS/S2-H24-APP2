@@ -265,7 +265,7 @@ bool Canevas::retirerForme(int index)
 */
 bool Canevas::ajouterCouche(Couche *p_couche)
 {
-   return couches.Ajouter(p_couche);
+   return couches += p_couche;
 }
 
 /**
@@ -294,6 +294,29 @@ bool Canevas::retirerCouche(int index)
    }
 
    return couches.Retirer(index);
+}
+
+
+bool Canevas::retirerCouche()
+{
+    /*if (!couches.VerifierIndex(index))
+    {
+        return false;
+    }*/
+
+    return couches.Retirer(couches.get_index_itemCourant());
+
+}
+
+bool Canevas::retirerForme()
+{
+    /*if (!couches.VerifierIndex(index))
+    {
+        return false;
+    }*/
+
+    return couches[couches.get_index_itemCourant()]->RetirerForme();
+
 }
 
 /**

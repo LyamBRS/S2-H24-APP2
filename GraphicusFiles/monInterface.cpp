@@ -65,21 +65,25 @@ bool MonInterface::sauvegarderFichier(const char*)
 void MonInterface::coucheTranslater(int deltaX, int deltaY)
 {
 	c.translater(deltaX, deltaY);
+	updateConsole();
 }
 void MonInterface::ajouterCercle(int x, int y, int rayon)
 {
 	c.ajouterForme(new Cercle(x,y,rayon));
+	updateConsole();
 	//updateUI();
 }
 void MonInterface::ajouterRectangle(int x, int y, int longueur, int largeur)
 {
 	
 	c.ajouterForme(new Rectangle(x, y, longueur, largeur));
+	updateConsole();
 }
 void MonInterface::ajouterCarre(int x, int y, int cote)
 {
 	
 	c.ajouterForme(new Carre (x, y, cote));
+	updateConsole();
 }
 void MonInterface::modePileChange(bool mode)
 {
@@ -92,13 +96,12 @@ void MonInterface::coucheAjouter()
 {
 	
 	c.ajouterCouche(new Couche());
+	updateConsole();
 }
 void MonInterface::coucheRetirer()
 {
-	//chercher couche active
-	//detruire la couche
-	//c.retirerCouche(c.NombreDeCouches());
-	//std::cout << c;
+	c.retirerCouche();
+	updateConsole();
 }
 
 
@@ -107,39 +110,49 @@ void MonInterface::retirerForme()
 {
 	//forme selectionner
 	//retirer
+	c.retirerForme();
+	updateConsole();
 }
 	// Menu navigation
 void MonInterface::couchePremiere()
 {
 	c.ChoisirCouche(0);
+	updateConsole();
 }
 void MonInterface::couchePrecedente()
 {
 	c.CouchePrecedente();
+	updateConsole();
 }
 void MonInterface::coucheSuivante()
 {
 	c.CoucheSuivante();
+	updateConsole();
 }
 void MonInterface::coucheDerniere()
 {
 	c.CoucheDerniere();
+	updateConsole();
 }
 void MonInterface::formePremiere()
 {
 	c.ChoisirForme(0);
+	updateConsole();
 }
 void MonInterface::formePrecedente()
 {
 	c.FormePrecedente();
+	updateConsole();
 }
 void MonInterface::formeSuivante()
 {
 	c.FormeSuivante();
+	updateConsole();
 }
 void MonInterface::formeDerniere()
 {
 	c.FormeDerniere();
+	updateConsole();
 }
 
 

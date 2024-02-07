@@ -50,6 +50,8 @@ class Couche
       /// @param index: La forme est retire a l'index.
       /// @return Retourne la forme a l'index
       Forme* RetirerForme(int index);
+
+      bool RetirerForme();
    
       /// @brief Dit la forme dans la couche a l'index specifier
       /// @param index: La forme a l'index designé.

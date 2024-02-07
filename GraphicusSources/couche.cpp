@@ -60,6 +60,12 @@ Forme* Couche::RetirerForme(int index)
     }
 }
 
+bool Couche::RetirerForme()
+{
+    _vecteur.Retirer(_vecteur.get_index_itemCourant());
+    return true;
+}
+
 
 /// @brief Dit la forme dans la couche a l'index specifier
 /// @param index: La forme a l'index designé.

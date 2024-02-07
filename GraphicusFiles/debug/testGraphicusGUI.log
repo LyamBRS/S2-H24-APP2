@@ -1,2 +1,3 @@
-﻿  Canevas.cpp
+﻿  monInterface.cpp
+monInterface.cpp(88,40): warning C4100: 'mode': unreferenced formal parameter
   testGraphicusGUI.vcxproj -> C:\Users\gratt\Documents\Uni\App3_S2\Git\S2-H24-APP2\GraphicusFiles\debug\testGraphicusGUI.exe

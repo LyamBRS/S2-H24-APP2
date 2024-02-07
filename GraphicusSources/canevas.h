@@ -179,6 +179,9 @@ public:
     */
    bool retirerCouche(int index);
 
+   bool retirerCouche();
+   bool retirerForme();
+
    /**
     * @brief
     * Retourne l'aire total du canevas. L'aire du
