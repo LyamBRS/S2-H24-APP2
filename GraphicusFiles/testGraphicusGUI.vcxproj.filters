@@ -95,6 +95,12 @@
     <ClInclude Include="..\GraphicusSources\tests.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\GraphicusGUI\centralWidget.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\GraphicusGUI\graphicusGUI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="debug\moc_predefs.h.cbt">

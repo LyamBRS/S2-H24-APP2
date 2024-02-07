@@ -61,6 +61,9 @@ class Cercle : public Forme
         /// @param s: Genre std::cout
         void afficher(ostream & s);
 
+        //template <typename U>
+        friend std::ostream& operator<<(std::ostream& os, const Cercle& cercle);
+
     private:
         /// @brief le rayon du cercle en pixel.
         int _rayon = 0;

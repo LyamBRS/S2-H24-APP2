@@ -156,6 +156,8 @@
     <ClCompile Include="..\GraphicusSources\tests.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\GraphicusGUI\centralWidget.h" />
+    <ClInclude Include="..\GraphicusGUI\graphicusGUI.h" />
     <ClInclude Include="..\GraphicusSources\Canevas.h" />
     <ClInclude Include="..\GraphicusSources\Carre.h" />
     <ClInclude Include="..\GraphicusSources\Cercle.h" />

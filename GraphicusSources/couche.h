@@ -95,6 +95,9 @@ class Couche
       /// @return EtatsCouche
       EtatsCouche Etat();
 
+      template <typename U>
+      friend U& operator<<(U& os, const Couche& couche);
+
    private:
       /// @brief Vecteur qui permet d'avoir tous les elements de la couche
       Vecteur<Forme*> _vecteur;

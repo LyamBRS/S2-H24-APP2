@@ -78,3 +78,9 @@ void Cercle::afficher(ostream & s)
 {
 	s << "Cercle (x=" << ancrage.x << ", y=" << ancrage.y << ", r=" << _rayon << ", aire=" << aire() << ")\n";
 }
+
+//template <typename U>
+std::ostream& operator<<(std::ostream& os, const Cercle& cercle) {
+    os << "C " << cercle.ancrage.x << " " << cercle.ancrage.y << " " << cercle._rayon << std::endl;
+    return os;
+}

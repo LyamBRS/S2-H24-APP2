@@ -25,6 +25,10 @@ public:
   void setAncrage(Coordonnee c);
   virtual double aire() = 0;
   virtual void afficher(ostream & s) = 0;
+
+  template <typename U>
+  friend U& operator<<(U& os, const Forme& forme);
+
 protected:
   Coordonnee ancrage;
 };

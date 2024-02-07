@@ -176,6 +176,10 @@ class Vecteur
         /// @return Nombre entier correspondant à la grosseur actuel du vecteur.
         int Grosseur();
 
+        /// @brief Retourne la grosseur actuel du vecteur. En gros, combien de données sont actuellement sauvegardées.
+        /// @return Nombre entier correspondant à la grosseur actuel du vecteur.
+        int Grosseur() const;
+
         /// @brief Retourne la capacité total du vecteur pouvant être atteinte avant de devoir doublé de grandeur.
         /// @return Nombre entier correspondant à la grosseur total du vecteur.
         int Capacite();
@@ -206,6 +210,8 @@ class Vecteur
         /// <param name="donnee"></param>
         /// <returns>true: Succes, false: erreur</returns>
         bool operator+=(const TypeInconnue& donnee);
+
+        friend std::ostream& operator<<(std::ostream& os, const Vecteur<TypeInconnue>& vecteur);
 
     private:
         /// @brief valeur interne de la grosseur actuelle de la liste dynamique
@@ -620,6 +626,14 @@ int Vecteur<TypeInconnue>::Grosseur()
     return _grosseur;
 }
 
+/// @brief Retourne la grosseur actuel du vecteur. En gros, combien de données sont actuellement sauvegardées.
+/// @return Nombre entier correspondant à la grosseur actuel du vecteur.
+template <typename TypeInconnue>
+int Vecteur<TypeInconnue>::Grosseur() const
+{
+    return _grosseur;
+}
+
 /// @brief Retourne la capacité total du vecteur pouvant être atteinte avant de devoir doublé de grandeur.
 /// @return Nombre entier correspondant à la grosseur total du vecteur.
 template <typename TypeInconnue>
@@ -681,5 +695,13 @@ TypeInconnue& Vecteur<TypeInconnue>::operator [](int i)
 template<typename TypeInconnue>
 bool Vecteur<TypeInconnue>::operator+=(const TypeInconnue& donnee) {
     return Ajouter(donnee);
+}
+
+template <typename TypeInconnue>
+std::ostream& operator<<(std::ostream& os, const Vecteur<TypeInconnue>& vecteur) {
+    for (int i = 0; i < vecteur.Grosseur(); ++i) {
+        os << vecteur[i] << "\n"; // Assuming you have an operator[] defined for Vecteur
+    }
+    return os;
 }
 

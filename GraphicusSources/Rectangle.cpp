@@ -100,4 +100,8 @@ void Rectangle::afficher(ostream & s)
 	s << "Rectangle (x=" << ancrage.x << ", y=" << ancrage.y << ", l=" << _largeur << ", h=" << _hauteur << ", aire=" << aire() << ")\n";
 }
 
+std::ostream& operator<<(std::ostream& os, const Rectangle& rectangle) {
+    os << "R " << rectangle.ancrage.x << " " << rectangle.ancrage.y << " " << rectangle._largeur << " " << rectangle._hauteur << std::endl;
+    return os;
+}
 

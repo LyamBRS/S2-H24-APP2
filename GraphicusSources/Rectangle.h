@@ -73,6 +73,9 @@ class Rectangle : public Forme
         /// @param s: Genre std::cout
         void afficher(ostream & s);
 
+        //template <typename U>
+        friend std::ostream& operator<<(std::ostream& os, const Rectangle& rectangle);
+
     private:
         /// @brief La hauteur du rectangle (vertical) en pixel.
         int _hauteur = 0;

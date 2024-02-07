@@ -18,9 +18,6 @@
 #include "../GraphicusSources/Cercle.h"
 #include "../GraphicusSources/Rectangle.h"
 
-
-using namespace std;
-
 MonInterface::MonInterface(const char* theName) : GraphicusGUI(theName)
 {
 	reinitialiserCanevas();
@@ -29,32 +26,31 @@ MonInterface::MonInterface(const char* theName) : GraphicusGUI(theName)
 
 void MonInterface::reinitialiserCanevas()
 {
-	ostringstream os;
+	std::ostringstream os;
 	random_device r;
 	default_random_engine generator(r());
 	uniform_int_distribution<int> coor(0, 300), dim(20, 100);
 
 	// On s'amuse à générer aléatoirement un canevas en format texte à chaque
 	// fois que la commande de réinitialisation de canevas est choisie par l'usager.
-	os << "L x" << endl;
-	os << "R " << coor(generator) << " " << coor(generator) << " " << dim(generator) << " " << dim(generator) << endl;
-	os << "K " << coor(generator) << " " << coor(generator) << " " << dim(generator) << endl;
-	os << "L a" << endl;
-	os << "K " << coor(generator) << " " << coor(generator) << " " << dim(generator) << endl;
-	os << "C " << coor(generator) << " " << coor(generator) << " " << dim(generator) << endl;
-	os << "L x" << endl;
-	os << "R " << coor(generator) << " " << coor(generator) << " " << dim(generator) << " " << dim(generator) << endl;
-	os << "C " << coor(generator) << " " << coor(generator) << " " << dim(generator) << endl;
-	os << "L x" << endl;
-	os << "R " << coor(generator) << " " << coor(generator) << " " << dim(generator) << " " << dim(generator) << endl;
-	os << "K " << coor(generator) << " " << coor(generator) << " " << dim(generator) << endl;
-	os << "C " << coor(generator) << " " << coor(generator) << " " << dim(generator) << endl;
+	os << "L x" << std::endl;
+	//os << "R " << coor(generator) << " " << coor(generator) << " " << dim(generator) << " " << dim(generator) << std::endl;
+	//os << "K " << coor(generator) << " " << coor(generator) << " " << dim(generator) << std::endl;
+	os << "L a" << std::endl;
+	//os << "K " << coor(generator) << " " << coor(generator) << " " << dim(generator) << std::endl;
+	os << "C " << coor(generator) << " " << coor(generator) << " " << dim(generator) << std::endl;
+	os << "L x" << std::endl;
+	//os << "R " << coor(generator) << " " << coor(generator) << " " << dim(generator) << " " << dim(generator) << std::endl;
+	//os << "C " << coor(generator) << " " << coor(generator) << " " << dim(generator) << std::endl;
+	//os << "L x" << std::endl;
+	//os << "R " << coor(generator) << " " << coor(generator) << " " << dim(generator) << " " << dim(generator) << std::endl;
+	//os << "K " << coor(generator) << " " << coor(generator) << " " << dim(generator) << std::endl;
+	os << "C " << coor(generator) << " " << coor(generator) << " " << dim(generator) << std::endl;
 
 	// Ensuite, on dessine ce qui a été généré dans Graphicus
+	std::cout << os.str() << std::endl;
 	dessiner(os.str().c_str());
 }
-
-
 
 bool MonInterface::ouvrirFichier(const char*)
 {
@@ -71,17 +67,17 @@ void MonInterface::coucheTranslater(int deltaX, int deltaY)
 void MonInterface::ajouterCercle(int x, int y, int rayon)
 {
 	Cercle cercle(x, y, rayon);
-	//c.ajouterForme(cercle);
+	c.ajouterForme(&cercle);
 }
 void MonInterface::ajouterRectangle(int x, int y, int longueur, int largeur)
 {
 	Rectangle rect(x, y, longueur, largeur);
-	//c.ajouterForme(rect);
+	c.ajouterForme(&rect);
 }
 void MonInterface::ajouterCarre(int x, int y, int cote)
 {
 	Carre carre(x, y, cote);
-	//c.ajouterForme(carre);
+	c.ajouterForme(&carre);
 }
 void MonInterface::modePileChange(bool mode)
 {
@@ -92,14 +88,15 @@ void MonInterface::modePileChange(bool mode)
 	// Menu Canevas
 void MonInterface::coucheAjouter()
 {
-	Couche couche();
-	//c.ajouterCouche(&couche);
+	Couche couche = Couche();
+	c.ajouterCouche(&couche);
 }
 void MonInterface::coucheRetirer()
 {
 	//chercher couche active
 	//detruire la couche
-	//c.retirerCouche();
+	c.retirerCouche(c.NombreDeCouches());
+	std::cout << c;
 }
 
 

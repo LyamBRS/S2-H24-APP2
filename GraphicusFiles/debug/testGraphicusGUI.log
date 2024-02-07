@@ -1,20 +1,19 @@
 ﻿  Canevas.cpp
-  Couche.cpp
-  Vecteur.cpp
+..\GraphicusSources\Canevas.cpp(391,37): error C2662: 'Couche *Canevas::coucheAIndex(int)': cannot convert 'this' pointer from 'const Canevas' to 'Canevas &'
+..\GraphicusSources\Canevas.cpp(391,15): message : Conversion loses qualifiers
+..\GraphicusSources\Canevas.cpp(50,18): message : see declaration of 'Canevas::coucheAIndex'
   tests.cpp
 ..\GraphicusSources\tests.cpp(345,49): warning C4805: '!=': unsafe mix of type 'TypeInconnue' and type 'int' in operation
           with
           [
               TypeInconnue=bool
           ]
-..\GraphicusSources\tests.cpp(599,32): warning C4805: '!=': unsafe mix of type 'TypeInconnue' and type 'int' in operation
+..\GraphicusSources\tests.cpp(598,32): warning C4805: '!=': unsafe mix of type 'TypeInconnue' and type 'int' in operation
           with
           [
               TypeInconnue=bool
           ]
   monInterface.cpp
-monInterface.cpp(86,40): warning C4100: 'mode': unreferenced formal parameter
-monInterface.cpp(95,9): warning C4930: 'Couche couche(void)': prototyped function not called (was a variable definition intended?)
+monInterface.cpp(82,40): warning C4100: 'mode': unreferenced formal parameter
   testGraphicusGUI.cpp
   Generating Code...
-  testGraphicusGUI.vcxproj -> C:\Users\Lyam\Desktop\Important\School\University\S2\APP3_2\S2-H24-GI-APP3\GraphicusFiles\debug\testGraphicusGUI.exe

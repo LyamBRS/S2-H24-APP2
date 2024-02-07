@@ -209,7 +209,17 @@ bool Couche::AfficherCouche(ostream & s)
       Forme** val = _vecteur.DonnePointeurAIndex(i);
       (*val)->afficher(s);
    }
-
-
     return true;
+}
+
+template <typename U>
+U& operator<<(U& os, const Couche& couche) {
+    os << "L ";
+
+    if (couche._etatCouche == EtatsCouche::Active) os << "a\n";
+    if (couche._etatCouche == EtatsCouche::Inactive) os << "x\n";
+    if (couche._etatCouche == EtatsCouche::Initialisee) os << "i\n";
+
+    os << couche._vecteur;
+    return os;
 }

@@ -77,3 +77,10 @@ void Carre::afficher(ostream & s)
 {
 	s << "Carre (x=" << ancrage.x << ", y=" << ancrage.y << ", c=" << _largeur << ", aire=" << aire() << ")\n";
 }
+
+
+//template <typename U>
+std::ostream& operator<<(std::ostream& os, const Carre& carre) {
+    os << "K " << carre.ancrage.x << " " << carre.ancrage.y << " " << carre._largeur << std::endl;
+    return os;
+}

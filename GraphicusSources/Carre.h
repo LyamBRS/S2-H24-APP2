@@ -10,6 +10,7 @@
  */
 #pragma once
 
+#include <sstream>
 #include "forme.h"
 #include "coordonnee.h"
 
@@ -60,6 +61,9 @@ class Carre : public Forme
         /// @brief Affiche l'information du carré dans un output de text spécifié.
         /// @param s: Genre std::cout
         void afficher(ostream & s);
+
+        //template <typename U>
+        friend std::ostream& operator<<(std::ostream& os, const Carre& carre);
 
     private:
         /// @brief la largeur du carré en pixel.

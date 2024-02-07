@@ -381,3 +381,15 @@ int Canevas::NombreDeCouches()
 {
    return couches.Grosseur();
 }
+
+
+
+
+std::ostream& operator<<(std::ostream& os, const Canevas& canevas) {
+    for (int i = 0; i < canevas.couches.Grosseur(); i++)
+    {
+        // Idk, this/friend moment. Cant be asked. Good luck.
+        // Also dont know why it would make sense to access private attributes in an overload but only SOME times. Fuck you thats why.
+    }
+    return os;
+}

@@ -122,6 +122,7 @@ public:
     */
    Couche* coucheAIndex(int index);
 
+
    /**
     * @brief
     * Permet d'ajouter une forme sur la couche
@@ -228,6 +229,8 @@ public:
     * à 0.
     */
    int NombreDeCouches();
+
+   friend std::ostream& operator<<(std::ostream& os, const Canevas& canevas);
 
 private:
    /// @brief Vecteur qui permet de stocker dynamiquement un très grand nombre de couches

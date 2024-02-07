@@ -497,7 +497,6 @@ void Tests::tests_unitaires_vecteur()
     bool aPasserLeTest = true;
     for (int i = 0; i < intVecteur.Grosseur(); ++i)
     {
-        //std::cout << std::to_string(i) << ": []: " << std::to_string(intVecteur[i]) << ", DonneAIndex: " << std::to_string(intVecteur.DonneAIndex(i)) << std::endl;
         if (intVecteur[i] != intVecteur.DonneAIndex(i)) aPasserLeTest = false;
     }
     SousTest("Verification de la surcharge de [] d'un vecteur <int>", aPasserLeTest);
