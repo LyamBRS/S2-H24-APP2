@@ -173,13 +173,14 @@ void MonInterface::updateUI()
 
 	os << c;
 
-	std::cout << os.str() << std::endl;
+	//std::cout << os.str() << std::endl;
 	dessiner(os.str().c_str());
 }
 
 void MonInterface::updateConsole()
 {
 	system("cls");
+	std::cout << std::endl;
 	std::cout << c;
 	c.afficher(std::cout);
 }

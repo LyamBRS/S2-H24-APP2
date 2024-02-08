@@ -18,17 +18,10 @@
 Canevas::Canevas()
 {
    Couche* nouvelleCouche1 = new Couche();
-   Couche* nouvelleCouche2 = new Couche();
-   Couche* nouvelleCouche3 = new Couche();
-   Couche* nouvelleCouche4 = new Couche();
-   Couche* nouvelleCouche5 = new Couche();
 
    nouvelleCouche1->ChangerEtat(EtatsCouche::Active);
    couches.Ajouter(nouvelleCouche1); // Couche 0
-   couches.Ajouter(nouvelleCouche2); // Couche 0
-   couches.Ajouter(nouvelleCouche3); // Couche 0
-   couches.Ajouter(nouvelleCouche4); // Couche 0
-   couches.Ajouter(nouvelleCouche5); // Couche 0
+
    indexCoucheActive = 0;
 }
 
@@ -94,17 +87,10 @@ bool Canevas::reinitialiser()
 
    // Créé une nouvelle couche 0 et un nouveau vecteur. Cela deverait donné plus de mémoire.
    Couche* nouvelleCouche1 = new Couche();
-   Couche* nouvelleCouche2 = new Couche();
-   Couche* nouvelleCouche3 = new Couche();
-   Couche* nouvelleCouche4 = new Couche();
-   Couche* nouvelleCouche5 = new Couche();
 
    nouvelleCouche1->ChangerEtat(EtatsCouche::Active);
    couches.Ajouter(nouvelleCouche1); // Couche 0
-   couches.Ajouter(nouvelleCouche2); // Couche 1
-   couches.Ajouter(nouvelleCouche3); // Couche 2
-   couches.Ajouter(nouvelleCouche4); // Couche 3
-   couches.Ajouter(nouvelleCouche5); // Couche 4
+
    indexCoucheActive = 0;
    return true;
 }
@@ -414,12 +400,24 @@ bool Canevas::ChoisirCouche(int index)
 
 bool Canevas::CouchePrecedente()
 {
+    if (indexCoucheActive <= 0)
+    {
+        indexCoucheActive = 0;
+        return false;
+    }
+
     --couches;
     return activerCouche(couches.get_index_itemCourant());
 }
 
 bool Canevas::CoucheSuivante()
 {
+    if (indexCoucheActive >= (couches.Grosseur()-1))
+    {
+        indexCoucheActive = couches.Grosseur() - 1;
+        return false;
+    }
+
     ++couches;
     return activerCouche(couches.get_index_itemCourant());
 }
