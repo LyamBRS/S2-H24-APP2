@@ -114,9 +114,9 @@ class Couche
 
           for (int index = 0; index < couche._vecteur.Grosseur(); index++)
           {
-              //os << *couche._vecteur[index] << std::endl;
+              os << *couche._vecteur[index] << std::endl;
               //os << couche._vecteur[index] << std::endl;
-              couche._vecteur[index]->afficher(os); // OOga booga, if this was done at a real company, this would pass.
+              //couche._vecteur[index]->afficher(os); // OOga booga, if this was done at a real company, this would pass.
           }
           return os;
       }

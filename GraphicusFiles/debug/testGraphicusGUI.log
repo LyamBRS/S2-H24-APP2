@@ -1,3 +1,24 @@
 ﻿  Canevas.cpp
 ..\GraphicusSources\Canevas.cpp(434,32): warning C4100: 'index': unreferenced formal parameter
+  Carre.cpp
+  Cercle.cpp
+  Couche.cpp
+  Rectangle.cpp
+  Vecteur.cpp
+  forme.cpp
+  monInterface.cpp
+monInterface.cpp(89,40): warning C4100: 'mode': unreferenced formal parameter
+  testGraphicusGUI.cpp
+  tests.cpp
+..\GraphicusSources\tests.cpp(345,49): warning C4805: '!=': unsafe mix of type 'TypeInconnue' and type 'int' in operation
+          with
+          [
+              TypeInconnue=bool
+          ]
+..\GraphicusSources\tests.cpp(598,32): warning C4805: '!=': unsafe mix of type 'TypeInconnue' and type 'int' in operation
+          with
+          [
+              TypeInconnue=bool
+          ]
+  Generating Code...
   testGraphicusGUI.vcxproj -> C:\Users\Lyam\Desktop\Important\School\University\S2\APP3\S2-H24-GI-APP3\GraphicusFiles\debug\testGraphicusGUI.exe

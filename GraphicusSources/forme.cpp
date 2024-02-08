@@ -35,8 +35,14 @@ void Forme::setAncrage(Coordonnee c)
    ancrage = c;
 }
 
+//std::ostream& graphicusOut(std::ostream& s)
+//{
+//	s << "F " << std::endl;
+//	return s;
+//}
+
 //template <typename U>
-std::ostream& operator<<(std::ostream& os, const Forme& forme) {
-   os << "F " << std::endl;
-   return os;
-}
+//std::ostream& operator<<(std::ostream& os, const Forme& forme) {
+//	this.graphicusOut(os);
+//	return os;
+//}

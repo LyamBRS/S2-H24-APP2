@@ -24,11 +24,16 @@ public:
   Coordonnee getAncrage();
   void setAncrage(Coordonnee c);
   virtual double aire() = 0;
-  virtual void afficher(ostream & s) = 0;
+  virtual void afficher(std::ostream & s) = 0;
+  virtual void graphicusOut(std::ostream& s) = 0;
+
+  friend std::ostream& operator<<(std::ostream& os, Forme& forme) {
+	  forme.graphicusOut(os);
+	  return os;
+  }
 
   //template <typename U>
-  friend std::ostream& operator<<(std::ostream& os, const Forme& forme);
-
+  //friend std::ostream& operator<<(std::ostream& os, const Forme& forme);
 protected:
   Coordonnee ancrage;
 };

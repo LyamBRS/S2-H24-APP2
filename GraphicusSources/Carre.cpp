@@ -75,10 +75,14 @@ double Carre::aire()
 /// @param s: Genre std::cout
 void Carre::afficher(ostream & s)
 {
-	//s << "Carre (x=" << ancrage.x << ", y=" << ancrage.y << ", c=" << _largeur << ", aire=" << aire() << ")\n";
-    s << "K " << ancrage.x << " " << ancrage.y << " " << _largeur << std::endl;
+	s << "Carre (x=" << ancrage.x << ", y=" << ancrage.y << ", c=" << _largeur << ", aire=" << aire() << ")\n";
+    //s << "K " << ancrage.x << " " << ancrage.y << " " << _largeur << std::endl;
 }
 
+void Carre::graphicusOut(std::ostream& s)
+{
+    s << "K " << ancrage.x << " " << ancrage.y << " " << _largeur << std::endl;
+}
 
 //template <typename U>
 std::ostream& operator<<(std::ostream& os, const Carre& carre) {

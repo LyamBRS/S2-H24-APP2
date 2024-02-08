@@ -76,7 +76,12 @@ double Cercle::aire()
 /// @param s: Genre std::cout
 void Cercle::afficher(ostream & s)
 {
-	//s << "Cercle (x=" << ancrage.x << ", y=" << ancrage.y << ", r=" << _rayon << ", aire=" << aire() << ")\n";
+	s << "Cercle (x=" << ancrage.x << ", y=" << ancrage.y << ", r=" << _rayon << ", aire=" << aire() << ")\n";
+    //s << "C " << ancrage.x << " " << ancrage.y << " " << _rayon << std::endl;
+}
+
+void Cercle::graphicusOut(std::ostream& s)
+{
     s << "C " << ancrage.x << " " << ancrage.y << " " << _rayon << std::endl;
 }
 

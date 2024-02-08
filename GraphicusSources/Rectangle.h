@@ -73,6 +73,8 @@ class Rectangle : public Forme
         /// @param s: Genre std::cout
         void afficher(ostream & s);
 
+        void graphicusOut(std::ostream& s);
+
         //template <typename U>
         friend std::ostream& operator<<(std::ostream& os, const Rectangle& rectangle);
 
