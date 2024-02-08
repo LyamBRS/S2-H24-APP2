@@ -18,7 +18,7 @@ class MonInterface : public GraphicusGUI
 {
 private:
 	Canevas c;
-	void updateUI();
+	void updateGUI();
 	void updateConsole();
 public:
 	MonInterface(const char *theName = nullptr);

@@ -15,6 +15,10 @@
 #include "forme.h"
 #include "couche.h"
 #include "Vecteur.h"
+#include "../GraphicusSources/forme.h"
+#include "../GraphicusSources/Carre.h"
+#include "../GraphicusSources/Cercle.h"
+#include "../GraphicusSources/Rectangle.h"
 
 const int MAX_COUCHES = 5;
 
@@ -257,20 +261,66 @@ public:
        return os;
    }
 
-   friend std::istringstream& operator>>(std::istringstream& os, const Canevas& canevas) {
+   friend std::istringstream& operator>>(std::istringstream& os, Canevas& canevas) {
        //std::cout << "CANEVAS PRINT" << std::endl;
-       
+        
+        
+       char letter;
+       char letter2[42];
+       int num;
+       int tabNum[4];
+       int index = 0;
+       int nbCouche = -1;
 
-       char c;
-       os.getline(&c, 16);
-       for (int i = 0; i < canevas.couches.Grosseur(); i++)
-       {
-           // Idk, this/friend moment. Cant be asked. Good luck.
-           // Also dont know why it would make sense to access private attributes in an overload but only SOME times. Fuck you thats why.
-           Couche* couche = canevas.couches[i];
+       while (os >> letter) {
+           index = 0;
+           if (letter == 'L')
+           {
+               nbCouche++;
+               while (os >> letter2[nbCouche])
+               {
+                   
+                   break;
+               }
+           }
+           // Read numbers until the end of the line or a non-integer character
+           while (os >> num) {
+               tabNum[index] = num;
+               index++;
+           }
+           os.clear();
+           
+           switch (letter) //premier charactere dit ce que c'est
+           {
+           case 'L'://couche
+               canevas.ajouterCouche(new Couche());
+               canevas.couches[nbCouche]->ChangerEtat(EtatsCouche::Active);
+               break;
 
-           os << *couche;
+           case 'K'://carre
+               canevas.couches[nbCouche]->AjoutForme(new Carre(tabNum[0], tabNum[1], tabNum[2]));
+               break;
+
+           case 'R'://rectangle
+               canevas.couches[nbCouche]->AjoutForme(new Rectangle(tabNum[0], tabNum[1], tabNum[2], tabNum[3]));
+               break;
+
+           case 'C'://cercle
+               canevas.couches[nbCouche]->AjoutForme(new Cercle(tabNum[0], tabNum[1], tabNum[2]));
+               break;
+           }
+
        }
+
+       for (int i = 0; i < nbCouche; i++)
+       {
+           if (letter2[i] == 'a')canevas.couches[i]->ChangerEtat(EtatsCouche::Active);
+           if (letter2[i] == 'x')canevas.couches[i]->ChangerEtat(EtatsCouche::Inactive);
+           if (letter2[i] == 'i')canevas.couches[i]->ChangerEtat(EtatsCouche::Initialisee);
+       }
+
+       
+       
        return os;
    }
 

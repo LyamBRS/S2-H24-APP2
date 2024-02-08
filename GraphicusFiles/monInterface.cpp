@@ -75,17 +75,17 @@ bool MonInterface::ouvrirFichier(const char*document)
 
 	string s = oss.str();
 	istringstream os(s);
-	char c;
-	os.getline(&c, 16);
+	
+	os >> c;
 	
 
 	
-
+	updateConsole();
 	// Close the file
 	file.close();
 
-
-	dessiner(oss.str().c_str());
+	updateGUI();
+	//dessiner(oss.str().c_str());
 
 	
 	return true;
@@ -98,25 +98,25 @@ void MonInterface::coucheTranslater(int deltaX, int deltaY)
 {
 	c.translater(deltaX, deltaY);
 	updateConsole();
-	updateUI();
+	updateGUI();
 }
 void MonInterface::ajouterCercle(int x, int y, int rayon)
 {
 	c.ajouterForme(new Cercle(x,y,rayon));
 	updateConsole();
-	updateUI();
+	updateGUI();
 }
 void MonInterface::ajouterRectangle(int x, int y, int longueur, int largeur)
 {
 	c.ajouterForme(new Rectangle(x, y, longueur, largeur));
 	updateConsole();
-	updateUI();
+	updateGUI();
 }
 void MonInterface::ajouterCarre(int x, int y, int cote)
 {
 	c.ajouterForme(new Carre (x, y, cote));
 	updateConsole();
-	updateUI();
+	updateGUI();
 }
 void MonInterface::modePileChange(bool mode)
 {
@@ -129,13 +129,13 @@ void MonInterface::coucheAjouter()
 {
 	c.ajouterCouche(new Couche());
 	updateConsole();
-	updateUI();
+	updateGUI();
 }
 void MonInterface::coucheRetirer()
 {
 	c.retirerCouche();
 	updateConsole();
-	updateUI();
+	updateGUI();
 }
 
 
@@ -146,60 +146,60 @@ void MonInterface::retirerForme()
 	//retirer
 	c.retirerForme();
 	updateConsole();
-	updateUI();
+	updateGUI();
 }
 	// Menu navigation
 void MonInterface::couchePremiere()
 {
 	c.ChoisirCouche(0);
 	updateConsole();
-	updateUI();
+	updateGUI();
 }
 void MonInterface::couchePrecedente()
 {
 	c.CouchePrecedente();
 	updateConsole();
-	updateUI();
+	updateGUI();
 }
 void MonInterface::coucheSuivante()
 {
 	c.CoucheSuivante();
 	updateConsole();
-	updateUI();
+	updateGUI();
 }
 void MonInterface::coucheDerniere()
 {
 	c.CoucheDerniere();
 	updateConsole();
-	updateUI();
+	updateGUI();
 }
 void MonInterface::formePremiere()
 {
 	c.ChoisirForme(0);
 	updateConsole();
-	updateUI();
+	updateGUI();
 }
 void MonInterface::formePrecedente()
 {
 	c.FormePrecedente();
 	updateConsole();
-	updateUI();
+	updateGUI();
 }
 void MonInterface::formeSuivante()
 {
 	c.FormeSuivante();
 	updateConsole();
-	updateUI();
+	updateGUI();
 }
 void MonInterface::formeDerniere()
 {
 	c.FormeDerniere();
 	updateConsole();
-	updateUI();
+	updateGUI();
 }
 
 
-void MonInterface::updateUI()
+void MonInterface::updateGUI()
 {
 	std::ostringstream os;
 
