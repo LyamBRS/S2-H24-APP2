@@ -92,6 +92,7 @@ bool Canevas::reinitialiser()
    couches.Ajouter(nouvelleCouche1); // Couche 0
 
    indexCoucheActive = 0;
+   couches.SetItemCourant(0);
    return true;
 }
 
@@ -430,6 +431,11 @@ bool Canevas::CoucheDerniere()
     return activerCouche(couches.Grosseur()-1);
 }
 
+Couche* Canevas::ObtenirCoucheCourant()
+{
+    return (couches.GetItemCourant());
+}
+
 
 bool Canevas::ChoisirForme(int index)
 {
@@ -453,3 +459,22 @@ bool Canevas::FormeDerniere()
 {
     return couches[couches.GetIndexItemCourant()]->FormeDerniere();
 }
+
+Forme* Canevas::ObtenirFormeCourant()
+{
+    return couches[couches.GetIndexItemCourant()]->ObtenirFormeCourrant();
+}
+
+int Canevas::GetIndexCoucheActive()
+{
+    int index = 0;
+
+    for (int i = 0; i < this->NombreDeCouches(); i++)
+    {
+        if (couches[i]->Etat() == EtatsCouche::Active)
+            return i;
+    }
+
+    return index;
+}
+

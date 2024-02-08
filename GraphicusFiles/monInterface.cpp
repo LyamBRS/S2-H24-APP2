@@ -28,27 +28,7 @@ MonInterface::MonInterface(const char* theName) : GraphicusGUI(theName)
 void MonInterface::reinitialiserCanevas()
 {
 	std::ostringstream os;
-	random_device r;
-	default_random_engine generator(r());
-	uniform_int_distribution<int> coor(0, 300), dim(20, 100);
-
-	// On s'amuse à générer aléatoirement un canevas en format texte à chaque
-	// fois que la commande de réinitialisation de canevas est choisie par l'usager.
-	//os << "L x" << std::endl;
-	//os << "R " << coor(generator) << " " << coor(generator) << " " << dim(generator) << " " << dim(generator) << std::endl;
-	//os << "K " << coor(generator) << " " << coor(generator) << " " << dim(generator) << std::endl;
-	//os << "L a" << std::endl;
-	//os << "K " << coor(generator) << " " << coor(generator) << " " << dim(generator) << std::endl;
-	//os << "C " << coor(generator) << " " << coor(generator) << " " << dim(generator) << std::endl;
-	//os << "L x" << std::endl;
-	//os << "R " << coor(generator) << " " << coor(generator) << " " << dim(generator) << " " << dim(generator) << std::endl;
-	//os << "C " << coor(generator) << " " << coor(generator) << " " << dim(generator) << std::endl;
-	//os << "L x" << std::endl;
-	//os << "R " << coor(generator) << " " << coor(generator) << " " << dim(generator) << " " << dim(generator) << std::endl;
-	//os << "K " << coor(generator) << " " << coor(generator) << " " << dim(generator) << std::endl;
-	//os << "C " << coor(generator) << " " << coor(generator) << " " << dim(generator) << std::endl;
-
-	// Ensuite, on dessine ce qui a été généré dans Graphicus
+		
 	c.reinitialiser();
 	std::cout << os.str() << std::endl;
 	updateConsole();
@@ -58,7 +38,8 @@ void MonInterface::reinitialiserCanevas()
 bool MonInterface::ouvrirFichier(const char*document)
 {
 	// Open the text file
-	
+
+	c.reinitialiser();
 	std::ifstream file;
 
 	file.open(document, ios::in);
@@ -92,6 +73,16 @@ bool MonInterface::ouvrirFichier(const char*document)
 }
 bool MonInterface::sauvegarderFichier(const char* document)
 {
+	ofstream outFile;
+	outFile.open(document);
+
+	if (outFile.is_open()) 
+	{
+		outFile << c;
+		outFile.close();
+		
+	}
+	else return false;
 	return true;
 }
 void MonInterface::coucheTranslater(int deltaX, int deltaY)
@@ -207,6 +198,8 @@ void MonInterface::updateGUI()
 
 	//std::cout << os.str() << std::endl;
 	dessiner(os.str().c_str());
+	ajustementInformation();
+	setInformations(info);
 }
 
 void MonInterface::updateConsole()
@@ -215,4 +208,57 @@ void MonInterface::updateConsole()
 	std::cout << std::endl;
 	std::cout << c;
 	c.afficher(std::cout);
+}
+
+void MonInterface::ajustementInformation()
+{
+
+	//Couche* couche = c.ObtenirCoucheCourant();
+	//Forme* f = c.ObtenirFormeCourant();
+
+	//info.aireCanevas = c.aire();
+	//info.aireCouche = couche->AireCouche();
+	//info.aireForme = f->aire();
+
+	//Coordonnee coordonne = f->getAncrage();
+	//info.coordX = coordonne.x;
+	//info.coordY = coordonne.y;
+
+	//info.coucheActive = c.GetIndexCoucheActive(); 
+
+	//std::ostringstream os;
+	//couche->AfficherCouche(os);
+
+	//cout << "info couche: ";
+	//for (int i = 0; i < os.str().length(); i++)
+	//{
+	//	cout << os.str()[i];
+	//	info.etatCouche[i] = os.str()[i];
+	//}
+	//
+
+	//info.nbCouches = c.NombreDeCouches();
+	//info.informationForme;//////////////////////////////////
+
+	//int nbForme = 0;
+	//for (int i = 0; i < c.NombreDeCouches(); i++)
+	//{
+	//	nbForme += c.coucheAIndex(i)->NombreDeFormes();
+	//}
+	//info.nbFormesCanevas = nbForme;
+
+	//info.nbFormesCouche = couche->NombreDeFormes();
+
+
+	//std::ostringstream os2;
+	//f->afficher(os2);
+
+	//cout << endl << "info forme: ";
+	//for (int i = 0; i < 50; i++)
+	//{
+	//	cout << os.str()[i];
+	//	info.informationForme[i] = os.str()[i];
+	//}
+	//
+	//info.formeActive;///////
 }

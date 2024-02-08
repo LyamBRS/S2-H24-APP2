@@ -101,6 +101,8 @@ class Couche
       bool FormePrecedente();
       bool FormeSuivante();
       bool FormeDerniere();
+      Forme* ObtenirFormeCourrant();
+
 
       //template <typename U>
       friend std::ostream& operator<<(std::ostream& os, const Couche& couche) {

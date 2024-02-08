@@ -243,6 +243,11 @@ bool Couche::FormeDerniere()
     return _vecteur.SetItemCourant(_vecteur.Grosseur() - 1);
 }
 
+Forme* Couche::ObtenirFormeCourrant()
+{
+    return (_vecteur.GetItemCourant());
+}
+
 
 
 //template <typename U>

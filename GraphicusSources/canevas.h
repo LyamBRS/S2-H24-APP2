@@ -242,11 +242,15 @@ public:
    bool CouchePrecedente();
    bool CoucheSuivante();
    bool CoucheDerniere();
+   Couche* ObtenirCoucheCourant();
 
    bool ChoisirForme(int index);
    bool FormePrecedente();
    bool FormeSuivante();
    bool FormeDerniere();
+   Forme* ObtenirFormeCourant();
+
+   int GetIndexCoucheActive();
 
    friend std::ostream& operator<<(std::ostream& os, const Canevas& canevas) {
        //std::cout << "CANEVAS PRINT" << std::endl;
@@ -266,7 +270,7 @@ public:
         
         
        char letter;
-       char letter2[42];
+       char letter2 = 'i';
        int num;
        int tabNum[4];
        int index = 0;
@@ -276,8 +280,15 @@ public:
            index = 0;
            if (letter == 'L')
            {
+               if (nbCouche >= 0)
+               {
+                   if (letter2 == 'a')canevas.couches[nbCouche]->ChangerEtat(EtatsCouche::Active);
+                   if (letter2 == 'x')canevas.couches[nbCouche]->ChangerEtat(EtatsCouche::Inactive);
+                   
+               }
+               
                nbCouche++;
-               while (os >> letter2[nbCouche])
+               while (os >> letter2)
                {
                    
                    break;
@@ -294,6 +305,9 @@ public:
            {
            case 'L'://couche
                canevas.ajouterCouche(new Couche());
+               if(letter2 == 'i')
+                   canevas.couches[nbCouche]->ChangerEtat(EtatsCouche::Initialisee);
+               else
                canevas.couches[nbCouche]->ChangerEtat(EtatsCouche::Active);
                break;
 
@@ -312,12 +326,11 @@ public:
 
        }
 
-       for (int i = 0; i < nbCouche; i++)
-       {
-           if (letter2[i] == 'a')canevas.couches[i]->ChangerEtat(EtatsCouche::Active);
-           if (letter2[i] == 'x')canevas.couches[i]->ChangerEtat(EtatsCouche::Inactive);
-           if (letter2[i] == 'i')canevas.couches[i]->ChangerEtat(EtatsCouche::Initialisee);
-       }
+
+       if (letter2 == 'a')canevas.couches[nbCouche]->ChangerEtat(EtatsCouche::Active);
+       if (letter2 == 'x')canevas.couches[nbCouche]->ChangerEtat(EtatsCouche::Inactive);
+       
+       
 
        
        
