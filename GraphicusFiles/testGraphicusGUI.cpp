@@ -18,7 +18,7 @@ int main( int argc, char ** argv )
 	MonInterface gui("TestGraphicusGUI 1.0");
 
 	Tests tests = Tests();
-	tests.tests_unitaires_vecteur();
+	tests.tests_unitaires();
 
 	return app.exec();
 }

@@ -687,6 +687,7 @@ bool Vecteur<TypeInconnue>::VerifierIndex(int index)
 template <typename TypeInconnue>
 int Vecteur<TypeInconnue>::Grosseur()
 {
+
     return _grosseur;
 }
 

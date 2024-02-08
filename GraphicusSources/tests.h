@@ -20,7 +20,8 @@
 #include "Cercle.h"
 #include "Carre.h"
 #include "Rectangle.h"
-#include "resultatCouleur.h" 
+#include "resultatCouleur.h"
+#include "monInterface.h"
 
 using namespace std;
 
@@ -36,7 +37,7 @@ public:
 
    // Methodes pour les tests unitaires des classes
    void tests_application_cas_01();
-   void tests_application_cas_02();
+   void tests_application_cas_02(MonInterface* monInterface);
    void tests_application(); // Appel de tous les tests applicatifs
 
 private:

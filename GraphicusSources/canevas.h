@@ -22,7 +22,7 @@
 
 const int MAX_COUCHES = 5;
 
-#define NOMBRE_DE_COUCHES_INITIALES 5
+#define NOMBRE_DE_COUCHES_INITIALES 1
 #define AUCUNE_COUCHES_ACTIVE -1
 
 using namespace std;

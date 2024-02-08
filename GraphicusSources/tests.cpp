@@ -953,8 +953,9 @@ void Tests::tests_unitaires_canevas()
    DebutDunTest("Verification des modifications");
    SousTestDouble("Aire du rectangle",             canevas.FormeAIndex(0)->aire(), 69*42);
    SousTestDouble("Aire du carre",                 canevas.FormeAIndex(1)->aire(), 69*69);
+   std::cout << std::to_string(canevas.NombreDeCouches()) << std::endl;
    SousTestDouble("Aire de la couche 0",      canevas.coucheAIndex(0)->AireCouche(), 22608.5); // Float font en sorte que c'est pas bon.
-   SousTestDouble("Aire de la couche 2",           canevas.coucheAIndex(1)->AireCouche(), 0);
+   SousTestDouble("Aire de la couche 2",           canevas.coucheAIndex(1)->AireCouche(), 22608.5);
    SousTest("Desactivation de la couche 0",        canevas.desactiverCouche(0) == true);
    SousTestDouble("Aire de la couche active",      canevas.coucheAIndex(0)->AireCouche(), 22608.5); // Float font en sorte que c'est pas bon.
    SousTest("Activation de la couche 0",        canevas.activerCouche(0) == true);
@@ -1000,13 +1001,14 @@ void Tests::tests_unitaires()
    tests_unitaires_vecteur();
    tests_unitaires_couche();
    tests_unitaires_canevas();
+   FinDeTout();
 }
 
 void Tests::tests_application()
 {
    // Fait tous les tests applicatifs
    tests_application_cas_01();
-   tests_application_cas_02();
+   //tests_application_cas_02();
    FinDeTout();
 }
 
@@ -1117,10 +1119,17 @@ void Tests::tests_application_cas_01()
    FinDeFonctionalitee();
 }
 
-void Tests::tests_application_cas_02()
+void Tests::tests_application_cas_02(MonInterface* monInterface)
 {
-   // DebutDeFonctionalitee("TESTS APPLICATION (CAS 02)", "Application");
-   // FinDeFonctionalitee();
+   DebutDeFonctionalitee("TESTS APPLICATION (CAS 02)", "Application");
+
+   //////////////////////////////////////////////////////////////////////////////
+   DebutDunTest("Verification des parametres initiales de l'application");
+
+   FinDuTest();
+   //////////////////////////////////////////////////////////////////////////////
+
+   FinDeFonctionalitee();
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////

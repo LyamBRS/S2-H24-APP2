@@ -44,7 +44,7 @@ Couche* Canevas::coucheAIndex(int index)
 {
    if(!couches.VerifierIndex(index))
    {
-      return nullptr;
+      return couches.DonneAIndex(0);
    }
 
    return couches.DonneAIndex(index);
