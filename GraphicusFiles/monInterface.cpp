@@ -10,6 +10,7 @@
 
 #include <random>
 #include <sstream>
+#include <fstream>
 #include "monInterface.h"
 #include "../GraphicusSources/canevas.h"
 #include "../GraphicusSources/Couche.h"
@@ -48,17 +49,48 @@ void MonInterface::reinitialiserCanevas()
 	//os << "C " << coor(generator) << " " << coor(generator) << " " << dim(generator) << std::endl;
 
 	// Ensuite, on dessine ce qui a été généré dans Graphicus
-
+	c.reinitialiser();
 	std::cout << os.str() << std::endl;
 	updateConsole();
 	dessiner(os.str().c_str());
 }
 
-bool MonInterface::ouvrirFichier(const char*)
+bool MonInterface::ouvrirFichier(const char*document)
 {
+	// Open the text file
+	
+	std::ifstream file;
+
+	file.open(document, ios::in);
+
+	// Check if the file is opened successfully
+	if (!file.is_open()) {
+		std::cerr << "Failed to open the file." << std::endl;
+		return 1;
+	}
+
+	// Read the contents of the file into a string
+	std::ostringstream oss;
+	oss << file.rdbuf();
+
+	string s = oss.str();
+	istringstream os(s);
+	char c;
+	os.getline(&c, 16);
+	
+
+	
+
+	// Close the file
+	file.close();
+
+
+	dessiner(oss.str().c_str());
+
+	
 	return true;
 }
-bool MonInterface::sauvegarderFichier(const char*)
+bool MonInterface::sauvegarderFichier(const char* document)
 {
 	return true;
 }

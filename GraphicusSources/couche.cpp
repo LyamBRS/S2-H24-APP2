@@ -62,7 +62,7 @@ Forme* Couche::RetirerForme(int index)
 
 bool Couche::RetirerForme()
 {
-    _vecteur.Retirer(_vecteur.get_index_itemCourant());
+    _vecteur.Retirer(_vecteur.GetIndexItemCourant());
     return true;
 }
 
@@ -222,7 +222,7 @@ bool Couche::AfficherCouche(ostream & s)
 
 bool Couche::ChoisirForme(int index)
 {
-    return _vecteur.setIntemCourant(index);
+    return _vecteur.SetItemCourant(index);
     
 
 }
@@ -240,7 +240,7 @@ bool Couche::FormeSuivante()
 
 bool Couche::FormeDerniere()
 {
-    return _vecteur.setIntemCourant(_vecteur.Grosseur() - 1);
+    return _vecteur.SetItemCourant(_vecteur.Grosseur() - 1);
 }
 
 

@@ -290,7 +290,7 @@ bool Canevas::retirerCouche()
         return false;
     }*/
 
-    return couches.Retirer(couches.get_index_itemCourant());
+    return couches.Retirer(couches.GetIndexItemCourant());
 
 }
 
@@ -301,7 +301,7 @@ bool Canevas::retirerForme()
         return false;
     }*/
 
-    return couches[couches.get_index_itemCourant()]->RetirerForme();
+    return couches[couches.GetIndexItemCourant()]->RetirerForme();
 
 }
 
@@ -393,7 +393,7 @@ int Canevas::NombreDeCouches()
 
 bool Canevas::ChoisirCouche(int index)
 {
-    couches.setIntemCourant(index);
+    couches.SetItemCourant(index);
     return activerCouche(index);
    
 }
@@ -407,7 +407,7 @@ bool Canevas::CouchePrecedente()
     }
 
     --couches;
-    return activerCouche(couches.get_index_itemCourant());
+    return activerCouche(couches.GetIndexItemCourant());
 }
 
 bool Canevas::CoucheSuivante()
@@ -419,37 +419,37 @@ bool Canevas::CoucheSuivante()
     }
 
     ++couches;
-    return activerCouche(couches.get_index_itemCourant());
+    return activerCouche(couches.GetIndexItemCourant());
 }
 
 
 bool Canevas::CoucheDerniere()
 {
    
-    couches.setIntemCourant(couches.Grosseur()-1);
+    couches.SetItemCourant(couches.Grosseur()-1);
     return activerCouche(couches.Grosseur()-1);
 }
 
 
 bool Canevas::ChoisirForme(int index)
 {
-    return couches[couches.get_index_itemCourant()]->ChoisirForme(0);
+    return couches[couches.GetIndexItemCourant()]->ChoisirForme(0);
 
 
 }
 
 bool Canevas::FormePrecedente()
 {
-    return couches[couches.get_index_itemCourant()]->FormePrecedente();
+    return couches[couches.GetIndexItemCourant()]->FormePrecedente();
 }
 
 bool Canevas::FormeSuivante()
 {
-    return couches[couches.get_index_itemCourant()]->FormeSuivante();
+    return couches[couches.GetIndexItemCourant()]->FormeSuivante();
 }
 
 
 bool Canevas::FormeDerniere()
 {
-    return couches[couches.get_index_itemCourant()]->FormeDerniere();
+    return couches[couches.GetIndexItemCourant()]->FormeDerniere();
 }

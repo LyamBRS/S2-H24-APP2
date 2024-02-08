@@ -257,6 +257,23 @@ public:
        return os;
    }
 
+   friend std::istringstream& operator>>(std::istringstream& os, const Canevas& canevas) {
+       //std::cout << "CANEVAS PRINT" << std::endl;
+       
+
+       char c;
+       os.getline(&c, 16);
+       for (int i = 0; i < canevas.couches.Grosseur(); i++)
+       {
+           // Idk, this/friend moment. Cant be asked. Good luck.
+           // Also dont know why it would make sense to access private attributes in an overload but only SOME times. Fuck you thats why.
+           Couche* couche = canevas.couches[i];
+
+           os << *couche;
+       }
+       return os;
+   }
+
 private:
    /// @brief Vecteur qui permet de stocker dynamiquement un très grand nombre de couches
    Vecteur<Couche*> couches;

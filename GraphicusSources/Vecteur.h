@@ -225,9 +225,9 @@ class Vecteur
         TypeInconnue& operator [](int i);
 
 
-        bool setIntemCourant(int index);
+        bool SetItemCourant(int index);
 
-        int get_index_itemCourant();
+        int GetIndexItemCourant();
 
         /// <summary>
         /// Adds one data at the end of the vector.
@@ -751,14 +751,14 @@ TypeInconnue& Vecteur<TypeInconnue>::operator [](int i)
 
 
 template<typename TypeInconnue>
-bool Vecteur<TypeInconnue>::setIntemCourant(int index)
+bool Vecteur<TypeInconnue>::SetItemCourant(int index)
 {
     _itemCourant = index;
     return true;
 }
 
 template<typename TypeInconnue>
-int Vecteur<TypeInconnue>::get_index_itemCourant()
+int Vecteur<TypeInconnue>::GetIndexItemCourant()
 {
     return _itemCourant;
 }
