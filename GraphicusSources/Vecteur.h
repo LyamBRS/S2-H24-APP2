@@ -620,6 +620,8 @@ TypeInconnue Vecteur<TypeInconnue>::DonneAIndex(int index)
 template <typename TypeInconnue>
 TypeInconnue Vecteur<TypeInconnue>::GetItemCourant()
 {
+    if (_grosseur == 0)
+        return NULL;
     return _donnees[_itemCourant];
 }
 
