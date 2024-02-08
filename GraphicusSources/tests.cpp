@@ -953,7 +953,6 @@ void Tests::tests_unitaires_canevas()
    DebutDunTest("Verification des modifications");
    SousTestDouble("Aire du rectangle",             canevas.FormeAIndex(0)->aire(), 69*42);
    SousTestDouble("Aire du carre",                 canevas.FormeAIndex(1)->aire(), 69*69);
-   std::cout << std::to_string(canevas.NombreDeCouches()) << std::endl;
    SousTestDouble("Aire de la couche 0",      canevas.coucheAIndex(0)->AireCouche(), 22608.5); // Float font en sorte que c'est pas bon.
    SousTestDouble("Aire de la couche 2",           canevas.coucheAIndex(1)->AireCouche(), 22608.5);
    SousTest("Desactivation de la couche 0",        canevas.desactiverCouche(0) == true);
@@ -1125,7 +1124,11 @@ void Tests::tests_application_cas_02(MonInterface* monInterface)
 
    //////////////////////////////////////////////////////////////////////////////
    DebutDunTest("Verification des parametres initiales de l'application");
-
+   SousTest("Nombre de couches initiale", "monInterface->GetCanevas()->NombreDeCouches()==1",                                monInterface->GetCanevas()->NombreDeCouches()==1);
+   SousTest("Nombre de formes initiale",  "monInterface->GetCanevas()->coucheAIndex(0)->NombreDeFormes()==0",                monInterface->GetCanevas()->coucheAIndex(0)->NombreDeFormes()==0);
+   SousTest("Etat initiale de la couche", "monInterface->GetCanevas()->coucheAIndex(0)->Etat() == EtatsCouche::Initialisee", monInterface->GetCanevas()->coucheAIndex(0)->Etat() == EtatsCouche::Initialisee);
+   SousTest("Aire initiale de la couche", "monInterface->GetCanevas()->ObtenirCoucheCourant()->AireCouche()==0",             monInterface->GetCanevas()->ObtenirCoucheCourant()->AireCouche()==0);
+   SousTest("Index initiale de la couche active", "monInterface->GetCanevas()->ObtenirCoucheCourant()->AireCouche()==0",             monInterface->GetCanevas()->GetIndexCoucheActive()==0);
    FinDuTest();
    //////////////////////////////////////////////////////////////////////////////
 

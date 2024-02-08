@@ -31,6 +31,8 @@ public:
 	void ajouterRectangle(int x, int y, int longueur, int largeur);
 	void ajouterCarre(int x, int y, int cote);
 	void modePileChange(bool mode);
+
+	Canevas* GetCanevas();
 public slots:
 	// Menu Canevas
 	void reinitialiserCanevas();
