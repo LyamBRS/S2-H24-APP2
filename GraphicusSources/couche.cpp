@@ -245,8 +245,11 @@ bool Couche::FormeDerniere()
 
 
 
-template <typename U>
-U& operator<<(U& os, const Couche& couche) {
+//template <typename U>
+/*
+std::ostream& operator<<(std::ostream& os, const Couche& couche) {
+    std::cout << "COUCHE PRINT" << std::endl;
+
     os << "L ";
 
     if (couche._etatCouche == EtatsCouche::Active) os << "a\n";
@@ -256,3 +259,4 @@ U& operator<<(U& os, const Couche& couche) {
     os << couche._vecteur;
     return os;
 }
+*/

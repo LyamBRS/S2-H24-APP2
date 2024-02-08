@@ -102,8 +102,24 @@ class Couche
       bool FormeSuivante();
       bool FormeDerniere();
 
-      template <typename U>
-      friend U& operator<<(U& os, const Couche& couche);
+      //template <typename U>
+      friend std::ostream& operator<<(std::ostream& os, const Couche& couche) {
+          //std::cout << "COUCHE PRINT" << std::endl;
+
+          os << "L ";
+
+          if (couche._etatCouche == EtatsCouche::Active) os << "a\n";
+          if (couche._etatCouche == EtatsCouche::Inactive) os << "x\n";
+          if (couche._etatCouche == EtatsCouche::Initialisee) os << "i\n";
+
+          for (int index = 0; index < couche._vecteur.Grosseur(); index++)
+          {
+              //os << *couche._vecteur[index] << std::endl;
+              //os << couche._vecteur[index] << std::endl;
+              couche._vecteur[index]->afficher(os); // OOga booga, if this was done at a real company, this would pass.
+          }
+          return os;
+      }
 
    private:
       /// @brief Vecteur qui permet d'avoir tous les elements de la couche

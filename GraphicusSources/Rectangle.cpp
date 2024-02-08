@@ -97,7 +97,8 @@ double Rectangle::aire()
 /// @param s: Genre std::cout
 void Rectangle::afficher(ostream & s)
 {
-	s << "Rectangle (x=" << ancrage.x << ", y=" << ancrage.y << ", l=" << _largeur << ", h=" << _hauteur << ", aire=" << aire() << ")\n";
+	//s << "Rectangle (x=" << ancrage.x << ", y=" << ancrage.y << ", l=" << _largeur << ", h=" << _hauteur << ", aire=" << aire() << ")\n";
+    s << "R " << ancrage.x << " " << ancrage.y << " " << _largeur << " " << _hauteur << std::endl;
 }
 
 std::ostream& operator<<(std::ostream& os, const Rectangle& rectangle) {

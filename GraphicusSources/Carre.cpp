@@ -75,7 +75,8 @@ double Carre::aire()
 /// @param s: Genre std::cout
 void Carre::afficher(ostream & s)
 {
-	s << "Carre (x=" << ancrage.x << ", y=" << ancrage.y << ", c=" << _largeur << ", aire=" << aire() << ")\n";
+	//s << "Carre (x=" << ancrage.x << ", y=" << ancrage.y << ", c=" << _largeur << ", aire=" << aire() << ")\n";
+    s << "K " << ancrage.x << " " << ancrage.y << " " << _largeur << std::endl;
 }
 
 

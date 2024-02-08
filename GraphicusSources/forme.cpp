@@ -34,3 +34,9 @@ void Forme::setAncrage(Coordonnee c)
 {
    ancrage = c;
 }
+
+//template <typename U>
+std::ostream& operator<<(std::ostream& os, const Forme& forme) {
+   os << "F " << std::endl;
+   return os;
+}

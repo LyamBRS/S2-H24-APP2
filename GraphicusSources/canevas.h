@@ -10,6 +10,7 @@
 #ifndef CANEVAS_H
 #define CANEVAS_H
 
+#include <sstream>
 #include <iostream>
 #include "forme.h"
 #include "couche.h"
@@ -244,11 +245,14 @@ public:
    bool FormeDerniere();
 
    friend std::ostream& operator<<(std::ostream& os, const Canevas& canevas) {
+       //std::cout << "CANEVAS PRINT" << std::endl;
        for (int i = 0; i < canevas.couches.Grosseur(); i++)
        {
            // Idk, this/friend moment. Cant be asked. Good luck.
            // Also dont know why it would make sense to access private attributes in an overload but only SOME times. Fuck you thats why.
-           os << canevas.couches[i];
+           Couche* couche = canevas.couches[i];
+
+           os << *couche;
        }
        return os;
    }

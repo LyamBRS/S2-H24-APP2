@@ -26,8 +26,8 @@ public:
   virtual double aire() = 0;
   virtual void afficher(ostream & s) = 0;
 
-  template <typename U>
-  friend U& operator<<(U& os, const Forme& forme);
+  //template <typename U>
+  friend std::ostream& operator<<(std::ostream& os, const Forme& forme);
 
 protected:
   Coordonnee ancrage;

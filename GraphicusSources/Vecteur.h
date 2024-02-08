@@ -253,7 +253,15 @@ class Vecteur
         friend std::ostream& operator<<(std::ostream& os, const Vecteur<TypeInconnue>& vecteur)
         {
             for (int i = 0; i < vecteur.Grosseur(); ++i) {
-                os << vecteur[i] << "\n"; // Assuming you have an operator[] defined for Vecteur
+
+                if constexpr TYPE_EST_UN_POINTEUR
+                {
+                    os << vecteur[i] << "\n"; // Of course constexpr couldnt help. FUCK
+                }
+                else
+                {
+                    os << vecteur[i] << "\n";
+                }
             }
             return os;
         }

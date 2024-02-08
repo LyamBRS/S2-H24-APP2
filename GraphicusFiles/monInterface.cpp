@@ -33,19 +33,19 @@ void MonInterface::reinitialiserCanevas()
 
 	// On s'amuse à générer aléatoirement un canevas en format texte à chaque
 	// fois que la commande de réinitialisation de canevas est choisie par l'usager.
-	os << "L x" << std::endl;
+	//os << "L x" << std::endl;
 	//os << "R " << coor(generator) << " " << coor(generator) << " " << dim(generator) << " " << dim(generator) << std::endl;
 	//os << "K " << coor(generator) << " " << coor(generator) << " " << dim(generator) << std::endl;
-	os << "L a" << std::endl;
+	//os << "L a" << std::endl;
 	//os << "K " << coor(generator) << " " << coor(generator) << " " << dim(generator) << std::endl;
-	os << "C " << coor(generator) << " " << coor(generator) << " " << dim(generator) << std::endl;
-	os << "L x" << std::endl;
+	//os << "C " << coor(generator) << " " << coor(generator) << " " << dim(generator) << std::endl;
+	//os << "L x" << std::endl;
 	//os << "R " << coor(generator) << " " << coor(generator) << " " << dim(generator) << " " << dim(generator) << std::endl;
 	//os << "C " << coor(generator) << " " << coor(generator) << " " << dim(generator) << std::endl;
 	//os << "L x" << std::endl;
 	//os << "R " << coor(generator) << " " << coor(generator) << " " << dim(generator) << " " << dim(generator) << std::endl;
 	//os << "K " << coor(generator) << " " << coor(generator) << " " << dim(generator) << std::endl;
-	os << "C " << coor(generator) << " " << coor(generator) << " " << dim(generator) << std::endl;
+	//os << "C " << coor(generator) << " " << coor(generator) << " " << dim(generator) << std::endl;
 
 	// Ensuite, on dessine ce qui a été généré dans Graphicus
 
@@ -66,24 +66,25 @@ void MonInterface::coucheTranslater(int deltaX, int deltaY)
 {
 	c.translater(deltaX, deltaY);
 	updateConsole();
+	updateUI();
 }
 void MonInterface::ajouterCercle(int x, int y, int rayon)
 {
 	c.ajouterForme(new Cercle(x,y,rayon));
 	updateConsole();
-	//updateUI();
+	updateUI();
 }
 void MonInterface::ajouterRectangle(int x, int y, int longueur, int largeur)
 {
-	
 	c.ajouterForme(new Rectangle(x, y, longueur, largeur));
 	updateConsole();
+	updateUI();
 }
 void MonInterface::ajouterCarre(int x, int y, int cote)
 {
-	
 	c.ajouterForme(new Carre (x, y, cote));
 	updateConsole();
+	updateUI();
 }
 void MonInterface::modePileChange(bool mode)
 {
@@ -94,14 +95,15 @@ void MonInterface::modePileChange(bool mode)
 	// Menu Canevas
 void MonInterface::coucheAjouter()
 {
-	
 	c.ajouterCouche(new Couche());
 	updateConsole();
+	updateUI();
 }
 void MonInterface::coucheRetirer()
 {
 	c.retirerCouche();
 	updateConsole();
+	updateUI();
 }
 
 
@@ -112,47 +114,56 @@ void MonInterface::retirerForme()
 	//retirer
 	c.retirerForme();
 	updateConsole();
+	updateUI();
 }
 	// Menu navigation
 void MonInterface::couchePremiere()
 {
 	c.ChoisirCouche(0);
 	updateConsole();
+	updateUI();
 }
 void MonInterface::couchePrecedente()
 {
 	c.CouchePrecedente();
 	updateConsole();
+	updateUI();
 }
 void MonInterface::coucheSuivante()
 {
 	c.CoucheSuivante();
 	updateConsole();
+	updateUI();
 }
 void MonInterface::coucheDerniere()
 {
 	c.CoucheDerniere();
 	updateConsole();
+	updateUI();
 }
 void MonInterface::formePremiere()
 {
 	c.ChoisirForme(0);
 	updateConsole();
+	updateUI();
 }
 void MonInterface::formePrecedente()
 {
 	c.FormePrecedente();
 	updateConsole();
+	updateUI();
 }
 void MonInterface::formeSuivante()
 {
 	c.FormeSuivante();
 	updateConsole();
+	updateUI();
 }
 void MonInterface::formeDerniere()
 {
 	c.FormeDerniere();
 	updateConsole();
+	updateUI();
 }
 
 
@@ -169,5 +180,6 @@ void MonInterface::updateUI()
 void MonInterface::updateConsole()
 {
 	system("cls");
+	std::cout << c;
 	c.afficher(std::cout);
 }
