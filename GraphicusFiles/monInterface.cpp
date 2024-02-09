@@ -234,10 +234,18 @@ void MonInterface::ajustementInformation()
 		f->afficher(os2);
 
 		///cout << endl << "info forme: ";
-		for (int i = 0; i < os2.str().length(); i++)
+		for (int i = 0; i < 50; i++)
 		{
+			if (i >= os2.str().length())
+			{
+				info.informationForme[i] = '\0';
+			}
+			else
+			{
+				info.informationForme[i] = os2.str()[i];
+			}
 			//cout << os2.str()[i];
-			info.informationForme[i] = os2.str()[i];
+			
 		}
 		
 
@@ -254,10 +262,17 @@ void MonInterface::ajustementInformation()
 	couche->AfficherCoucheSeulement(os);
 
 	//cout << "info couche: ";
-	for (int i = 0; i < os.str().length(); i++)
+	for (int i = 0; i < 20; i++)
 	{
+		if (i >= os.str().length())
+		{
+			info.etatCouche[i] = '\0';
+		}
+		else
+		{
+			info.etatCouche[i] = os.str()[i];
+		}
 		//cout << os.str()[i];
-		info.etatCouche[i] = os.str()[i];
 	}
 	
 
