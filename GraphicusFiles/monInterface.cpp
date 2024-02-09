@@ -209,68 +209,68 @@ void MonInterface::updateGUI()
 
 void MonInterface::updateConsole()
 {
-	system("cls");
-	std::cout << std::endl;
-	std::cout << c;
-	c.afficher(std::cout);
+	//system("cls");
+	//std::cout << std::endl;
+	//std::cout << c;
+	//c.afficher(std::cout);
 }
 
 void MonInterface::ajustementInformation()
 {
 
-	//Couche* couche = c.ObtenirCoucheCourant();
-	//Forme* f = c.ObtenirFormeCourant();
+	Couche* couche = c.ObtenirCoucheCourant();
+	Forme* f = c.ObtenirFormeCourant();
 
-	//if (f != NULL)
-	//{
-	//	info.aireForme = f->aire();
+	if (f != NULL)
+	{
+		info.aireForme = f->aire();
 
-	//	Coordonnee coordonne = f->getAncrage();
-	//	info.coordX = coordonne.x;
-	//	info.coordY = coordonne.y;
+		Coordonnee coordonne = f->getAncrage();
+		info.coordX = coordonne.x;
+		info.coordY = coordonne.y;
 
-	//	std::ostringstream os2;
-	//	f->afficher(os2);
+		std::ostringstream os2;
+		f->afficher(os2);
 
-	//	cout << endl << "info forme: ";
-	//	for (int i = 0; i < 50; i++)
-	//	{
-	//		cout << os2.str()[i];
-	//		info.informationForme[i] = os2.str()[i];
-	//	}
-	//	info.informationForme;//////////////////////////////////
+		cout << endl << "info forme: ";
+		for (int i = 0; i < os2.str().length(); i++)
+		{
+			cout << os2.str()[i];
+			info.informationForme[i] = os2.str()[i];
+		}
+		info.informationForme;//////////////////////////////////
 
-	//	info.formeActive;///////
-	//}
+		info.formeActive;///////
+	}
 
-	//info.aireCanevas = c.aire();
-	//info.aireCouche = couche->AireCouche();
-	//
+	info.aireCanevas = c.aire();
+	info.aireCouche = couche->AireCouche();
+	
 
-	//info.coucheActive = c.GetIndexCoucheActive(); 
+	info.coucheActive = c.GetIndexCoucheActive(); 
 
-	//std::ostringstream os;
-	//couche->AfficherCouche(os);
+	std::ostringstream os;
+	couche->AfficherCouche(os);
 
-	//cout << "info couche: ";
-	//for (int i = 0; i < os.str().length(); i++)
-	//{
-	//	cout << os.str()[i];
-	//	info.etatCouche[i] = os.str()[i];
-	//}
-	//
+	cout << "info couche: ";
+	for (int i = 0; i < os.str().length(); i++)
+	{
+		cout << os.str()[i];
+		info.etatCouche[i] = os.str()[i];
+	}
+	
 
-	//info.nbCouches = c.NombreDeCouches();
-	//
+	info.nbCouches = c.NombreDeCouches();
+	
 
-	//int nbForme = 0;
-	//for (int i = 0; i < c.NombreDeCouches(); i++)
-	//{
-	//	nbForme += c.coucheAIndex(i)->NombreDeFormes();
-	//}
-	//info.nbFormesCanevas = nbForme;
+	int nbForme = 0;
+	for (int i = 0; i < c.NombreDeCouches(); i++)
+	{
+		nbForme += c.coucheAIndex(i)->NombreDeFormes();
+	}
+	info.nbFormesCanevas = nbForme;
 
-	//info.nbFormesCouche = couche->NombreDeFormes();
+	info.nbFormesCouche = couche->NombreDeFormes();
 
 
 	

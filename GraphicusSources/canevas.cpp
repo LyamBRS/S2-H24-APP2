@@ -440,8 +440,6 @@ Couche* Canevas::ObtenirCoucheCourant()
 bool Canevas::ChoisirForme(int index)
 {
     return couches[couches.GetIndexItemCourant()]->ChoisirForme(0);
-
-
 }
 
 bool Canevas::FormePrecedente()

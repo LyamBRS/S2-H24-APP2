@@ -229,12 +229,22 @@ bool Couche::ChoisirForme(int index)
 
 bool Couche::FormePrecedente()
 {
-    return --_vecteur;
+    if (_vecteur.GetIndexItemCourant() > 0)
+    {
+        --_vecteur;
+        return true;
+    }
+    return false;
 }
 
 bool Couche::FormeSuivante()
 {
-    return ++_vecteur;
+    if (_vecteur.GetIndexItemCourant() < _vecteur.Grosseur())
+    {
+        ++_vecteur;
+        return true;
+    }
+    return false;
 }
 
 
