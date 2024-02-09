@@ -238,9 +238,9 @@ void MonInterface::ajustementInformation()
 			//cout << os2.str()[i];
 			info.informationForme[i] = os2.str()[i];
 		}
-		info.informationForme;//////////////////////////////////
+		
 
-		info.formeActive;///////
+		info.formeActive = c.GetIndexFormeActive();
 	}
 
 	info.aireCanevas = c.aire();
@@ -250,7 +250,7 @@ void MonInterface::ajustementInformation()
 	info.coucheActive = c.GetIndexCoucheActive(); 
 
 	std::ostringstream os;
-	couche->AfficherCouche(os);
+	couche->AfficherCoucheSeulement(os);
 
 	//cout << "info couche: ";
 	for (int i = 0; i < os.str().length(); i++)

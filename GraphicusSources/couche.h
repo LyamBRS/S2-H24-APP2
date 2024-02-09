@@ -85,6 +85,8 @@ class Couche
       /// @brief Affiche tous les formes dans la couche
       /// @return retourne si l'affiche est un succes
       bool AfficherCouche(ostream & s);
+
+      bool AfficherCoucheSeulement(ostream& s);
    
       /// @brief Retourne si l'index est valide
       /// @param index

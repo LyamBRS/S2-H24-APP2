@@ -218,6 +218,27 @@ bool Couche::AfficherCouche(ostream & s)
     return true;
 }
 
+bool Couche::AfficherCoucheSeulement(ostream& s)
+{
+    s << "Etat: ";
+
+    if (_etatCouche == Initialisee)
+    {
+        s << "initialisee" << endl;
+    }
+    else if (_etatCouche == Active)
+    {
+        s << "active" << endl;
+    }
+    else
+    {
+        s << "inactive" << endl;
+    }
+
+    
+    return true;
+}
+
 
 
 bool Couche::ChoisirForme(int index)
