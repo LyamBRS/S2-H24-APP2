@@ -116,7 +116,8 @@ void MonInterface::ajouterCarre(int x, int y, int cote)
 }
 void MonInterface::modePileChange(bool mode)
 {
-
+	c.modePile = mode;
+	updateGUI();
 }
 
 

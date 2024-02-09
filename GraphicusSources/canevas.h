@@ -38,6 +38,7 @@ using namespace std;
 class Canevas
 {
 public:
+    bool modePile = false;
    /**
     * @brief
     * Constructeur permettant de créé un nouveau
@@ -254,15 +255,31 @@ public:
    int GetIndexFormeActive();
 
    friend std::ostream& operator<<(std::ostream& os, const Canevas& canevas) {
-       //std::cout << "CANEVAS PRINT" << std::endl;
-       for (int i = 0; i < canevas.couches.Grosseur(); i++)
-       {
-           // Idk, this/friend moment. Cant be asked. Good luck.
-           // Also dont know why it would make sense to access private attributes in an overload but only SOME times. Fuck you thats why.
-           Couche* couche = canevas.couches[i];
 
-           os << *couche;
+       if (canevas.modePile)
+       {
+           for (int i = canevas.couches.Grosseur()-1; i >= 0; i--)
+           {
+               // Idk, this/friend moment. Cant be asked. Good luck.
+               // Also dont know why it would make sense to access private attributes in an overload but only SOME times. Fuck you thats why.
+               Couche* couche = canevas.couches[i];
+
+               os << *couche;
+           }
        }
+       else
+       {
+           for (int i = 0; i < canevas.couches.Grosseur(); i++)
+           {
+               // Idk, this/friend moment. Cant be asked. Good luck.
+               // Also dont know why it would make sense to access private attributes in an overload but only SOME times. Fuck you thats why.
+               Couche* couche = canevas.couches[i];
+
+               os << *couche;
+           }
+       }
+       //std::cout << "CANEVAS PRINT" << std::endl;
+       
        return os;
    }
 
