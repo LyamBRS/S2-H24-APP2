@@ -260,7 +260,7 @@ bool Couche::FormePrecedente()
 
 bool Couche::FormeSuivante()
 {
-    if (_vecteur.GetIndexItemCourant() < _vecteur.Grosseur())
+    if (_vecteur.GetIndexItemCourant() < (_vecteur.Grosseur()-1))
     {
         ++_vecteur;
         return true;

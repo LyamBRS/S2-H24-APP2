@@ -290,9 +290,7 @@ bool Canevas::retirerCouche()
     {
         return false;
     }*/
-
     return couches.Retirer(couches.GetIndexItemCourant());
-
 }
 
 bool Canevas::retirerForme()

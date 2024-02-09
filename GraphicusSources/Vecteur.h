@@ -622,6 +622,7 @@ TypeInconnue Vecteur<TypeInconnue>::GetItemCourant()
 {
     if (_grosseur == 0)
         return NULL;
+
     return _donnees[_itemCourant];
 }
 
@@ -687,7 +688,6 @@ bool Vecteur<TypeInconnue>::VerifierIndex(int index)
 template <typename TypeInconnue>
 int Vecteur<TypeInconnue>::Grosseur()
 {
-
     return _grosseur;
 }
 
