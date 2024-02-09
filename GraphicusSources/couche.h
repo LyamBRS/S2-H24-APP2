@@ -61,6 +61,8 @@ class Couche
       /// @brief Permet d'avoir la somme des aires de la couches
       /// @return Retourne l'aire de la couche
       double AireCouche();
+
+      int GetIndexFormeCourante();
    
       /// @brief Permet de deplacer la couche
       /// @param horizontale: La couche va se deplacer sur l'axe X

@@ -251,6 +251,7 @@ public:
    Forme* ObtenirFormeCourant();
 
    int GetIndexCoucheActive();
+   int GetIndexFormeActive();
 
    friend std::ostream& operator<<(std::ostream& os, const Canevas& canevas) {
        //std::cout << "CANEVAS PRINT" << std::endl;

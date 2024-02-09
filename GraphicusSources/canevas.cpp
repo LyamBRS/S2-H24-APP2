@@ -478,3 +478,8 @@ int Canevas::GetIndexCoucheActive()
     return index;
 }
 
+int Canevas::GetIndexFormeActive()
+{
+    return couches[couches.GetIndexItemCourant()]->GetIndexFormeCourante();
+}
+

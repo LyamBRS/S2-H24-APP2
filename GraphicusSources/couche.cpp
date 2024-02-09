@@ -248,6 +248,11 @@ Forme* Couche::ObtenirFormeCourrant()
     return (_vecteur.GetItemCourant());
 }
 
+int Couche::GetIndexFormeCourante()
+{
+    return _vecteur.GetIndexItemCourant();
+}
+
 
 
 //template <typename U>
