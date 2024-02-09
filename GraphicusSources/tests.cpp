@@ -12,7 +12,7 @@
 #include "tests.h"
 
 ///////////////////////
-ofstream OutputFile("ResultatsTests.txt");
+ofstream OutputFile("RESULTAT_TOUS_TESTS.txt");
 
 ///@brief Mettre a true si les donner imprimer sont imprimee dans un fichier au lieu du terminal.
 #define ENVOIE_TERMINAL_DANS_FICHIER false
@@ -995,7 +995,6 @@ void Tests::tests_unitaires_canevas()
 void Tests::tests_unitaires()
 {
    // Fait tous les tests unitaires
-   DebutDeTout();
    tests_unitaires_formes();
    tests_unitaires_vecteur();
    tests_unitaires_couche();
@@ -1120,6 +1119,7 @@ void Tests::tests_application_cas_01()
 
 void Tests::tests_application_cas_02(MonInterface* monInterface)
 {
+    DebutDeTout();
    DebutDeFonctionalitee("TESTS APPLICATION (CAS 02)", "Application");
 
    //////////////////////////////////////////////////////////////////////////////
@@ -1249,14 +1249,64 @@ void Tests::tests_application_cas_02(MonInterface* monInterface)
    monInterface->formeSuivante();
    monInterface->formeSuivante();
    monInterface->formeSuivante();
-   SousTest("Tentative d'aller a une forme suivante", "monInterface->GetCanevas()->GetIndexFormeActive()==0", monInterface->GetCanevas()->GetIndexFormeActive() == 3);
-   //monInterface->formeDerniere();
-   SousTest("Tentative d'aller a la derniere forme", "monInterface->GetCanevas()->GetIndexFormeActive()==0", monInterface->GetCanevas()->GetIndexFormeActive() == 10);
-   //monInterface->formePremiere();
+   SousTest("Tentative d'aller a une forme suivante", "monInterface->GetCanevas()->GetIndexFormeActive()==2", monInterface->GetCanevas()->GetIndexFormeActive() == 2); // CAP a 3 premiere couche
+   monInterface->formePremiere();
    SousTest("Tentative d'aller a la premiere forme", "monInterface->GetCanevas()->GetIndexFormeActive()==0", monInterface->GetCanevas()->GetIndexFormeActive() == 0);
+   monInterface->formeDerniere();
+   SousTest("Tentative d'aller a la derniere forme", "monInterface->GetCanevas()->GetIndexFormeActive()==2", monInterface->GetCanevas()->GetIndexFormeActive() == 2);
    FinDuTest();
 
+   //////////////////////////////////////////////////////////////////////////////
+   DebutDunTest("Tentative de retirer la forme selectionnee");
+   std::cout << std::to_string(monInterface->GetCanevas()->GetIndexFormeActive()) << std::endl;
+   monInterface->retirerForme();
+   SousTest("Verification du nombre de formes",         "monInterface->GetCanevas()->ObtenirCoucheCourant()->NombreDeFormes() == 2", monInterface->GetCanevas()->ObtenirCoucheCourant()->NombreDeFormes() == 2); // CAP a 3 premiere couche
+   SousTest("Verification de l'indexe de forme active", "monInterface->GetCanevas()->GetIndexFormeActive() == 1", monInterface->GetCanevas()->GetIndexFormeActive() == 1); // CAP a 3 premiere couche
+   std::cout << std::to_string(monInterface->GetCanevas()->GetIndexFormeActive()) << std::endl;
+   FinDuTest();
+
+   //////////////////////////////////////////////////////////////////////////////
+   DebutDunTest("Tentative de retirer la couche 3");
+   monInterface->coucheSuivante();
+   monInterface->coucheSuivante();
+   monInterface->coucheSuivante();
+   SousTest("Tentative d'aller a la couche 3", "monInterface->GetCanevas()->GetIndexCoucheActive()==3", monInterface->GetCanevas()->GetIndexCoucheActive() == 3);
+   std::cout << std::to_string(monInterface->GetCanevas()->GetIndexCoucheActive()) << std::endl;
+   monInterface->coucheRetirer();
+   std::cout << std::to_string(monInterface->GetCanevas()->GetIndexCoucheActive()) << std::endl;
+   SousTest("Verification du nombre de couches", "monInterface->GetCanevas()->NombreDeCouches() == 9", monInterface->GetCanevas()->NombreDeCouches() == 9);
+   SousTest("Verification de la couche active", "monInterface->GetCanevas()->GetIndexCoucheActive()==3", monInterface->GetCanevas()->GetIndexCoucheActive() == 3);
+   FinDuTest();
+
+   //////////////////////////////////////////////////////////////////////////////
+   DebutDunTest("Tentative de translation de la couche 2 du canevas");
+   monInterface->couchePrecedente();
+   SousTest("Tentative d'aller a la couche 2", "monInterface->GetCanevas()->GetIndexCoucheActive()==2", monInterface->GetCanevas()->GetIndexCoucheActive() == 2);
+   monInterface->coucheTranslater(-50, -50);
+   FinDuTest();
+
+   //////////////////////////////////////////////////////////////////////////////
+   DebutDunTest("Tentative de sauvegarde du document");
+   monInterface->sauvegarderFichier(ExePath().data());
+   FinDuTest(true);
+
+   //////////////////////////////////////////////////////////////////////////////
+   DebutDunTest("Reinitialisation du canevas");
+   monInterface->reinitialiserCanevas();
+   SousTest("Nombre de couches apres reinitialisation", "monInterface->GetCanevas()->NombreDeCouches()==1", monInterface->GetCanevas()->NombreDeCouches() == 1);
+   SousTest("Nombre de formes apres reinitialisation",  "monInterface->GetCanevas()->coucheAIndex(0)->NombreDeFormes()==0", monInterface->GetCanevas()->coucheAIndex(0)->NombreDeFormes() == 0);
+   SousTest("Etat de la couche apres reinitialisation", "monInterface->GetCanevas()->coucheAIndex(0)->Etat() == EtatsCouche::Active", monInterface->GetCanevas()->coucheAIndex(0)->Etat() == EtatsCouche::Active);
+   SousTest("Aire de la couche apres reinitialisation", "monInterface->GetCanevas()->ObtenirCoucheCourant()->AireCouche()==0", monInterface->GetCanevas()->ObtenirCoucheCourant()->AireCouche() == 0);
+   SousTest("Index de la couche active apres reinitialisation", "monInterface->GetCanevas()->GetIndexCoucheActive()==0", monInterface->GetCanevas()->GetIndexCoucheActive() == 0);
+   FinDuTest();
+
+   //////////////////////////////////////////////////////////////////////////////
+   DebutDunTest("Tentative d'ouverture du document");
+   monInterface->ouvrirFichier(ExePath().data());
+   FinDuTest(true);
+
    FinDeFonctionalitee();
+   FinDeTout();
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////

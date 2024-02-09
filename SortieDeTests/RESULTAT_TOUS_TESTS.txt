@@ -1,0 +1,1931 @@
+===============-===========-===============
+===============-=={TESTS}==-===============
+===============-===========-===============
+	
+===============-==[DEBUT]==-===============
+	- Fonctionalitee: TESTS APPLICATION (CAS 02)
+	- Numero:         1
+	- type de test:   Application
+	-------------------------------------------
+		[TEST 1]: 
+			Nom: Verification des parametres initiales de l'application
+			[SOUS-TEST 1]: 
+				Nom: Nombre de couches initiale
+				Ope: monInterface->GetCanevas()->NombreDeCouches()==1
+				Tmp: 77 us
+				Res: Succes
+			[SOUS-TEST 2]: 
+				Nom: Nombre de formes initiale
+				Ope: monInterface->GetCanevas()->coucheAIndex(0)->NombreDeFormes()==0
+				Tmp: 341 us
+				Res: Succes
+			[SOUS-TEST 3]: 
+				Nom: Etat initiale de la couche
+				Ope: monInterface->GetCanevas()->coucheAIndex(0)->Etat() == EtatsCouche::Active
+				Tmp: 28 us
+				Res: Succes
+			[SOUS-TEST 4]: 
+				Nom: Aire initiale de la couche
+				Ope: monInterface->GetCanevas()->ObtenirCoucheCourant()->AireCouche()==0
+				Tmp: 27 us
+				Res: Succes
+			[SOUS-TEST 5]: 
+				Nom: Index initiale de la couche active
+				Ope: monInterface->GetCanevas()->GetIndexCoucheActive()==0
+				Tmp: 33 us
+				Res: Succes
+			Tmp: 56 us
+			Res: Succes
+		[TEST 2]: 
+			Nom: Tentative de navigation de couches initiale
+			[SOUS-TEST 1]: 
+				Nom: Tentative d'aller a une couche precedente
+				Ope: monInterface->GetCanevas()->GetIndexCoucheActive()==0
+				Tmp: 38 us
+				Res: Succes
+			[SOUS-TEST 2]: 
+				Nom: Tentative d'aller a une couche suivante
+				Ope: monInterface->GetCanevas()->GetIndexCoucheActive()==0
+				Tmp: 41 us
+				Res: Succes
+			[SOUS-TEST 3]: 
+				Nom: Tentative d'aller a la derniere couche
+				Ope: monInterface->GetCanevas()->GetIndexCoucheActive()==0
+				Tmp: 35 us
+				Res: Succes
+			[SOUS-TEST 4]: 
+				Nom: Tentative d'aller a la premiere couche
+				Ope: monInterface->GetCanevas()->GetIndexCoucheActive()==0
+				Tmp: 34 us
+				Res: Succes
+			Tmp: 58 us
+			Res: Succes
+		[TEST 3]: 
+			Nom: Tentative de navigation de formes initiale
+			[SOUS-TEST 1]: 
+				Nom: Tentative d'aller a une forme precedente
+				Ope: monInterface->GetCanevas()->GetIndexFormeActive()==0
+				Tmp: 34 us
+				Res: Succes
+			[SOUS-TEST 2]: 
+				Nom: Tentative d'aller a une forme suivante
+				Ope: monInterface->GetCanevas()->GetIndexFormeActive()==0
+				Tmp: 35 us
+				Res: Succes
+			[SOUS-TEST 3]: 
+				Nom: Tentative d'aller a la derniere forme
+				Ope: monInterface->GetCanevas()->GetIndexFormeActive()==0
+				Tmp: 34 us
+				Res: Succes
+			[SOUS-TEST 4]: 
+				Nom: Tentative d'aller a la premiere forme
+				Ope: monInterface->GetCanevas()->GetIndexFormeActive()==0
+				Tmp: 34 us
+				Res: Succes
+			Tmp: 59 us
+			Res: Succes
+		[TEST 4]: 
+			Nom: Creation de 10 couches consecutives
+			[SOUS-TEST 1]: 
+				Nom: Etat de la couche
+				Ope: monInterface->GetCanevas()->coucheAIndex(index)->Etat() == EtatsCouche::Initialisee
+				Tmp: 35 us
+				Res: Succes
+			[SOUS-TEST 2]: 
+				Nom: Nombre de formes
+				Ope: monInterface->GetCanevas()->coucheAIndex(index)->NombreDeFormes() == 0
+				Tmp: 28 us
+				Res: Succes
+			[SOUS-TEST 3]: 
+				Nom: index de forme initial
+				Ope: monInterface->GetCanevas()->coucheAIndex(index)->GetIndexFormeCourante()
+				Tmp: 27 us
+				Res: Succes
+			[SOUS-TEST 4]: 
+				Nom: Index de la couche courante
+				Ope: monInterface->GetCanevas()->GetIndexCoucheActive() == 0
+				Tmp: 27 us
+				Res: Succes
+			[SOUS-TEST 5]: 
+				Nom: Etat de la couche
+				Ope: monInterface->GetCanevas()->coucheAIndex(index)->Etat() == EtatsCouche::Initialisee
+				Tmp: 35 us
+				Res: Succes
+			[SOUS-TEST 6]: 
+				Nom: Nombre de formes
+				Ope: monInterface->GetCanevas()->coucheAIndex(index)->NombreDeFormes() == 0
+				Tmp: 27 us
+				Res: Succes
+			[SOUS-TEST 7]: 
+				Nom: index de forme initial
+				Ope: monInterface->GetCanevas()->coucheAIndex(index)->GetIndexFormeCourante()
+				Tmp: 27 us
+				Res: Succes
+			[SOUS-TEST 8]: 
+				Nom: Index de la couche courante
+				Ope: monInterface->GetCanevas()->GetIndexCoucheActive() == 0
+				Tmp: 89 us
+				Res: Succes
+			[SOUS-TEST 9]: 
+				Nom: Etat de la couche
+				Ope: monInterface->GetCanevas()->coucheAIndex(index)->Etat() == EtatsCouche::Initialisee
+				Tmp: 36 us
+				Res: Succes
+			[SOUS-TEST 10]: 
+				Nom: Nombre de formes
+				Ope: monInterface->GetCanevas()->coucheAIndex(index)->NombreDeFormes() == 0
+				Tmp: 28 us
+				Res: Succes
+			[SOUS-TEST 11]: 
+				Nom: index de forme initial
+				Ope: monInterface->GetCanevas()->coucheAIndex(index)->GetIndexFormeCourante()
+				Tmp: 27 us
+				Res: Succes
+			[SOUS-TEST 12]: 
+				Nom: Index de la couche courante
+				Ope: monInterface->GetCanevas()->GetIndexCoucheActive() == 0
+				Tmp: 58 us
+				Res: Succes
+			[SOUS-TEST 13]: 
+				Nom: Etat de la couche
+				Ope: monInterface->GetCanevas()->coucheAIndex(index)->Etat() == EtatsCouche::Initialisee
+				Tmp: 36 us
+				Res: Succes
+			[SOUS-TEST 14]: 
+				Nom: Nombre de formes
+				Ope: monInterface->GetCanevas()->coucheAIndex(index)->NombreDeFormes() == 0
+				Tmp: 27 us
+				Res: Succes
+			[SOUS-TEST 15]: 
+				Nom: index de forme initial
+				Ope: monInterface->GetCanevas()->coucheAIndex(index)->GetIndexFormeCourante()
+				Tmp: 28 us
+				Res: Succes
+			[SOUS-TEST 16]: 
+				Nom: Index de la couche courante
+				Ope: monInterface->GetCanevas()->GetIndexCoucheActive() == 0
+				Tmp: 27 us
+				Res: Succes
+			[SOUS-TEST 17]: 
+				Nom: Etat de la couche
+				Ope: monInterface->GetCanevas()->coucheAIndex(index)->Etat() == EtatsCouche::Initialisee
+				Tmp: 35 us
+				Res: Succes
+			[SOUS-TEST 18]: 
+				Nom: Nombre de formes
+				Ope: monInterface->GetCanevas()->coucheAIndex(index)->NombreDeFormes() == 0
+				Tmp: 28 us
+				Res: Succes
+			[SOUS-TEST 19]: 
+				Nom: index de forme initial
+				Ope: monInterface->GetCanevas()->coucheAIndex(index)->GetIndexFormeCourante()
+				Tmp: 28 us
+				Res: Succes
+			[SOUS-TEST 20]: 
+				Nom: Index de la couche courante
+				Ope: monInterface->GetCanevas()->GetIndexCoucheActive() == 0
+				Tmp: 28 us
+				Res: Succes
+			[SOUS-TEST 21]: 
+				Nom: Etat de la couche
+				Ope: monInterface->GetCanevas()->coucheAIndex(index)->Etat() == EtatsCouche::Initialisee
+				Tmp: 35 us
+				Res: Succes
+			[SOUS-TEST 22]: 
+				Nom: Nombre de formes
+				Ope: monInterface->GetCanevas()->coucheAIndex(index)->NombreDeFormes() == 0
+				Tmp: 27 us
+				Res: Succes
+			[SOUS-TEST 23]: 
+				Nom: index de forme initial
+				Ope: monInterface->GetCanevas()->coucheAIndex(index)->GetIndexFormeCourante()
+				Tmp: 28 us
+				Res: Succes
+			[SOUS-TEST 24]: 
+				Nom: Index de la couche courante
+				Ope: monInterface->GetCanevas()->GetIndexCoucheActive() == 0
+				Tmp: 27 us
+				Res: Succes
+			[SOUS-TEST 25]: 
+				Nom: Etat de la couche
+				Ope: monInterface->GetCanevas()->coucheAIndex(index)->Etat() == EtatsCouche::Initialisee
+				Tmp: 35 us
+				Res: Succes
+			[SOUS-TEST 26]: 
+				Nom: Nombre de formes
+				Ope: monInterface->GetCanevas()->coucheAIndex(index)->NombreDeFormes() == 0
+				Tmp: 27 us
+				Res: Succes
+			[SOUS-TEST 27]: 
+				Nom: index de forme initial
+				Ope: monInterface->GetCanevas()->coucheAIndex(index)->GetIndexFormeCourante()
+				Tmp: 27 us
+				Res: Succes
+			[SOUS-TEST 28]: 
+				Nom: Index de la couche courante
+				Ope: monInterface->GetCanevas()->GetIndexCoucheActive() == 0
+				Tmp: 28 us
+				Res: Succes
+			[SOUS-TEST 29]: 
+				Nom: Etat de la couche
+				Ope: monInterface->GetCanevas()->coucheAIndex(index)->Etat() == EtatsCouche::Initialisee
+				Tmp: 35 us
+				Res: Succes
+			[SOUS-TEST 30]: 
+				Nom: Nombre de formes
+				Ope: monInterface->GetCanevas()->coucheAIndex(index)->NombreDeFormes() == 0
+				Tmp: 27 us
+				Res: Succes
+			[SOUS-TEST 31]: 
+				Nom: index de forme initial
+				Ope: monInterface->GetCanevas()->coucheAIndex(index)->GetIndexFormeCourante()
+				Tmp: 29 us
+				Res: Succes
+			[SOUS-TEST 32]: 
+				Nom: Index de la couche courante
+				Ope: monInterface->GetCanevas()->GetIndexCoucheActive() == 0
+				Tmp: 27 us
+				Res: Succes
+			[SOUS-TEST 33]: 
+				Nom: Etat de la couche
+				Ope: monInterface->GetCanevas()->coucheAIndex(index)->Etat() == EtatsCouche::Initialisee
+				Tmp: 94 us
+				Res: Succes
+			[SOUS-TEST 34]: 
+				Nom: Nombre de formes
+				Ope: monInterface->GetCanevas()->coucheAIndex(index)->NombreDeFormes() == 0
+				Tmp: 27 us
+				Res: Succes
+			[SOUS-TEST 35]: 
+				Nom: index de forme initial
+				Ope: monInterface->GetCanevas()->coucheAIndex(index)->GetIndexFormeCourante()
+				Tmp: 27 us
+				Res: Succes
+			[SOUS-TEST 36]: 
+				Nom: Index de la couche courante
+				Ope: monInterface->GetCanevas()->GetIndexCoucheActive() == 0
+				Tmp: 28 us
+				Res: Succes
+			[SOUS-TEST 37]: 
+				Nom: Etat de la couche
+				Ope: monInterface->GetCanevas()->coucheAIndex(index)->Etat() == EtatsCouche::Initialisee
+				Tmp: 35 us
+				Res: Succes
+			[SOUS-TEST 38]: 
+				Nom: Nombre de formes
+				Ope: monInterface->GetCanevas()->coucheAIndex(index)->NombreDeFormes() == 0
+				Tmp: 28 us
+				Res: Succes
+			[SOUS-TEST 39]: 
+				Nom: index de forme initial
+				Ope: monInterface->GetCanevas()->coucheAIndex(index)->GetIndexFormeCourante()
+				Tmp: 28 us
+				Res: Succes
+			[SOUS-TEST 40]: 
+				Nom: Index de la couche courante
+				Ope: monInterface->GetCanevas()->GetIndexCoucheActive() == 0
+				Tmp: 27 us
+				Res: Succes
+			Tmp: 49 us
+			Res: Succes
+		[TEST 5]: 
+			Nom: Verification apres creation des 10 couches
+			[SOUS-TEST 1]: 
+				Nom: Index de la couche courante
+				Ope: monInterface->GetCanevas()->GetIndexCoucheActive() == 10
+				Tmp: 27 us
+				Res: Succes
+			[SOUS-TEST 2]: 
+				Nom: Nombre de couches
+				Ope: monInterface->GetCanevas()->NombreDeCouches() == 11
+				Tmp: 27 us
+				Res: Succes
+			Tmp: 49 us
+			Res: Succes
+		[TEST 6]: 
+			Nom: Navigation apres l'ajout des couches
+			[SOUS-TEST 1]: 
+				Nom: Tentative d'aller a une couche precedente
+				Ope: monInterface->GetCanevas()->GetIndexCoucheActive()==0
+				Tmp: 34 us
+				Res: Succes
+			[SOUS-TEST 2]: 
+				Nom: Tentative d'aller a 3 couches suivante
+				Ope: monInterface->GetCanevas()->GetIndexCoucheActive()==3
+				Tmp: 36 us
+				Res: Succes
+			[SOUS-TEST 3]: 
+				Nom: Tentative d'aller a la premiere couche
+				Ope: monInterface->GetCanevas()->GetIndexCoucheActive()==0
+				Tmp: 36 us
+				Res: Succes
+			[SOUS-TEST 4]: 
+				Nom: Tentative d'aller a la derniere couche
+				Ope: monInterface->GetCanevas()->GetIndexCoucheActive()==10
+				Tmp: 35 us
+				Res: Succes
+			Tmp: 60 us
+			Res: Succes
+		[TEST 7]: 
+			Nom: Verification des etats apres la navigation
+			[SOUS-TEST 1]: 
+				Nom: Verification de l'etat de la couche 00
+				Ope: monInterface->GetCanevas()->coucheAIndex(0)->Etat() == EtatsCouche::Inactive
+				Tmp: 27 us
+				Res: Succes
+			[SOUS-TEST 2]: 
+				Nom: Verification de l'etat de la couche 01
+				Ope: monInterface->GetCanevas()->coucheAIndex(1)->Etat() == EtatsCouche::Inactive
+				Tmp: 28 us
+				Res: Succes
+			[SOUS-TEST 3]: 
+				Nom: Verification de l'etat de la couche 02
+				Ope: monInterface->GetCanevas()->coucheAIndex(2)->Etat() == EtatsCouche::Inactive
+				Tmp: 28 us
+				Res: Succes
+			[SOUS-TEST 4]: 
+				Nom: Verification de l'etat de la couche 03
+				Ope: monInterface->GetCanevas()->coucheAIndex(3)->Etat() == EtatsCouche::Inactive
+				Tmp: 28 us
+				Res: Succes
+			[SOUS-TEST 5]: 
+				Nom: Verification de l'etat de la couche 04
+				Ope: monInterface->GetCanevas()->coucheAIndex(4)->Etat() == EtatsCouche::Inactive
+				Tmp: 28 us
+				Res: Succes
+			[SOUS-TEST 6]: 
+				Nom: Verification de l'etat de la couche 05
+				Ope: monInterface->GetCanevas()->coucheAIndex(5)->Etat() == EtatsCouche::Inactive
+				Tmp: 27 us
+				Res: Succes
+			[SOUS-TEST 7]: 
+				Nom: Verification de l'etat de la couche 06
+				Ope: monInterface->GetCanevas()->coucheAIndex(6)->Etat() == EtatsCouche::Inactive
+				Tmp: 28 us
+				Res: Succes
+			[SOUS-TEST 8]: 
+				Nom: Verification de l'etat de la couche 07
+				Ope: monInterface->GetCanevas()->coucheAIndex(7)->Etat() == EtatsCouche::Inactive
+				Tmp: 28 us
+				Res: Succes
+			[SOUS-TEST 9]: 
+				Nom: Verification de l'etat de la couche 08
+				Ope: monInterface->GetCanevas()->coucheAIndex(8)->Etat() == EtatsCouche::Inactive
+				Tmp: 84 us
+				Res: Succes
+			[SOUS-TEST 10]: 
+				Nom: Verification de l'etat de la couche 09
+				Ope: monInterface->GetCanevas()->coucheAIndex(9)->Etat() == EtatsCouche::Inactive
+				Tmp: 28 us
+				Res: Succes
+			[SOUS-TEST 11]: 
+				Nom: Verification de l'etat de la couche 10
+				Ope: monInterface->GetCanevas()->coucheAIndex(10)->Etat() == EtatsCouche::Active
+				Tmp: 28 us
+				Res: Succes
+			Tmp: 50 us
+			Res: Succes
+		[TEST 8]: 
+			Nom: Tentative de retirer la couche active
+			[SOUS-TEST 1]: 
+				Nom: Verification du nombre de couche
+				Ope: monInterface->GetCanevas()->NombreDeCouches()==10
+				Tmp: 35 us
+				Res: Succes
+			[SOUS-TEST 2]: 
+				Nom: Verification de l'index de la couche active
+				Ope: monInterface->GetCanevas()->GetIndexCoucheActive()==0
+				Tmp: 27 us
+				Res: Succes
+		[TEST 9]: 
+			Nom: Ajout de 50 formes "aleatoires"
+			Tmp: 920843 us
+			Res: Succes
+		[TEST 10]: 
+			Nom: Verification des couches affectees
+			[SOUS-TEST 1]: 
+				Nom: Verification du nombre de formes de la couche 1
+				Ope: monInterface->GetCanevas()->coucheAIndex()->NombreDeFormes()==30
+				Tmp: 28 us
+				Res: Succes
+			[SOUS-TEST 2]: 
+				Nom: Verification du nombre de formes de la couche 2
+				Ope: monInterface->GetCanevas()->coucheAIndex()->NombreDeFormes()==30
+				Tmp: 27 us
+				Res: Succes
+			[SOUS-TEST 3]: 
+				Nom: Verification du nombre de formes de la couche 3
+				Ope: monInterface->GetCanevas()->coucheAIndex()->NombreDeFormes()==30
+				Tmp: 27 us
+				Res: Succes
+			[SOUS-TEST 4]: 
+				Nom: Verification du nombre de formes de la couche 4
+				Ope: monInterface->GetCanevas()->coucheAIndex()->NombreDeFormes()==30
+				Tmp: 27 us
+				Res: Succes
+			Tmp: 49 us
+			Res: Succes
+		[TEST 11]: 
+			Nom: Tentative de navigation de formes apres l'ajout
+			[SOUS-TEST 1]: 
+				Nom: Tentative d'aller a une forme precedente
+				Ope: monInterface->GetCanevas()->GetIndexFormeActive()==0
+				Tmp: 41 us
+				Res: Succes
+			[SOUS-TEST 2]: 
+				Nom: Tentative d'aller a une forme suivante
+				Ope: monInterface->GetCanevas()->GetIndexFormeActive()==2
+				Tmp: 55 us
+				Res: Succes
+			[SOUS-TEST 3]: 
+				Nom: Tentative d'aller a la premiere forme
+				Ope: monInterface->GetCanevas()->GetIndexFormeActive()==0
+				Tmp: 52 us
+				Res: Succes
+			[SOUS-TEST 4]: 
+				Nom: Tentative d'aller a la derniere forme
+				Ope: monInterface->GetCanevas()->GetIndexFormeActive()==2
+				Tmp: 72 us
+				Res: Succes
+			Tmp: 97 us
+			Res: Succes
+		[TEST 12]: 
+			Nom: Tentative de retirer la forme selectionnee
+			[SOUS-TEST 1]: 
+				Nom: Verification du nombre de formes
+				Ope: monInterface->GetCanevas()->ObtenirCoucheCourant()->NombreDeFormes() == 2
+				Tmp: 62 us
+				Res: Succes
+			[SOUS-TEST 2]: 
+				Nom: Verification de l'indexe de forme active
+				Ope: monInterface->GetCanevas()->GetIndexFormeActive() == 1
+				Tmp: 27 us
+				Res: Succes
+			Tmp: 253 us
+			Res: Succes
+		[TEST 13]: 
+			Nom: Tentative de retirer la couche 3
+			[SOUS-TEST 1]: 
+				Nom: Tentative d'aller a la couche 3
+				Ope: monInterface->GetCanevas()->GetIndexCoucheActive()==3
+				Tmp: 56 us
+				Res: Succes
+			[SOUS-TEST 2]: 
+				Nom: Verification du nombre de couches
+				Ope: monInterface->GetCanevas()->NombreDeCouches() == 9
+				Tmp: 40 us
+				Res: Succes
+			[SOUS-TEST 3]: 
+				Nom: Verification de la couche active
+				Ope: monInterface->GetCanevas()->GetIndexCoucheActive()==3
+				Tmp: 26 us
+				Res: Succes
+			Tmp: 48 us
+			Res: Succes
+		[TEST 14]: 
+			Nom: Tentative de translation de la couche 2 du canevas
+			[SOUS-TEST 1]: 
+				Nom: Tentative d'aller a la couche 2
+				Ope: monInterface->GetCanevas()->GetIndexCoucheActive()==2
+				Tmp: 51 us
+				Res: Succes
+			Tmp: 14475 us
+			Res: Succes
+		[TEST 15]: 
+			Nom: Tentative de sauvegarde du document
+			Tmp: 18820 us
+			Res: Succes
+		[TEST 16]: 
+			Nom: Reinitialisation du canevas
+			[SOUS-TEST 1]: 
+				Nom: Nombre de couches apres reinitialisation
+				Ope: monInterface->GetCanevas()->NombreDeCouches()==1
+				Tmp: 57 us
+				Res: Succes
+			[SOUS-TEST 2]: 
+				Nom: Nombre de formes apres reinitialisation
+				Ope: monInterface->GetCanevas()->coucheAIndex(0)->NombreDeFormes()==0
+				Tmp: 27 us
+				Res: Succes
+			[SOUS-TEST 3]: 
+				Nom: Etat de la couche apres reinitialisation
+				Ope: monInterface->GetCanevas()->coucheAIndex(0)->Etat() == EtatsCouche::Active
+				Tmp: 28 us
+				Res: Succes
+			[SOUS-TEST 4]: 
+				Nom: Aire de la couche apres reinitialisation
+				Ope: monInterface->GetCanevas()->ObtenirCoucheCourant()->AireCouche()==0
+				Tmp: 27 us
+				Res: Succes
+			[SOUS-TEST 5]: 
+				Nom: Index de la couche active apres reinitialisation
+				Ope: monInterface->GetCanevas()->GetIndexCoucheActive()==0
+				Tmp: 27 us
+				Res: Succes
+			Tmp: 49 us
+			Res: Succes
+		[TEST 17]: 
+			Nom: Tentative d'ouverture du document
+			Tmp: 5648 us
+			Res: Succes
+	-------------------------------------------
+	Nombre de tests effectues: 94
+	Duree total (us):          1172619 us
+	Duree total (ms):          1172 ms
+	Echec total:               0
+	Succes total:              94
+	Ratio de succes:           100%
+	Resultat final:            Succes
+	===============-===[FIN]===-===============
+===============-===========-===============
+===============-{RESULTATS}-===============
+===============-===========-===============
+Nombre de tests effectues: 94
+Duree total (us):          1172724 us
+Duree total (ms):          1172 ms
+Echec total:               0
+Succes total:              94
+Ratio de succes:           100%
+Resultat final:            Succes
+	
+===============-==[DEBUT]==-===============
+	- Fonctionalitee: Classes Formes
+	- Numero:         2
+	- type de test:   Unitaire
+	-------------------------------------------
+		[TEST 1]: 
+			Nom: Creation des objects
+			Tmp: 5917 us
+			Res: Succes
+		[TEST 2]: 
+			Nom: Verification des données initiales des formes a constructeur vide
+			[SOUS-TEST 1]: 
+				Nom: X initiale: rectangle = 0
+				Tmp: 19 us
+				Res: Succes
+			[SOUS-TEST 2]: 
+				Nom: Y initiale: rectangle = 0
+				Tmp: 19 us
+				Res: Succes
+			[SOUS-TEST 3]: 
+				Nom: Largeur initiale: rectangle = 10
+				Tmp: 18 us
+				Res: Succes
+			[SOUS-TEST 4]: 
+				Nom: Hauteur initiale: rectangle = 10
+				Tmp: 19 us
+				Res: Succes
+			[SOUS-TEST 5]: 
+				Nom: X initiale: carre = 0
+				Tmp: 18 us
+				Res: Succes
+			[SOUS-TEST 6]: 
+				Nom: Y initiale: carre = 0
+				Tmp: 19 us
+				Res: Succes
+			[SOUS-TEST 7]: 
+				Nom: Largeur initiale: carre = 10
+				Tmp: 19 us
+				Res: Succes
+			[SOUS-TEST 8]: 
+				Nom: X initiale: cercle = 0
+				Tmp: 19 us
+				Res: Succes
+			[SOUS-TEST 9]: 
+				Nom: Y initiale: cercle = 0
+				Tmp: 18 us
+				Res: Succes
+			[SOUS-TEST 10]: 
+				Nom: Rayon initiale: cercle = 10
+				Tmp: 18 us
+				Res: Succes
+			Tmp: 39 us
+			Res: Succes
+		[TEST 3]: 
+			Nom: Verification des données initiales des formes a constructeur cartesiennes
+			[SOUS-TEST 1]: 
+				Nom: X initiale: rectangleXY = 5
+				Tmp: 19 us
+				Res: Succes
+			[SOUS-TEST 2]: 
+				Nom: Y initiale: rectangleXY = 5
+				Tmp: 19 us
+				Res: Succes
+			[SOUS-TEST 3]: 
+				Nom: Largeur initiale: rectangleXY = 10
+				Tmp: 19 us
+				Res: Succes
+			[SOUS-TEST 4]: 
+				Nom: Hauteur initiale: rectangleXY = 10
+				Tmp: 18 us
+				Res: Succes
+			[SOUS-TEST 5]: 
+				Nom: X initiale: carreXY = 10
+				Tmp: 18 us
+				Res: Succes
+			[SOUS-TEST 6]: 
+				Nom: Y initiale: carreXY = 10
+				Tmp: 19 us
+				Res: Succes
+			[SOUS-TEST 7]: 
+				Nom: Largeur initiale: carreXY = 10
+				Tmp: 19 us
+				Res: Succes
+			[SOUS-TEST 8]: 
+				Nom: X initiale: cercleXY = 5
+				Tmp: 19 us
+				Res: Succes
+			[SOUS-TEST 9]: 
+				Nom: Y initiale: cercleXY = 2
+				Tmp: 19 us
+				Res: Succes
+			[SOUS-TEST 10]: 
+				Nom: Rayon initiale: cercleXY = 10
+				Tmp: 19 us
+				Res: Succes
+			Tmp: 40 us
+			Res: Succes
+		[TEST 4]: 
+			Nom: Verification des donnees initiales des formes a constructeur etendues
+			[SOUS-TEST 1]: 
+				Nom: X initiale: rectangleXYLH = 2
+				Tmp: 21 us
+				Res: Succes
+			[SOUS-TEST 2]: 
+				Nom: Y initiale: rectangleXYLH = 1
+				Tmp: 19 us
+				Res: Succes
+			[SOUS-TEST 3]: 
+				Nom: Largeur initiale: rectangleXYLH = 4
+				Tmp: 38 us
+				Res: Succes
+			[SOUS-TEST 4]: 
+				Nom: Hauteur initiale: rectangleXYLH = 5
+				Tmp: 20 us
+				Res: Succes
+			[SOUS-TEST 5]: 
+				Nom: X initiale: carreXYL = 3
+				Tmp: 19 us
+				Res: Succes
+			[SOUS-TEST 6]: 
+				Nom: Y initiale: carreXYL = 9
+				Tmp: 19 us
+				Res: Succes
+			[SOUS-TEST 7]: 
+				Nom: Largeur initiale: carreXYL = 8
+				Tmp: 20 us
+				Res: Succes
+			[SOUS-TEST 8]: 
+				Nom: X initiale: cercleXYR = 3
+				Tmp: 19 us
+				Res: Succes
+			[SOUS-TEST 9]: 
+				Nom: Y initiale: cercleXYR = 10
+				Tmp: 19 us
+				Res: Succes
+			[SOUS-TEST 10]: 
+				Nom: Rayon initiale: cercleXYR = 24
+				Tmp: 19 us
+				Res: Succes
+			Tmp: 40 us
+			Res: Succes
+		[TEST 5]: 
+			Nom: Assignation de dimentions
+			[SOUS-TEST 1]: 
+				Nom: rectangle.Hauteur
+				Tmp: 19 us
+				Res: Succes
+			[SOUS-TEST 2]: 
+				Nom: rectangle.Largeur
+				Tmp: 19 us
+				Res: Succes
+			[SOUS-TEST 3]: 
+				Nom: carre.Largeur
+				Tmp: 19 us
+				Res: Succes
+			[SOUS-TEST 4]: 
+				Nom: cercle.Rayon
+				Tmp: 18 us
+				Res: Succes
+			Tmp: 39 us
+			Res: Succes
+		[TEST 6]: 
+			Nom: Calcule d'aire des formes
+			[SOUS-TEST 1]: 
+				Nom: rectangle.aire
+				Voulue: 200
+				Obtenu: 200
+				Ratio: 0
+				Tmp: 66 us
+				Res: Succes
+			[SOUS-TEST 2]: 
+				Nom: carre.aire
+				Voulue: 100
+				Obtenu: 100
+				Ratio: 0
+				Tmp: 63 us
+				Res: Succes
+			[SOUS-TEST 3]: 
+				Nom: cercle.aire
+				Voulue: 78.5
+				Obtenu: 78.5
+				Ratio: 0
+				Tmp: 64 us
+				Res: Succes
+			Tmp: 85 us
+			Res: Succes
+		[TEST 7]: 
+			Nom: Calcule de 100 aires extensif positives et négatives
+			[SOUS-TEST 1]: 
+				Nom: 100x rectangle.aire
+				Tmp: 19 us
+				Res: Succes
+			[SOUS-TEST 2]: 
+				Nom: 100x carre.aire
+				Tmp: 18 us
+				Res: Succes
+			[SOUS-TEST 3]: 
+				Nom: 100x cercle.aire
+				Tmp: 19 us
+				Res: Succes
+			Tmp: 39 us
+			Res: Succes
+		[TEST 8]: 
+			Nom: Validation extensif de translation
+			[SOUS-TEST 1]: 
+				Nom: Rectangle x
+				Tmp: 19 us
+				Res: Succes
+			[SOUS-TEST 2]: 
+				Nom: Rectangle y
+				Tmp: 18 us
+				Res: Succes
+			[SOUS-TEST 3]: 
+				Nom: Carre x
+				Tmp: 18 us
+				Res: Succes
+			[SOUS-TEST 4]: 
+				Nom: Carre y
+				Tmp: 18 us
+				Res: Succes
+			[SOUS-TEST 5]: 
+				Nom: Cercle x
+				Tmp: 19 us
+				Res: Succes
+			[SOUS-TEST 6]: 
+				Nom: Cercle y
+				Tmp: 19 us
+				Res: Succes
+			Tmp: 40 us
+			Res: Succes
+		[TEST 9]: 
+			Nom: Destruction des classes
+			Tmp: 78 us
+			Res: Succes
+	-------------------------------------------
+	Nombre de tests effectues: 46
+	Duree total (us):          2394 us
+	Duree total (ms):          2 ms
+	Echec total:               0
+	Succes total:              46
+	Ratio de succes:           100%
+	Resultat final:            Succes
+	===============-===[FIN]===-===============
+	
+===============-==[DEBUT]==-===============
+	- Fonctionalitee: Classe Vecteur
+	- Numero:         3
+	- type de test:   Unitaire
+	-------------------------------------------
+		[TEST 1]: 
+			Nom: Creation de multiple classes
+			Tmp: 236 us
+			Res: Succes
+		[TEST 2]: 
+			Nom: Grosseurs initiales
+			[SOUS-TEST 1]: 
+				Nom: Vecteur int
+				Tmp: 18 us
+				Res: Succes
+			[SOUS-TEST 2]: 
+				Nom: Vecteur bool
+				Tmp: 19 us
+				Res: Succes
+			[SOUS-TEST 3]: 
+				Nom: Vecteur string
+				Tmp: 18 us
+				Res: Succes
+			[SOUS-TEST 4]: 
+				Nom: Vecteur double
+				Tmp: 18 us
+				Res: Succes
+			Tmp: 39 us
+			Res: Succes
+		[TEST 3]: 
+			Nom: Capacite initiale
+			[SOUS-TEST 1]: 
+				Nom: Vecteur int
+				Tmp: 18 us
+				Res: Succes
+			[SOUS-TEST 2]: 
+				Nom: Vecteur bool
+				Tmp: 18 us
+				Res: Succes
+			[SOUS-TEST 3]: 
+				Nom: Vecteur string
+				Tmp: 18 us
+				Res: Succes
+			[SOUS-TEST 4]: 
+				Nom: Vecteur double
+				Tmp: 19 us
+				Res: Succes
+			Tmp: 39 us
+			Res: Succes
+		[TEST 4]: 
+			Nom: Ajout d'une donne initiale
+			[SOUS-TEST 1]: 
+				Nom: Ajout de 69 au vecteur int
+				Tmp: 18 us
+				Res: Succes
+			[SOUS-TEST 2]: 
+				Nom: Ajout de false au vecteur bool
+				Tmp: 18 us
+				Res: Succes
+			[SOUS-TEST 3]: 
+				Nom: Ajout de amogus au vecteur string
+				Tmp: 20 us
+				Res: Succes
+			[SOUS-TEST 4]: 
+				Nom: Ajout de 1234 au vecteur double
+				Tmp: 18 us
+				Res: Succes
+			Tmp: 39 us
+			Res: Succes
+		[TEST 5]: 
+			Nom: Grosseur du vecteur apres sauvegarde d'une donnee
+			[SOUS-TEST 1]: 
+				Nom: Vecteur int
+				Tmp: 19 us
+				Res: Succes
+			[SOUS-TEST 2]: 
+				Nom: Vecteur bool
+				Tmp: 18 us
+				Res: Succes
+			[SOUS-TEST 3]: 
+				Nom: Vecteur string
+				Tmp: 18 us
+				Res: Succes
+			[SOUS-TEST 4]: 
+				Nom: Vecteur double
+				Tmp: 19 us
+				Res: Succes
+			Tmp: 39 us
+			Res: Succes
+		[TEST 6]: 
+			Nom: Capacite du vecteur apres sauvegarde d'une donnee
+			[SOUS-TEST 1]: 
+				Nom: Vecteur int 
+				Tmp: 18 us
+				Res: Succes
+			[SOUS-TEST 2]: 
+				Nom: Vecteur bool 
+				Tmp: 19 us
+				Res: Succes
+			[SOUS-TEST 3]: 
+				Nom: Vecteur string 
+				Tmp: 18 us
+				Res: Succes
+			[SOUS-TEST 4]: 
+				Nom: Vecteur double 
+				Tmp: 18 us
+				Res: Succes
+			Tmp: 39 us
+			Res: Succes
+		[TEST 7]: 
+			Nom: Verification de la donnee initialement sauvegardee
+			[SOUS-TEST 1]: 
+				Nom: Verification du 69
+				Tmp: 18 us
+				Res: Succes
+			[SOUS-TEST 2]: 
+				Nom: Verification du false
+				Tmp: 19 us
+				Res: Succes
+			[SOUS-TEST 3]: 
+				Nom: Verification du amogus
+				Tmp: 19 us
+				Res: Succes
+			[SOUS-TEST 4]: 
+				Nom: Verification du 1234
+				Tmp: 19 us
+				Res: Succes
+			Tmp: 40 us
+			Res: Succes
+		[TEST 8]: 
+			Nom: Grosseur des vecteurs apres 19 donnees
+			[SOUS-TEST 1]: 
+				Nom: Vecteur int 
+				Tmp: 18 us
+				Res: Succes
+			[SOUS-TEST 2]: 
+				Nom: Vecteur bool 
+				Tmp: 19 us
+				Res: Succes
+			[SOUS-TEST 3]: 
+				Nom: Vecteur string 
+				Tmp: 18 us
+				Res: Succes
+			[SOUS-TEST 4]: 
+				Nom: Vecteur double 
+				Tmp: 18 us
+				Res: Succes
+			Tmp: 39 us
+			Res: Succes
+		[TEST 9]: 
+			Nom: Capacite des vecteurs apres 19 donnees
+			[SOUS-TEST 1]: 
+				Nom: Vecteur int 
+				Tmp: 19 us
+				Res: Succes
+			[SOUS-TEST 2]: 
+				Nom: Vecteur bool 
+				Tmp: 19 us
+				Res: Succes
+			[SOUS-TEST 3]: 
+				Nom: Vecteur string 
+				Tmp: 19 us
+				Res: Succes
+			[SOUS-TEST 4]: 
+				Nom: Vecteur double 
+				Tmp: 19 us
+				Res: Succes
+			Tmp: 40 us
+			Res: Succes
+		[TEST 10]: 
+			Nom: Verification de l'enregistrement des 19 donnees
+			[SOUS-TEST 1]: 
+				Nom: Vecteur int
+				Tmp: 18 us
+				Res: Succes
+			[SOUS-TEST 2]: 
+				Nom: Vecteur bool
+				Tmp: 19 us
+				Res: Succes
+			[SOUS-TEST 3]: 
+				Nom: Vecteur string
+				Tmp: 18 us
+				Res: Succes
+			[SOUS-TEST 4]: 
+				Nom: Vecteur double
+				Tmp: 19 us
+				Res: Succes
+			Tmp: 39 us
+			Res: Succes
+		[TEST 11]: 
+			Nom: Destruction de la derniere valeure des vecteurs
+			[SOUS-TEST 1]: 
+				Nom: Vecteur int
+				Tmp: 19 us
+				Res: Succes
+			[SOUS-TEST 2]: 
+				Nom: Vecteur bool
+				Tmp: 18 us
+				Res: Succes
+			[SOUS-TEST 3]: 
+				Nom: Vecteur string
+				Tmp: 19 us
+				Res: Succes
+			[SOUS-TEST 4]: 
+				Nom: Vecteur double
+				Tmp: 19 us
+				Res: Succes
+			Tmp: 39 us
+			Res: Succes
+		[TEST 12]: 
+			Nom: Grosseur des vecteurs apres la destruction de la derniere valeur
+			[SOUS-TEST 1]: 
+				Nom: Vecteur int
+				Tmp: 19 us
+				Res: Succes
+			[SOUS-TEST 2]: 
+				Nom: Vecteur bool
+				Tmp: 18 us
+				Res: Succes
+			[SOUS-TEST 3]: 
+				Nom: Vecteur string
+				Tmp: 19 us
+				Res: Succes
+			[SOUS-TEST 4]: 
+				Nom: Vecteur double
+				Tmp: 19 us
+				Res: Succes
+			Tmp: 39 us
+			Res: Succes
+		[TEST 13]: 
+			Nom: Verification de la derniere donnee des vecteurs apres destruction
+			[SOUS-TEST 1]: 
+				Nom: Donnee int a la fin du tableau
+				Tmp: 19 us
+				Res: Succes
+			[SOUS-TEST 2]: 
+				Nom: Donnee bool a la fin du tableau
+				Tmp: 19 us
+				Res: Succes
+			[SOUS-TEST 3]: 
+				Nom: Donnee string a la fin du tableau
+				Tmp: 23 us
+				Res: Succes
+			[SOUS-TEST 4]: 
+				Nom: Donnee double a la fin du tableau
+				Tmp: 19 us
+				Res: Succes
+			Tmp: 40 us
+			Res: Succes
+		[TEST 14]: 
+			Nom: Tentative de retirer une donnee hors limite des vecteurs
+			[SOUS-TEST 1]: 
+				Nom: Vecteur int
+				Tmp: 18 us
+				Res: Succes
+			[SOUS-TEST 2]: 
+				Nom: Vecteur bool
+				Tmp: 19 us
+				Res: Succes
+			[SOUS-TEST 3]: 
+				Nom: Vecteur string
+				Tmp: 18 us
+				Res: Succes
+			[SOUS-TEST 4]: 
+				Nom: Vecteur double
+				Tmp: 19 us
+				Res: Succes
+			Tmp: 40 us
+			Res: Succes
+		[TEST 15]: 
+			Nom: Destruction de la premiere donnee dans les vecteurs
+			[SOUS-TEST 1]: 
+				Nom: Vecteur int
+				Tmp: 19 us
+				Res: Succes
+			[SOUS-TEST 2]: 
+				Nom: Vecteur bool
+				Tmp: 18 us
+				Res: Succes
+			[SOUS-TEST 3]: 
+				Nom: Vecteur string
+				Tmp: 18 us
+				Res: Succes
+			[SOUS-TEST 4]: 
+				Nom: Vecteur double
+				Tmp: 19 us
+				Res: Succes
+			Tmp: 39 us
+			Res: Succes
+		[TEST 16]: 
+			Nom: Grosseur des vecteurs apres la destruction de la premiere valeur
+			[SOUS-TEST 1]: 
+				Nom: Vecteur int
+				Tmp: 18 us
+				Res: Succes
+			[SOUS-TEST 2]: 
+				Nom: Vecteur bool
+				Tmp: 18 us
+				Res: Succes
+			[SOUS-TEST 3]: 
+				Nom: Vecteur string
+				Tmp: 19 us
+				Res: Succes
+			[SOUS-TEST 4]: 
+				Nom: Vecteur double
+				Tmp: 18 us
+				Res: Succes
+			Tmp: 39 us
+			Res: Succes
+		[TEST 17]: 
+			Nom: Verification de la nouvelle premiere donnee du vecteur
+			[SOUS-TEST 1]: 
+				Nom: Vecteur int
+				Tmp: 18 us
+				Res: Succes
+			[SOUS-TEST 2]: 
+				Nom: Vecteur bool
+				Tmp: 18 us
+				Res: Succes
+			[SOUS-TEST 3]: 
+				Nom: Vecteur string
+				Tmp: 18 us
+				Res: Succes
+			[SOUS-TEST 4]: 
+				Nom: Vecteur double
+				Tmp: 19 us
+				Res: Succes
+			Tmp: 42 us
+			Res: Succes
+		[TEST 18]: 
+			Nom: Tentative d'acces a une valeur hors limite dans les vecteurs
+			[SOUS-TEST 1]: 
+				Nom: Vecteur int
+				Tmp: 18 us
+				Res: Succes
+			[SOUS-TEST 2]: 
+				Nom: Vecteur bool
+				Tmp: 18 us
+				Res: Succes
+			[SOUS-TEST 3]: 
+				Nom: Vecteur string
+				Tmp: 19 us
+				Res: Succes
+			[SOUS-TEST 4]: 
+				Nom: Vecteur double
+				Tmp: 18 us
+				Res: Succes
+			Tmp: 39 us
+			Res: Succes
+		[TEST 19]: 
+			Nom: Tentative d'ajout d'une premiere donnee a des vecteurs pointeurs
+			[SOUS-TEST 1]: 
+				Nom: Ajout de x au vecteur char*
+				Tmp: 19 us
+				Res: Succes
+			[SOUS-TEST 2]: 
+				Nom: Ajout de premiereString au vecteur string*
+				Tmp: 19 us
+				Res: Succes
+			Tmp: 39 us
+			Res: Succes
+		[TEST 20]: 
+			Nom: Tentative d'ajout d'une deuxieme donne a des vecteurs pointeurs
+			[SOUS-TEST 1]: 
+				Nom: Ajout de y au vecteur char*
+				Tmp: 19 us
+				Res: Succes
+			[SOUS-TEST 2]: 
+				Nom: Ajout de deuxiemeString au vecteur string*
+				Tmp: 19 us
+				Res: Succes
+			Tmp: 40 us
+			Res: Succes
+		[TEST 21]: 
+			Nom: Tentative d'ajout d'une troisieme donne a des vecteurs pointeurs
+			[SOUS-TEST 1]: 
+				Nom: Ajout de z au vecteur char*
+				Tmp: 19 us
+				Res: Succes
+			[SOUS-TEST 2]: 
+				Nom: Ajout de troisiemeString au vecteur string*
+				Tmp: 18 us
+				Res: Succes
+			Tmp: 39 us
+			Res: Succes
+		[TEST 22]: 
+			Nom: Verification des grosseurs des vecteurs pointeurs
+			[SOUS-TEST 1]: 
+				Nom: Vecteur char*
+				Tmp: 18 us
+				Res: Succes
+			[SOUS-TEST 2]: 
+				Nom: Vecteur string*
+				Tmp: 18 us
+				Res: Succes
+			Tmp: 39 us
+			Res: Succes
+		[TEST 23]: 
+			Nom: Verification des capacites des vecteurs pointeurs
+			[SOUS-TEST 1]: 
+				Nom: Vecteur char*
+				Tmp: 18 us
+				Res: Succes
+			[SOUS-TEST 2]: 
+				Nom: Vecteur string*
+				Tmp: 19 us
+				Res: Succes
+			Tmp: 39 us
+			Res: Succes
+		[TEST 24]: 
+			Nom: Verification des premiere donnee sauvegardees
+			[SOUS-TEST 1]: 
+				Nom: Vecteur char* egal a 'x'
+				Tmp: 18 us
+				Res: Succes
+			[SOUS-TEST 2]: 
+				Nom: Vecteur string* egal a premiere
+				Tmp: 19 us
+				Res: Succes
+			Tmp: 40 us
+			Res: Succes
+		[TEST 25]: 
+			Nom: Verification des deuxiemes donnee sauvegardees
+			[SOUS-TEST 1]: 
+				Nom: Vecteur char* egal a 'y'
+				Tmp: 23 us
+				Res: Succes
+			[SOUS-TEST 2]: 
+				Nom: Vecteur string* egal a deuxieme
+				Tmp: 19 us
+				Res: Succes
+			Tmp: 40 us
+			Res: Succes
+		[TEST 26]: 
+			Nom: Verification des troisiemes donnee sauvegardees
+			[SOUS-TEST 1]: 
+				Nom: Vecteur char* egal a 'z'
+				Tmp: 19 us
+				Res: Succes
+			[SOUS-TEST 2]: 
+				Nom: Vecteur string* egal a troisieme
+				Tmp: 19 us
+				Res: Succes
+			Tmp: 40 us
+			Res: Succes
+		[TEST 27]: 
+			Nom: Changement des premieres donnees
+			Tmp: 78 us
+			Res: Succes
+		[TEST 28]: 
+			Nom: Verification des premiere donnee sauvegardees
+			[SOUS-TEST 1]: 
+				Nom: Vecteur char* egal a 'X'
+				Tmp: 19 us
+				Res: Succes
+			[SOUS-TEST 2]: 
+				Nom: Vecteur string* egal a nouvelleString
+				Tmp: 20 us
+				Res: Succes
+			Tmp: 42 us
+			Res: Succes
+		[TEST 29]: 
+			Nom: Tentative de destruction des premiere donnees des vecteurs pointeurs
+			[SOUS-TEST 1]: 
+				Nom: Vecteur char*
+				Tmp: 18 us
+				Res: Succes
+			[SOUS-TEST 2]: 
+				Nom: Vecteur string*
+				Tmp: 18 us
+				Res: Succes
+			Tmp: 39 us
+			Res: Succes
+		[TEST 30]: 
+			Nom: Verification des deuxiemes donnee sauvegardees
+			[SOUS-TEST 1]: 
+				Nom: Vecteur char* egal a 6
+				Tmp: 19 us
+				Res: Succes
+			[SOUS-TEST 2]: 
+				Nom: Vecteur string* egal a deuxieme
+				Tmp: 20 us
+				Res: Succes
+			Tmp: 41 us
+			Res: Succes
+		[TEST 31]: 
+			Nom: Verification du retour des donnees par surchage d'operateur []
+			[SOUS-TEST 1]: 
+				Nom: Verification de la surcharge de [] d'un vecteur <int>
+				Tmp: 19 us
+				Res: Succes
+			[SOUS-TEST 2]: 
+				Nom: Verification de la surcharge de [] d'un vecteur <bool>
+				Tmp: 19 us
+				Res: Succes
+			[SOUS-TEST 3]: 
+				Nom: Verification de la surcharge de [] d'un vecteur <string>
+				Tmp: 19 us
+				Res: Succes
+			[SOUS-TEST 4]: 
+				Nom: Verification de la surcharge de [] d'un vecteur <double>
+				Tmp: 19 us
+				Res: Succes
+			[SOUS-TEST 5]: 
+				Nom: Vérification de la surcharge de [] d'un vecteur <char*>
+				Tmp: 18 us
+				Res: Succes
+			[SOUS-TEST 6]: 
+				Nom: Verification de la surcharge de [] d'un vecteur <string*>
+				Tmp: 19 us
+				Res: Succes
+			Tmp: 40 us
+			Res: Succes
+		[TEST 32]: 
+			Nom: Verification d'enregistrement des donnees avec [] a index specifique
+			[SOUS-TEST 1]: 
+				Nom: Vecteur int
+				Ope: intVecteur[0] == 69
+				Tmp: 26 us
+				Res: Succes
+			[SOUS-TEST 2]: 
+				Nom: Vecteur bool
+				Ope: boolVecteur[1] == true
+				Tmp: 26 us
+				Res: Succes
+			[SOUS-TEST 3]: 
+				Nom: Vecteur string
+				Ope: stringVecteur[4] == "8=====D Amogus sussy balls fr fr ong no cap"
+				Tmp: 26 us
+				Res: Succes
+			[SOUS-TEST 4]: 
+				Nom: Vecteur double
+				Ope: doubleVecteur[7] == 696969
+				Tmp: 26 us
+				Res: Succes
+			Tmp: 47 us
+			Res: Succes
+		[TEST 33]: 
+			Nom: Verification de print avec l'operateur << et []
+			Tmp: 792 us
+			Res: Succes
+		[TEST 34]: 
+			Nom: Ajout de 19 donnees avec +=
+		[TEST 35]: 
+			Nom: Grosseur des vecteurs apres 19 donnees avec +=
+			[SOUS-TEST 1]: 
+				Nom: Vecteur int 
+				Ope: intVecteur.Grosseur() == 37
+				Tmp: 26 us
+				Res: Succes
+			[SOUS-TEST 2]: 
+				Nom: Vecteur bool 
+				Ope: boolVecteur.Grosseur() == 37
+				Tmp: 26 us
+				Res: Succes
+			[SOUS-TEST 3]: 
+				Nom: Vecteur string 
+				Ope: stringVecteur.Grosseur() == 37
+				Tmp: 26 us
+				Res: Succes
+			[SOUS-TEST 4]: 
+				Nom: Vecteur double 
+				Ope: doubleVecteur.Grosseur() == 37
+				Tmp: 26 us
+				Res: Succes
+			Tmp: 47 us
+			Res: Succes
+		[TEST 36]: 
+			Nom: Capacite des vecteurs apres 19 donnees avec +=
+			[SOUS-TEST 1]: 
+				Nom: Vecteur int 
+				Ope: intVecteur.Capacite() == 64
+				Tmp: 27 us
+				Res: Succes
+			[SOUS-TEST 2]: 
+				Nom: Vecteur bool 
+				Ope: boolVecteur.Capacite() == 64
+				Tmp: 26 us
+				Res: Succes
+			[SOUS-TEST 3]: 
+				Nom: Vecteur string 
+				Ope: stringVecteur.Capacite() == 64
+				Tmp: 26 us
+				Res: Succes
+			[SOUS-TEST 4]: 
+				Nom: Vecteur double 
+				Ope: doubleVecteur.Capacite() == 64
+				Tmp: 31 us
+				Res: Succes
+			Tmp: 64 us
+			Res: Succes
+		[TEST 37]: 
+			Nom: Verification de l'enregistrement des 19 donnees avec +=
+			[SOUS-TEST 1]: 
+				Nom: Vecteur int
+				Tmp: 19 us
+				Res: Succes
+			[SOUS-TEST 2]: 
+				Nom: Vecteur bool
+				Tmp: 19 us
+				Res: Succes
+			[SOUS-TEST 3]: 
+				Nom: Vecteur string
+				Tmp: 18 us
+				Res: Succes
+			[SOUS-TEST 4]: 
+				Nom: Vecteur double
+				Tmp: 18 us
+				Res: Succes
+			Tmp: 39 us
+			Res: Succes
+		[TEST 38]: 
+			Nom: Tentative de destruction des vecteurs
+			[SOUS-TEST 1]: 
+				Nom: Destruction du vecteur int.
+				Tmp: 18 us
+				Res: Succes
+			[SOUS-TEST 2]: 
+				Nom: Destruction du vecteur bool.
+				Tmp: 19 us
+				Res: Succes
+			[SOUS-TEST 3]: 
+				Nom: Destruction du vecteur string.
+				Tmp: 35 us
+				Res: Succes
+			[SOUS-TEST 4]: 
+				Nom: Destruction du vecteur double.
+				Tmp: 19 us
+				Res: Succes
+			[SOUS-TEST 5]: 
+				Nom: Destruction du vecteur pointeur de char.
+				Tmp: 19 us
+				Res: Succes
+			[SOUS-TEST 6]: 
+				Nom: Destruction du vecteur pointeur de string.
+				Tmp: 19 us
+				Res: Succes
+			Tmp: 40 us
+			Res: Succes
+	-------------------------------------------
+	Nombre de tests effectues: 118
+	Duree total (us):          7162 us
+	Duree total (ms):          7 ms
+	Echec total:               0
+	Succes total:              118
+	Ratio de succes:           100%
+	Resultat final:            Succes
+	===============-===[FIN]===-===============
+	
+===============-==[DEBUT]==-===============
+	- Fonctionalitee: Classe Couches
+	- Numero:         4
+	- type de test:   Unitaire
+	-------------------------------------------
+		[TEST 1]: 
+			Nom: Creation d'un objet couche
+			Tmp: 199 us
+			Res: Succes
+		[TEST 2]: 
+			Nom: Tests de changements dans une nouvelle couche vide.
+			[SOUS-TEST 1]: 
+				Nom: Translation d'une couche vide
+				Ope: _couche.TranslationCouche(10,10) == false
+				Tmp: 26 us
+				Res: Succes
+			[SOUS-TEST 2]: 
+				Nom: Reset d'une couche vide
+				Ope: _couche.ReinitialisationCouche() == true
+				Tmp: 27 us
+				Res: Succes
+			[SOUS-TEST 3]: 
+				Nom: Reset d'une translation
+				Ope: _couche.ReinitialisationTranslationCouche() == false
+				Tmp: 27 us
+				Res: Succes
+			[SOUS-TEST 4]: 
+				Nom: Aire d'une couche vide = 0
+				Ope: _couche.AireCouche() == 0
+				Tmp: 27 us
+				Res: Succes
+			[SOUS-TEST 5]: 
+				Nom: Etat de la couche = Initialisee
+				Ope: _couche.Etat() == EtatsCouche::Initialisee
+				Tmp: 26 us
+				Res: Succes
+			[SOUS-TEST 6]: 
+				Nom: Ajout d'une forme impossible
+				Ope: _couche.AjoutForme(&rectangle) == false
+				Tmp: 26 us
+				Res: Succes
+			Tmp: 49 us
+			Res: Succes
+		[TEST 3]: 
+			Nom: Tests de changements d'etats
+			[SOUS-TEST 1]: 
+				Nom: Etat de la couche = Initialisee
+				Tmp: 19 us
+				Res: Succes
+			[SOUS-TEST 2]: 
+				Nom: Etat de la couche = Active
+				Tmp: 18 us
+				Res: Succes
+			[SOUS-TEST 3]: 
+				Nom: Etat de la couche = Inactive
+				Tmp: 18 us
+				Res: Succes
+			Tmp: 39 us
+			Res: Succes
+		[TEST 4]: 
+			Nom: Ajout de formes
+			[SOUS-TEST 1]: 
+				Nom: Couche inactive = impossible.
+				Ope: _couche.AjoutForme(&rectangle) == false
+				Tmp: 27 us
+				Res: Succes
+			[SOUS-TEST 2]: 
+				Nom: Rectangle, Couche active = possible.
+				Ope: _couche.AjoutForme(&rectangle) == true
+				Tmp: 26 us
+				Res: Succes
+			[SOUS-TEST 3]: 
+				Nom: Carre, Couche active = possible.
+				Ope: _couche.AjoutForme(&carre) == true
+				Tmp: 26 us
+				Res: Succes
+			[SOUS-TEST 4]: 
+				Nom: Cercle, Couche active = possible.
+				Ope: _couche.AjoutForme(&cercle) == true
+				Tmp: 26 us
+				Res: Succes
+			Tmp: 47 us
+			Res: Succes
+		[TEST 5]: 
+			Nom: Calcule de l'aire couche avant modification
+			[SOUS-TEST 1]: 
+				Nom: aire couche si active.
+				Voulue: 378.5
+				Obtenu: 378.5
+				Ratio: 2.6226e-06
+				Tmp: 69 us
+				Res: Succes
+			[SOUS-TEST 2]: 
+				Nom: aire couche si inactive.
+				Voulue: 378.5
+				Obtenu: 378.5
+				Ratio: 2.6226e-06
+				Tmp: 68 us
+				Res: Succes
+			Tmp: 91 us
+			Res: Succes
+		[TEST 6]: 
+			Nom: Calcule de l'aire apres modification des formes
+			[SOUS-TEST 1]: 
+				Nom: aire couche si active.
+				Voulue: 4907.66
+				Obtenu: 4907.66
+				Ratio: 0
+				Tmp: 65 us
+				Res: Succes
+			[SOUS-TEST 2]: 
+				Nom: aire couche si inactive.
+				Voulue: 4907.66
+				Obtenu: 4907.66
+				Ratio: 0
+				Tmp: 64 us
+				Res: Succes
+			Tmp: 85 us
+			Res: Succes
+		[TEST 7]: 
+			Nom: Translation de la couche
+			[SOUS-TEST 1]: 
+				Nom: _couche.TranslationCouche(5, 6)
+				Tmp: 19 us
+				Res: Succes
+			[SOUS-TEST 2]: 
+				Nom: aire apres translation
+				Voulue: 4907.66
+				Obtenu: 4907.66
+				Ratio: 0
+				Tmp: 64 us
+				Res: Succes
+			Tmp: 85 us
+			Res: Succes
+		[TEST 8]: 
+			Nom: Verification de la translation des formes
+			[SOUS-TEST 1]: 
+				Nom: X: Rectangle = 10
+				Tmp: 19 us
+				Res: Succes
+			[SOUS-TEST 2]: 
+				Nom: Y: Rectangle = 11
+				Tmp: 18 us
+				Res: Succes
+			[SOUS-TEST 3]: 
+				Nom: X: Carre = 15
+				Tmp: 19 us
+				Res: Succes
+			[SOUS-TEST 4]: 
+				Nom: Y: Carre = 16
+				Tmp: 19 us
+				Res: Succes
+			[SOUS-TEST 5]: 
+				Nom: X: Cercle = 10
+				Tmp: 18 us
+				Res: Succes
+			[SOUS-TEST 6]: 
+				Nom: Y: Cercle = 8
+				Tmp: 19 us
+				Res: Succes
+			Tmp: 39 us
+			Res: Succes
+		[TEST 9]: 
+			Nom: Reinitialiser la translation de la couche
+			[SOUS-TEST 1]: 
+				Nom: _couche.ReinitialisationTranslationCouche()
+				Tmp: 18 us
+				Res: Succes
+			Tmp: 39 us
+			Res: Succes
+		[TEST 10]: 
+			Nom: Verification de la reinitialisation de translation
+			[SOUS-TEST 1]: 
+				Nom: X: Rectangle = 5
+				Tmp: 19 us
+				Res: Succes
+			[SOUS-TEST 2]: 
+				Nom: Y: Rectangle = 5
+				Tmp: 19 us
+				Res: Succes
+			[SOUS-TEST 3]: 
+				Nom: X: Carre = 10
+				Tmp: 18 us
+				Res: Succes
+			[SOUS-TEST 4]: 
+				Nom: Y: Carre = 10
+				Tmp: 19 us
+				Res: Succes
+			[SOUS-TEST 5]: 
+				Nom: X: Cercle = 5
+				Tmp: 19 us
+				Res: Succes
+			[SOUS-TEST 6]: 
+				Nom: Y: Cercle = 2
+				Tmp: 18 us
+				Res: Succes
+			Tmp: 38 us
+			Res: Succes
+		[TEST 11]: 
+			Nom: Afficher Couche
+Etat: active
+Rectangle (x=5, y=5, l=7, h=3, aire=21)
+Carre (x=10, y=10, c=66, aire=4356)
+Cercle (x=5, y=2, r=13, aire=530.66)
+			[SOUS-TEST 1]: 
+				Nom: _couche.AfficherCouche(OUTPUT_STREAM)
+				Tmp: 22 us
+				Res: Succes
+			Tmp: 44 us
+			Res: Succes
+		[TEST 12]: 
+			Nom: Reset de la couche
+			[SOUS-TEST 1]: 
+				Nom: _couche.ReinitialisationCouche()
+				Tmp: 19 us
+				Res: Succes
+			Tmp: 40 us
+			Res: Succes
+		[TEST 13]: 
+			Nom: Verification du reset de la couche
+			[SOUS-TEST 1]: 
+				Nom: Translation d'une couche vide
+				Ope: _couche.TranslationCouche(10,10) == false
+				Tmp: 26 us
+				Res: Succes
+			[SOUS-TEST 2]: 
+				Nom: Reset d'une couche vide
+				Ope: _couche.ReinitialisationCouche() == true
+				Tmp: 27 us
+				Res: Succes
+			[SOUS-TEST 3]: 
+				Nom: Reset d'une translation
+				Ope: _couche.ReinitialisationTranslationCouche() == false
+				Tmp: 26 us
+				Res: Succes
+			[SOUS-TEST 4]: 
+				Nom: Aire d'une couche vide = 0
+				Ope: _couche.AireCouche() == 0
+				Tmp: 26 us
+				Res: Succes
+			[SOUS-TEST 5]: 
+				Nom: Etat de la couche = Initialisee
+				Ope: _couche.Etat() == EtatsCouche::Initialisee
+				Tmp: 26 us
+				Res: Succes
+			[SOUS-TEST 6]: 
+				Nom: Ajout d'une forme impossible
+				Ope: _couche.AjoutForme(&rectangle) == false
+				Tmp: 26 us
+				Res: Succes
+			Tmp: 47 us
+			Res: Succes
+		[TEST 14]: 
+			Nom: Destruction de la Couche
+			Tmp: 85 us
+			Res: Succes
+	-------------------------------------------
+	Nombre de tests effectues: 41
+	Duree total (us):          2614 us
+	Duree total (ms):          2 ms
+	Echec total:               0
+	Succes total:              41
+	Ratio de succes:           100%
+	Resultat final:            Succes
+	===============-===[FIN]===-===============
+	
+===============-==[DEBUT]==-===============
+	- Fonctionalitee: Classe Canevas
+	- Numero:         5
+	- type de test:   Unitaire
+	-------------------------------------------
+		[TEST 1]: 
+			Nom: Creation d'un canevas
+			[SOUS-TEST 1]: 
+				Nom: Aire initiale
+				Voulue: 0
+				Obtenu: 0
+				Ratio: 0
+				Tmp: 61 us
+				Res: Succes
+			[SOUS-TEST 2]: 
+				Nom: Translation canevas
+				Tmp: 18 us
+				Res: Succes
+			[SOUS-TEST 3]: 
+				Nom: Desactivation de la couche initiale
+				Tmp: 19 us
+				Res: Succes
+			[SOUS-TEST 4]: 
+				Nom: Nombre de couches initiales
+				Tmp: 19 us
+				Res: Succes
+			[SOUS-TEST 5]: 
+				Nom: Reinitialisation de la couche initiale
+				Tmp: 19 us
+				Res: Succes
+			[SOUS-TEST 6]: 
+				Nom: Tentative de destruction de la premiere couche
+				Tmp: 19 us
+				Res: Succes
+			[SOUS-TEST 7]: 
+				Nom: Destruction d'une forme inexistante
+				Tmp: 19 us
+				Res: Succes
+			[SOUS-TEST 8]: 
+				Nom: Activation de la premiere couche
+				Tmp: 18 us
+				Res: Succes
+			Tmp: 39 us
+			Res: Succes
+		[TEST 2]: 
+			Nom: Test d'ajout de formes
+			[SOUS-TEST 1]: 
+				Nom: Desactivation de la couche
+				Tmp: 19 us
+				Res: Succes
+			[SOUS-TEST 2]: 
+				Nom: Ajout de formes non fonctionnel
+				Tmp: 19 us
+				Res: Succes
+			[SOUS-TEST 3]: 
+				Nom: Activation de la couche
+				Tmp: 21 us
+				Res: Succes
+			[SOUS-TEST 4]: 
+				Nom: Ajout de rectangle
+				Tmp: 18 us
+				Res: Succes
+			[SOUS-TEST 5]: 
+				Nom: Ajout de carree
+				Tmp: 18 us
+				Res: Succes
+			[SOUS-TEST 6]: 
+				Nom: Ajout de cercle
+				Tmp: 19 us
+				Res: Succes
+			[SOUS-TEST 7]: 
+				Nom: Nombre de formes dans la couche
+				Tmp: 20 us
+				Res: Succes
+			Tmp: 40 us
+			Res: Succes
+		[TEST 3]: 
+			Nom: Modification des formes
+			Tmp: 78 us
+			Res: Succes
+		[TEST 4]: 
+			Nom: Verification des modifications
+			[SOUS-TEST 1]: 
+				Nom: Aire du rectangle
+				Voulue: 2898
+				Obtenu: 2898
+				Ratio: 0
+				Tmp: 64 us
+				Res: Succes
+			[SOUS-TEST 2]: 
+				Nom: Aire du carre
+				Voulue: 4761
+				Obtenu: 4761
+				Ratio: 0
+				Tmp: 62 us
+				Res: Succes
+			[SOUS-TEST 3]: 
+				Nom: Aire de la couche 0
+				Voulue: 22608.5
+				Obtenu: 22608.5
+				Ratio: 0.0404994
+				Tmp: 65 us
+				Res: Succes
+			[SOUS-TEST 4]: 
+				Nom: Aire de la couche 2
+				Voulue: 22608.5
+				Obtenu: 22608.5
+				Ratio: 0.0404994
+				Tmp: 64 us
+				Res: Succes
+			[SOUS-TEST 5]: 
+				Nom: Desactivation de la couche 0
+				Tmp: 19 us
+				Res: Succes
+			[SOUS-TEST 6]: 
+				Nom: Aire de la couche active
+				Voulue: 22608.5
+				Obtenu: 22608.5
+				Ratio: 0.0404994
+				Tmp: 64 us
+				Res: Succes
+			[SOUS-TEST 7]: 
+				Nom: Activation de la couche 0
+				Tmp: 18 us
+				Res: Succes
+			Tmp: 39 us
+			Res: Succes
+		[TEST 5]: 
+			Nom: Retrait des formes
+			[SOUS-TEST 1]: 
+				Nom: Retrait du rectangle
+				Tmp: 19 us
+				Res: Succes
+			[SOUS-TEST 2]: 
+				Nom: Nombre de formes dans la couche
+				Tmp: 18 us
+				Res: Succes
+			[SOUS-TEST 3]: 
+				Nom: Aire de la couche active
+				Voulue: 19710.5
+				Obtenu: 19710.5
+				Ratio: 0.0404994
+				Tmp: 65 us
+				Res: Succes
+			[SOUS-TEST 4]: 
+				Nom: Retrait du carre
+				Tmp: 18 us
+				Res: Succes
+			[SOUS-TEST 5]: 
+				Nom: Nombre de formes dans la couche
+				Tmp: 19 us
+				Res: Succes
+			[SOUS-TEST 6]: 
+				Nom: Aire de la couche active
+				Voulue: 14949.5
+				Obtenu: 14949.5
+				Ratio: 0.0404994
+				Tmp: 64 us
+				Res: Succes
+			[SOUS-TEST 7]: 
+				Nom: Retrait du cercle
+				Tmp: 19 us
+				Res: Succes
+			[SOUS-TEST 8]: 
+				Nom: Nombre de formes dans la couche
+				Tmp: 19 us
+				Res: Succes
+			[SOUS-TEST 9]: 
+				Nom: Aire de la couche active
+				Voulue: 0
+				Obtenu: 0
+				Ratio: 0
+				Tmp: 61 us
+				Res: Succes
+			[SOUS-TEST 10]: 
+				Nom: Retrait d'une forme inexistante
+				Tmp: 19 us
+				Res: Succes
+			[SOUS-TEST 11]: 
+				Nom: Nombre de formes dans la couche
+				Tmp: 18 us
+				Res: Succes
+			[SOUS-TEST 12]: 
+				Nom: Aire de la couche active
+				Voulue: 0
+				Obtenu: 0
+				Ratio: 0
+				Tmp: 61 us
+				Res: Succes
+			Tmp: 81 us
+			Res: Succes
+		[TEST 6]: 
+			Nom: Destruction du canevas
+			Tmp: 120 us
+			Res: Succes
+		[TEST 7]: 
+			Nom: Verification de la destruction [!UB!]
+			[SOUS-TEST 1]: 
+				Nom: Nombre de couches = 0
+				Tmp: 21 us
+				Res: Succes
+			Tmp: 42 us
+			Res: Succes
+	-------------------------------------------
+	Nombre de tests effectues: 35
+	Duree total (us):          2157 us
+	Duree total (ms):          2 ms
+	Echec total:               0
+	Succes total:              35
+	Ratio de succes:           100%
+	Resultat final:            Succes
+	===============-===[FIN]===-===============
+===============-===========-===============
+===============-{RESULTATS}-===============
+===============-===========-===============
+Nombre de tests effectues: 334
+Duree total (us):          1187407 us
+Duree total (ms):          1187 ms
+Echec total:               0
+Succes total:              334
+Ratio de succes:           100%
+Resultat final:            Succes

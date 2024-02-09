@@ -280,7 +280,15 @@ bool Canevas::retirerCouche(int index)
       return false;
    }
 
-   return couches.Retirer(index);
+   bool result = false;
+   result = couches.Retirer(index);
+
+   if (result)
+   {
+       activerCouche(GetIndexCoucheActive());
+   }
+
+   return result;
 }
 
 

@@ -9,12 +9,29 @@
  * @copyright Copyright (c) 2024
  */
 
+#include <codecvt>
 #include "resultatCouleur.h"
 
 #ifdef _WIN32
     #include "Windows.h"
 #endif
 #include <iostream>
+
+std::string ExePath() {
+    TCHAR buffer[MAX_PATH] = { 0 };
+    GetModuleFileName(NULL, buffer, MAX_PATH);
+    std::wstring::size_type pos = std::wstring(buffer).find_last_of(L"\\/");
+    std::wstring result = std::wstring(buffer).substr(0, pos);
+    
+    std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> conv;
+    std::string resultString =  conv.to_bytes(result);
+
+    std::string wss = "\\RESULTAT_TEST.txt";
+
+    resultString.append(wss);
+
+    return resultString;
+}
 
 void EnvoieDuResultat(bool resultat, bool utilisePasLaCouleur, std::ostream & s)
 {

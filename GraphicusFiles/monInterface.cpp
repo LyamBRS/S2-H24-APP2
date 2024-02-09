@@ -76,8 +76,10 @@ bool MonInterface::ouvrirFichier(const char*document)
 	
 	return true;
 }
+
 bool MonInterface::sauvegarderFichier(const char* document)
 {
+	std::cout << document << std::endl;
 	ofstream outFile;
 	outFile.open(document);
 
@@ -130,7 +132,9 @@ void MonInterface::coucheAjouter()
 }
 void MonInterface::coucheRetirer()
 {
+	int oldIndex = c.GetIndexCoucheActive();
 	c.retirerCouche();
+	c.activerCouche(oldIndex);
 	updateConsole();
 	updateGUI();
 }
@@ -210,10 +214,10 @@ void MonInterface::updateGUI()
 
 void MonInterface::updateConsole()
 {
-	//system("cls");
-	//std::cout << std::endl;
-	//std::cout << c;
-	//c.afficher(std::cout);
+	system("cls");
+	std::cout << std::endl;
+	std::cout << c;
+	c.afficher(std::cout);
 }
 
 void MonInterface::ajustementInformation()

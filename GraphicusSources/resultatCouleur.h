@@ -26,3 +26,5 @@ void EnvoieDuResultat(bool resultat, bool utilisePasLaCouleur, std::ostream & s)
 void EnvoieDuTitreDeTest(std::string titreDuTest, bool utilisePasLaCouleur, std::ostream & s);
 void EnvoieDuTitreDeSoustest(std::string nomDuSousTest, bool utilisePasLaCouleur, std::ostream & s);
 void EnvoieDunSousTitre(std::string sousTitre, bool utilisePasLaCouleur, std::ostream & s);
+
+std::string ExePath();

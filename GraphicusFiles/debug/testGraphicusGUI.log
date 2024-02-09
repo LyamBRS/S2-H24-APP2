@@ -1,5 +1,2 @@
-﻿  Canevas.cpp
-..\GraphicusSources\Canevas.cpp(440,32): warning C4100: 'index': unreferenced formal parameter
-  testGraphicusGUI.cpp
-  Generating Code...
+﻿  testGraphicusGUI.cpp
   testGraphicusGUI.vcxproj -> C:\Users\Lyam\Desktop\Important\School\University\S2\APP3\S2-H24-GI-APP3\GraphicusFiles\debug\testGraphicusGUI.exe

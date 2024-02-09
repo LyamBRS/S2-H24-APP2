@@ -763,6 +763,11 @@ bool Vecteur<TypeInconnue>::SetItemCourant(int index)
 template<typename TypeInconnue>
 int Vecteur<TypeInconnue>::GetIndexItemCourant()
 {
+    if (_grosseur == 0) return 0;
+    if (_itemCourant > (_grosseur - 1))
+    {
+        _itemCourant = _grosseur - 1;
+    }
     return _itemCourant;
 }
 
