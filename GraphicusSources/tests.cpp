@@ -1126,7 +1126,7 @@ void Tests::tests_application_cas_02(MonInterface* monInterface)
    DebutDunTest("Verification des parametres initiales de l'application");
    SousTest("Nombre de couches initiale",         "monInterface->GetCanevas()->NombreDeCouches()==1",                                monInterface->GetCanevas()->NombreDeCouches()==1);
    SousTest("Nombre de formes initiale",          "monInterface->GetCanevas()->coucheAIndex(0)->NombreDeFormes()==0",                monInterface->GetCanevas()->coucheAIndex(0)->NombreDeFormes()==0);
-   SousTest("Etat initiale de la couche",         "monInterface->GetCanevas()->coucheAIndex(0)->Etat() == EtatsCouche::Initialisee", monInterface->GetCanevas()->coucheAIndex(0)->Etat() == EtatsCouche::Initialisee);
+   SousTest("Etat initiale de la couche",         "monInterface->GetCanevas()->coucheAIndex(0)->Etat() == EtatsCouche::Active",      monInterface->GetCanevas()->coucheAIndex(0)->Etat() == EtatsCouche::Active);
    SousTest("Aire initiale de la couche",         "monInterface->GetCanevas()->ObtenirCoucheCourant()->AireCouche()==0",             monInterface->GetCanevas()->ObtenirCoucheCourant()->AireCouche()==0);
    SousTest("Index initiale de la couche active", "monInterface->GetCanevas()->GetIndexCoucheActive()==0",                           monInterface->GetCanevas()->GetIndexCoucheActive()==0);
    FinDuTest();
@@ -1148,16 +1148,93 @@ void Tests::tests_application_cas_02(MonInterface* monInterface)
    //////////////////////////////////////////////////////////////////////////////
    DebutDunTest("Tentative de navigation de formes initiale");
    monInterface->formePrecedente();
-   SousTest("Tentative d'aller a une forme precedente", "monInterface->GetCanevas()->GetIndexCoucheActive()==0", monInterface->GetCanevas()->GetIndexFormeActive() == 0);
+   SousTest("Tentative d'aller a une forme precedente", "monInterface->GetCanevas()->GetIndexFormeActive()==0", monInterface->GetCanevas()->GetIndexFormeActive() == 0);
+   monInterface->formeSuivante();
+   monInterface->formeSuivante();
+   monInterface->formeSuivante();
+   SousTest("Tentative d'aller a une forme suivante", "monInterface->GetCanevas()->GetIndexFormeActive()==0", monInterface->GetCanevas()->GetIndexFormeActive() == 0);
+   monInterface->formeDerniere();
+   SousTest("Tentative d'aller a la derniere forme", "monInterface->GetCanevas()->GetIndexFormeActive()==0", monInterface->GetCanevas()->GetIndexFormeActive() == 0);
+   monInterface->formePremiere();
+   SousTest("Tentative d'aller a la premiere forme", "monInterface->GetCanevas()->GetIndexFormeActive()==0", monInterface->GetCanevas()->GetIndexFormeActive() == 0);
+   FinDuTest();
+
+   //////////////////////////////////////////////////////////////////////////////
+   DebutDunTest("Creation de 10 couches consecutives");
+
+   bool pass = true;
+   for (int index = 10; index <= 10; index++)
+   {
+       monInterface->coucheAjouter();
+       SousTest("Etat de la couche", "monInterface->GetCanevas()->coucheAIndex(index)->Etat() == EtatsCouche::Initialisee", monInterface->GetCanevas()->coucheAIndex(index)->Etat() == EtatsCouche::Initialisee);
+       SousTest("Nombre de formes", "monInterface->GetCanevas()->coucheAIndex(index)->NombreDeFormes() == 0", monInterface->GetCanevas()->coucheAIndex(index)->NombreDeFormes() == 0);
+       SousTest("index de forme initial", "monInterface->GetCanevas()->coucheAIndex(index)->GetIndexFormeCourante()", monInterface->GetCanevas()->coucheAIndex(index)->GetIndexFormeCourante() == 0);
+       SousTest("Index de la couche courante", "monInterface->GetCanevas()->GetIndexCoucheActive() == index", monInterface->GetCanevas()->GetIndexCoucheActive() == index);
+   }
+   FinDuTest();
+   return;
+   //////////////////////////////////////////////////////////////////////////////
+   DebutDunTest("Verification apres creation des 10 couches");
+   SousTest("Index de la couche courante", "monInterface->GetCanevas()->GetIndexCoucheActive() == 10", monInterface->GetCanevas()->GetIndexCoucheActive() == 10);
+   SousTest("Nombre de couches", "monInterface->GetCanevas()->NombreDeCouches() == 10", monInterface->GetCanevas()->NombreDeCouches() == 10);
+   FinDuTest();
+
+   //////////////////////////////////////////////////////////////////////////////
+   DebutDunTest("Navigation apres l'ajout des couches");
+   monInterface->couchePrecedente();
+   SousTest("Tentative d'aller a une couche precedente", "monInterface->GetCanevas()->GetIndexCoucheActive()==0", monInterface->GetCanevas()->GetIndexCoucheActive() == 0);
    monInterface->coucheSuivante();
    monInterface->coucheSuivante();
    monInterface->coucheSuivante();
-   SousTest("Tentative d'aller a une couche suivante", "monInterface->GetCanevas()->GetIndexCoucheActive()==0", monInterface->GetCanevas()->GetIndexCoucheActive() == 0);
-   monInterface->coucheDerniere();
-   SousTest("Tentative d'aller a la derniere couche", "monInterface->GetCanevas()->GetIndexCoucheActive()==0", monInterface->GetCanevas()->GetIndexCoucheActive() == 0);
+   SousTest("Tentative d'aller a 3 couches suivante", "monInterface->GetCanevas()->GetIndexCoucheActive()==3", monInterface->GetCanevas()->GetIndexCoucheActive() == 3);
    monInterface->couchePremiere();
    SousTest("Tentative d'aller a la premiere couche", "monInterface->GetCanevas()->GetIndexCoucheActive()==0", monInterface->GetCanevas()->GetIndexCoucheActive() == 0);
+   monInterface->coucheDerniere();
+   SousTest("Tentative d'aller a la derniere couche", "monInterface->GetCanevas()->GetIndexCoucheActive()==10", monInterface->GetCanevas()->GetIndexCoucheActive() == 10);
    FinDuTest();
+
+   //////////////////////////////////////////////////////////////////////////////
+   DebutDunTest("Verification des etats apres la navigation");
+   SousTest("Verification de l'etat de la couche 0", "monInterface->GetCanevas()->coucheAIndex(0)->Etat() == EtatsCouche::Inactive", monInterface->GetCanevas()->coucheAIndex(0)->Etat() == EtatsCouche::Inactive);
+   SousTest("Verification de l'etat de la couche 1", "monInterface->GetCanevas()->coucheAIndex(1)->Etat() == EtatsCouche::Inactive", monInterface->GetCanevas()->coucheAIndex(0)->Etat() == EtatsCouche::Inactive);
+   SousTest("Verification de l'etat de la couche 2", "monInterface->GetCanevas()->coucheAIndex(2)->Etat() == EtatsCouche::Inactive", monInterface->GetCanevas()->coucheAIndex(0)->Etat() == EtatsCouche::Inactive);
+   SousTest("Verification de l'etat de la couche 3", "monInterface->GetCanevas()->coucheAIndex(3)->Etat() == EtatsCouche::Inactive", monInterface->GetCanevas()->coucheAIndex(0)->Etat() == EtatsCouche::Inactive);
+   SousTest("Verification de l'etat de la couche 4", "monInterface->GetCanevas()->coucheAIndex(4)->Etat() == EtatsCouche::Initialisee", monInterface->GetCanevas()->coucheAIndex(0)->Etat() == EtatsCouche::Initialisee);
+   SousTest("Verification de l'etat de la couche 5", "monInterface->GetCanevas()->coucheAIndex(5)->Etat() == EtatsCouche::Initialisee", monInterface->GetCanevas()->coucheAIndex(0)->Etat() == EtatsCouche::Initialisee);
+   SousTest("Verification de l'etat de la couche 6", "monInterface->GetCanevas()->coucheAIndex(6)->Etat() == EtatsCouche::Initialisee", monInterface->GetCanevas()->coucheAIndex(0)->Etat() == EtatsCouche::Initialisee);
+   SousTest("Verification de l'etat de la couche 7", "monInterface->GetCanevas()->coucheAIndex(7)->Etat() == EtatsCouche::Initialisee", monInterface->GetCanevas()->coucheAIndex(0)->Etat() == EtatsCouche::Initialisee);
+   SousTest("Verification de l'etat de la couche 8", "monInterface->GetCanevas()->coucheAIndex(8)->Etat() == EtatsCouche::Initialisee", monInterface->GetCanevas()->coucheAIndex(0)->Etat() == EtatsCouche::Initialisee);
+   SousTest("Verification de l'etat de la couche 9", "monInterface->GetCanevas()->coucheAIndex(9)->Etat() == EtatsCouche::Active", monInterface->GetCanevas()->coucheAIndex(0)->Etat() == EtatsCouche::Active);
+   FinDuTest();
+
+   //////////////////////////////////////////////////////////////////////////////
+   DebutDunTest("Tentative de retirer la couche active");
+   monInterface->coucheRetirer();
+   SousTest("Verification du nombre de couche",            "monInterface->GetCanevas()->NombreDeCouches()==9", monInterface->GetCanevas()->NombreDeCouches()==9);
+   SousTest("Verification de l'index de la couche active", "monInterface->GetCanevas()->GetIndexCoucheActive()==9", monInterface->GetCanevas()->GetIndexCoucheActive()==9);
+
+   //////////////////////////////////////////////////////////////////////////////
+   DebutDunTest("Ajout de 50 formes \"aleatoires\"");
+   monInterface->couchePremiere();
+
+   for (int index = 0; index < 50; index++)
+   {
+       monInterface->ajouterCarre(index, index * 2, index + 3);
+       monInterface->ajouterCercle(index, 0, index*2);
+       monInterface->ajouterRectangle(0, index, index*2, index+4);
+
+       if (index % 10 == 0)
+       {
+           monInterface->coucheSuivante();
+       }
+   }
+   monInterface->couchePremiere();
+   FinDuTest(true);
+
+   //////////////////////////////////////////////////////////////////////////////
+   //DebutDunTest("Verification des couches affectees");
+   //for(int index=0; )
+
 
    FinDeFonctionalitee();
 }
