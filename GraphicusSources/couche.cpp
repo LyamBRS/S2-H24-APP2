@@ -247,9 +247,12 @@ bool Couche::FormeSuivante()
     return false;
 }
 
-
 bool Couche::FormeDerniere()
 {
+    if (_vecteur.Grosseur() == 0)
+    {
+        return _vecteur.SetItemCourant(_vecteur.Grosseur());
+    }
     return _vecteur.SetItemCourant(_vecteur.Grosseur() - 1);
 }
 

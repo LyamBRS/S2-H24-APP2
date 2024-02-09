@@ -232,10 +232,10 @@ void MonInterface::ajustementInformation()
 		std::ostringstream os2;
 		f->afficher(os2);
 
-		cout << endl << "info forme: ";
+		///cout << endl << "info forme: ";
 		for (int i = 0; i < os2.str().length(); i++)
 		{
-			cout << os2.str()[i];
+			//cout << os2.str()[i];
 			info.informationForme[i] = os2.str()[i];
 		}
 		info.informationForme;//////////////////////////////////
@@ -252,10 +252,10 @@ void MonInterface::ajustementInformation()
 	std::ostringstream os;
 	couche->AfficherCouche(os);
 
-	cout << "info couche: ";
+	//cout << "info couche: ";
 	for (int i = 0; i < os.str().length(); i++)
 	{
-		cout << os.str()[i];
+		//cout << os.str()[i];
 		info.etatCouche[i] = os.str()[i];
 	}
 	
@@ -271,7 +271,4 @@ void MonInterface::ajustementInformation()
 	info.nbFormesCanevas = nbForme;
 
 	info.nbFormesCouche = couche->NombreDeFormes();
-
-
-	
 }

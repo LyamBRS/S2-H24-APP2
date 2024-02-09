@@ -426,7 +426,6 @@ bool Canevas::CoucheSuivante()
 
 bool Canevas::CoucheDerniere()
 {
-   
     couches.SetItemCourant(couches.Grosseur()-1);
     return activerCouche(couches.Grosseur()-1);
 }

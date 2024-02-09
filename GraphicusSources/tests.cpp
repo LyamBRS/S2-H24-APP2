@@ -1155,6 +1155,7 @@ void Tests::tests_application_cas_02(MonInterface* monInterface)
    SousTest("Tentative d'aller a une forme suivante", "monInterface->GetCanevas()->GetIndexFormeActive()==0", monInterface->GetCanevas()->GetIndexFormeActive() == 0);
    monInterface->formeDerniere();
    SousTest("Tentative d'aller a la derniere forme", "monInterface->GetCanevas()->GetIndexFormeActive()==0", monInterface->GetCanevas()->GetIndexFormeActive() == 0);
+   std::cout << std::to_string(monInterface->GetCanevas()->GetIndexFormeActive()) << std::endl;
    monInterface->formePremiere();
    SousTest("Tentative d'aller a la premiere forme", "monInterface->GetCanevas()->GetIndexFormeActive()==0", monInterface->GetCanevas()->GetIndexFormeActive() == 0);
    FinDuTest();
